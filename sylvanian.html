@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<!--
+ 
+© almighty-bini - 09.01.2022
+
+DO NOT STEAL THE CODES, DO NOT REMOVE THE CREDITS!
+ 
+-->
+
+<title>bini's sylvanian wishlist.</title>
+<link rel="shortcut icon" href="http://media.tumblr.com/tumblr_lny197UbF91qepbs7.gif">
+
+
+<style>
+
+html, body {margin: 0;}
+
+body {
+	font-family: "consolas", monospace;
+	font-size: 12px;
+	word-wrap: break-word;
+	color: #666666;
+	overflow-x: hidden;
+	padding: 50px;
+}
+
+#info {
+	background: #ffffb8;
+	padding: 20px;
+	margin: 10px;
+}
+
+#wishlist, #exists {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.set {
+	margin: 10px;
+	border: 1px solid pink;
+	width: 240px;
+	text-align: center;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+}
+.hide {
+	display: none;
+}
+
+.set img {
+	max-width: 100%;
+	max-height: 220px;
+}
+
+b {
+	color: pink;
+}
+
+h1 {
+	margin: 10px;
+	margin-top: 30px;
+}
+
+.prio {
+	font-size: 20px;
+}
+
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+
+<div id="info">links to the website are on each image. prices are auto-converted from the british price so depending on the store the value might differ.<br>
+list of german sellers <a href="https://www.sylvanianfamilies.com/de-de/H%C3%A4ndler/">here</a>.</div>
+
+<h1>wishlist</h1>
+<div id="wishlist"></div>
+<h1>sets i own already</h1>
+<div id="exists"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var exists = [
+	/*{
+		"name": "",
+		"details": "",
+		"id": "",
+		"img": "",
+		"price": "",
+		"link": "",
+		"prio": ,
+		"from": "",
+		"date": "",
+		"is": ""
+	},*/
+	{
+		"name": "Baby Treats Series 8",
+		"details": "Cat with Muffin",
+		"id": "SKU 5648",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/23221324-04.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-treats-series-8.html",
+		"from": "bini",
+		"date": "07.05.2022"
+	},
+	{
+		"name": "Baby Treats Series 8",
+		"details": "Mouse with Cake",
+		"id": "SKU 5648",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/23221324-08.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-treats-series-8.html",
+		"from": "mom",
+		"date": "07.05.2022",
+		"is": "mom"
+	},
+	{
+		"name": "Baby Costume Series 6",
+		"details": "Deer with Witch Hat",
+		"id": "SKU 5544",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055441.pt03.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-costume-series-6.html",
+		"from": "mom"
+	},
+	{
+		"name": "Baby Camping Series 5",
+		"details": "Deer with Binoculars",
+		"id": "SKU 5482",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/16350232-07.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-camping-series-5.html",
+		"from": "mom"
+	},
+	{
+		"name": "Baby Camping Series 5",
+		"details": "Bunny with Scarf",
+		"id": "SKU 5482",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/16350232-08.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-camping-series-5.html",
+		"from": "mom",
+		"is": "mom?"
+	},
+	{
+		"name": "Baby Outdoor Series 3",
+		"details": "Mouse with Marshmallow",
+		"id": "SKU 5438",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/4/5437_c06_baby_outdoor_series_marshmallow_mouse.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-outdoor-series-3.html",
+		"from": "mom"
+	},
+	{
+		"name": "Baby Band Series 1",
+		"details": "Squirrel with Timbrel",
+		"id": "SKU 5325",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/3/5321_img9.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-band-series-surprise-pack.html",
+		"from": "mom"
+	},
+	{
+		"name": "Baby Shopping Series 1",
+		"details": "Bear with Ice Cream",
+		"id": "SKU 5381",
+		"img": "http://www.cebitoys.com/Uploads/UrunResimleri/buyuk/sylvanian-families-minifigur-alisveris-36b1fc.jpg",
+		"link": "https://www.sylvanianfamilies.com/de-de/Produkte/item_detail.php?product_id=1821",
+		"from": "mom"
+	},
+	{
+		"name": "Walnut Squirrel Baby",
+		"id": "SKU 5065",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5065_walnut_squirrel_baby_c_sylvanian.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/walnut-squirrel-baby.html",
+		"from": "puu",
+		"date": "24.12.2017"
+	},
+	{
+		"name": "Baby Carry Case (Dog on Slide)",
+		"id": "SKU 5204",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/2/5204_baby_carry_case_dog_on_slide_2.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-carry-case-dog-on-slide.html",
+		"from": "mom"
+	},
+	{
+		"name": "Baby Carry Case (Cat on Swing)",
+		"id": "SKU 5201",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/2/5201_baby_carry_case_cat_on_swing.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-carry-case-cat-on-swing.html",
+		"from": "mom"
+	},
+	/*
+	{
+		"name": "Marshmallow Mouse Triplets",
+		"id": "SKU 5337",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/3/5337_01.jpg",
+		"price": "12.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/marshmallow-mouse-triplets.html",
+		"prio": 3
+	},
+	{
+		"name": "Costume Cuties - Kitty & Cub",
+		"id": "SKU 5597",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055977.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/new/costume-cuties-kitty-cub.html",
+		"prio": 2
+	},
+	{
+		"name": "Costume Cuties - Bunny & Puppy",
+		"id": "SKU 5596",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055960.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/new/costume-cuties-bunny-puppy.html"
+	},
+	{
+		"name": "Costume Cuties - Bunny & Birdie",
+		"id": "SKU 5594",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/5/5594_costume_cuties_bunny_birdie_product.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/new/costume-cuties-bunny-birdie.html"
+	},
+	{
+		"name": "Kitchen Cooking Set",
+		"id": "SKU 5028",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/2328099-01.jpg",
+		"price": "12.00",
+		"link": "https://www.amazon.de/Sylvanian-Families-5028-5028-K%C3%BCchen-Puppenzubeh%C3%B6r/dp/B00HRRCS3Q/",
+		"prio": 1
+	}	
+	*/
+	{
+		"name": "Washing Machine Set",
+		"id": "SKU 5027",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5027_washing_machine_set_1_c_sylvanian.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/washing-machine-set.html",
+		"from": "puu",
+		"date": "24.12.2020"
+	},
+	{
+		"name": "Cupboard with Oven",
+		"id": "SKU 5023",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5023_cupboard_with_oven_1_c_sylvanian_1.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/cupboard-with-oven.html",
+		"from": "mom",
+		"date": "24.12.2016"
+	},
+	{
+		"name": "Girl's Dressing Table",
+		"id": "SKU 5031",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5031_girls_dressing_table_1_c_sylvanian.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/girl-s-dressing-table.html",
+		"from": "mom"
+	},
+	{
+		"name": "Kitchen Island",
+		"id": "SKU 5442",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131054420.pt01.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/kitchen-island.html",
+		"from": "mom",
+		"date": "24.12.2020"
+	}
+	/*
+	{
+		"name": "Dining Room Set",
+		"id": "SKU 5340",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/_/5.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/dining-room-set.html",
+		"prio": 1
+	},
+	{
+		"name": "Kitchen Play Set",
+		"id": "SKU 5341",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/1/21548.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/kitchen-play-set.html",
+		"prio": 2
+		,"pricefromsmythtoys": true
+	}
+	*/
+]
+
+var wishlist = [
+	/*{
+		"name": "",
+		"id": "",
+		"img": "",
+		"price": "",
+		"link": "",
+		"exclusive" ,
+		"prio": 
+	},*/
+	{
+		"name": "Baby Trio (Mascot)",
+		"id": "SKU 2082",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2082-2.jpg",
+		"price": "24.00",
+		"link": "https://sylvanianfamilies.co.uk/exclusives/baby-trio-mascot.html",
+		"exclusive": true,
+		"prio": 3
+	},
+	{
+		"name": "Costume Cuties - Kitty & Froggy",
+		"id": "SKU 5595",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/5/5595_pk_fr_costume_cuties_kitty_froggy_1.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/exclusives/costume-cuties-kitty-froggy.html",
+		"exclusive": true,
+		"prio": 1
+	},
+	{
+		"name": "Persian Cat Triplets",
+		"id": "SKU 5458",
+		"img": "https://m.media-amazon.com/images/I/811CrQovXKL._AC_SL1500_.jpg",
+		"price": "12.00",
+		"link": "https://www.amazon.de/Sylvanian-Families-Perserkatzen-Drillinge-5458/dp/B087MSC9QF",
+		"prio": 0,
+		"hide": true
+	},
+	{
+		"name": "Triplets Care Set",
+		"id": "SKU 5532",
+		"img": "https://m.media-amazon.com/images/I/71rB2Az7rYL._AC_SL1500_.jpg",
+		//"https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055328.pt06.jpg",
+		"price": "24.00",
+		"link": "https://sylvanianfamilies.co.uk/new/triplets-care-set.html",
+		"prio": 1
+	},
+	{
+		"name": "Husky Family",
+		"id": "SKU 5636",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/2282_1639382230337.jpg",
+		"price": "27.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/husky-family.html",
+		"prio": 1
+	},
+	{
+		"name": "Chocolate Rabbit Family Celebration Set",
+		"id": "SKU 5506",
+		"img": "https://image.smythstoys.com/original/mobile/189627_2.jpg",
+		"price": "35.00",
+		"pricefromsmythtoys": true,
+		"link": "https://www.smythstoys.com/de/de-de/spielzeug/puppen-und-zubeh%C3%B6r/sylvanian-families/sylvanian-families-figuren/sylvanian-families-chocolate-rabbit-family-celebration-set/p/189627",
+		"prio": 1
+	},
+	{
+		"name": "Nursery Party Set",
+		"id": "SKU 5104",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/1/5104_party_set_c_sylvanian.jpg",
+		"price": "15.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/nursery-party-set.html",
+		"prio": 3
+	},
+	{
+		"name": "Nursery Picnic Set",
+		"id": "SKU 5103",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/1/5103_nursery_picnic_set_c_sylvanian.jpg",
+		"price": "13.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/nursery-picnic-set.html",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Classic Brown Cupboard Set",
+		"id": "SKU 2076",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2076_im01_classic_brown_cupboard_set.jpg",
+		"price": "12.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/classic-brown-cupboard-set.html",
+		"prio": 0,
+		"exclusive": true,
+		"hide": true
+	},
+	{
+		"name": "Classic Brown Kitchen Stove & Sink Set",
+		"id": "SKU 2077",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2077_im01_classic_brown_kitchen_stove_sink_set.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/classic-brown-kitchen-stove-sink-set.html",
+		"prio": 0,
+		"exclusive": true,
+		"hide": true
+	},
+	{
+		"name": "Country Kitchen Set",
+		"id": "SKU 5033",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5033_country_kitchen_set_1_c_sylvanian.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.co.uk/catalog/product/view/id/69/s/country-kitchen-set/category/33/",
+		"prio": 2
+	},
+	{
+		"name": "Classic Telephone",
+		"id": "SKU 5030",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5030_classic_telephone_1_c_sylvanian.jpg",
+		"price": "10.00",
+		"link": "https://sylvanianfamilies.co.uk/classic-telephone.html",
+		"hide": true
+	},
+	{
+		"name": "Chocolate Rabbit Mother Set",
+		"id": "SKU 5014",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5014_chocolate_rabbit_mother_set_c_sylvanian.jpg",
+		"price": "20.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/chocolate-rabbit-mother-set.html",
+		"hide": true
+	},
+	{
+		"name": "Chocolate Rabbit Sister Set",
+		"id": "SKU 5016",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5016chocolate_rabbit_sister_set.jpg",
+		"price": "20.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/chocolate-rabbit-sister-set.html"
+		,"pricefromsmythtoys": true,
+		"hide": true
+	},
+	{
+		"name": "Classic Furniture Set",
+		"id": "SKU 5392",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/3/5392_pk_a_classic_furniture_set.jpg",
+		"price": "28.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/classic-furniture-set-371.html",
+		"prio": 2
+	},
+	{
+		"name": "Refrigerator Set",
+		"id": "SKU 5021",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5021_refrigerator_set_1_c_sylvanian.jpg",
+		"price": "12.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/refrigerator-set.html",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Breakfast Playset",
+		"id": "SKU 5444",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131054444.pt01.jpg",
+		"price": "12.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/breakfast-playset.html",
+		"prio": 1
+	},
+	{
+		"name": "Classic Brown Bed and Chest Set",
+		"id": "SKU 2075",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2075_c01_classic_brown_bed_and_chest_set_1_.jpg",
+		"price": "17.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/furniture/classic-brown-bed-and-chest-set.html",
+		"prio": 0,
+		"exclusive": true,
+		"hide": true
+	},
+	{
+		"name": "Playful Starter Furniture Set (Mother)",
+		"id": "SKU 5449",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131054499.pt02.jpg",
+		"price": "32.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/playful-starter-furniture-set-mother.html",
+		"hide": true
+	}
+];
+
+function setPrio(prio) {
+	let val = '';
+	for (let i = 0; i < prio; i++) {
+		val += '&#128293;';
+	}
+	if (prio == 0) val = '&#10067;';
+	
+	switch(prio) {
+		case 0: type = 'unknown'; break;
+		case 1: type = 'low'; break;
+		case 2: type = 'medium'; break;
+		case 3: type = 'high'; break;
+		default: type = 'unknown'; break;
+	}
+	let str = '<a title="priority ' + type + '">' + val + '</a>';
+	return str;
+}
+
+$(document).ready(function() {
+
+	let price = 0;
+	
+	for (let i = 0; i < wishlist.length; i++) {
+		let set = wishlist[i];
+	
+		$('#wishlist').append(
+			'<div class="set ' + (set.hide ? 'hide' : '') + '">' +
+				'<a href="' + set.link + '" title="link to sylvanian families website">' + 
+					'<img src="' + set.img + '">' + 
+				'</a>' + 
+					' <div>' + set.name + ' (' + set.id + ')' + (set.exclusive ? '<a title="Sylvanian Families Online Store Exclusive"><b>*</b></a>' : '') + 
+					((set.price) ? '<br><b>' + set.price + ' €</b>' : '' ) + 
+					'<div class="prio">' + setPrio(set.prio) + '</div>' +
+					'</div>' + 
+			'</div>'  +
+		'');
+		if (set.price && !set.hide) price += parseFloat(set.price);
+	}
+	
+	let total = 'total price: ' + price + ' €';
+	console.log(total);
+	//$('#content').append(total);
+	
+	
+	for (let i = 0; i < exists.length; i++) {
+		let set = exists[i];
+	
+		$('#exists').append(
+			'<div class="set">' +
+				'<a href="' + set.link + '" title="link to sylvanian families website">' + 
+					'<img src="' + set.img + '">' + 
+				'</a>' + 
+					' <div>' + set.name + ' (' + set.id + ')' +'</div>' + 
+			'</div>'  +
+		'');
+	}
+	
+});
+</script>
+
+</body>
+</html>
