@@ -1,0 +1,3575 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<!--
+ 
+© almighty-bini - 21.03.20
+
+DO NOT STEAL THE CODES, DO NOT REMOVE THE CREDITS!
+ 
+-->
+
+<title>bini's playlist masterlist.</title>
+<link rel="shortcut icon" href="http://media.tumblr.com/tumblr_lny197UbF91qepbs7.gif">
+
+
+<style>
+
+.tmblr-iframe--unified-controls {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+body {
+	font-family: "consolas", monospace;
+	font-size: 11px;
+	word-wrap: break-word;
+	color: #666666;
+	//background: white;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: #88a2b1;
+}
+
+/*#s-m-t-tooltip {
+    z-index: 9999;
+    max-width: 160px;
+    display: block;
+    padding: 5px 10px;
+    margin: 0px 20px;
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;}*/
+
+#content {
+	//position: relative;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	//background: #fafafa;
+	width: 270px;
+	//height: 310px;
+	overflow: hidden;
+	margin-top: -150px;
+	margin-left: -135px;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	--tags-bg: #ffcce6;
+	--tags-txt: #171f48;
+	--tags-bg-act: #fe5ca5;
+	--tags-txt-act: white;
+}
+@media (max-width: 800px) {
+	body {
+		//background: lime;
+	}
+}
+
+.mixLink.spotify, .mixInfoText .links .spotify {background: #1ed760;}
+.mixLink.youtube, .mixInfoText .links .youtube {background: #ff0000;}
+.mixLink.a8tracks, .mixInfoText .links .a8tracks {background: #133358;}
+.mixInfoText .links .twitter {background: #00aced;}
+.mixInfoText .links .tumblr {background: #32506d;}
+.mixInfoText .links .permalink {background: #111111;}
+
+.mixInfoText .links a, .mixTags a, #filterOverview a, #resetFilters a, .mixInfoText .links a, 
+	.mixInfo .images i, #toggleFilters i, .closeMixInfo i {cursor: pointer;}
+
+
+/************************* SIDEBAR *************************/
+
+#sidebar {
+	width: 400px;
+	height: 300px;
+	margin-top: -150px;
+	top: 35%;
+	left: 0;
+	bottom: 0;
+	position: fixed;
+	text-align: center;
+	z-index: 97;
+	background: white;
+}
+
+@media (max-width: 800px) {
+	#sidebar {
+		width: 100%;
+		height: auto;
+		//position: fixed;
+		margin-top: 0;
+		top: 0;
+		//left: 0;
+		bottom: auto;
+		right: 0;
+		padding: 20px 0;
+	}
+}
+
+#icon {
+	width: 180px;
+	height: 180px;
+	border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	margin-bottom: 15px;
+}
+@media (max-width: 800px) {
+	#icon {
+		width: 70px;
+		height: 70px;
+		margin-bottom: 0;
+		margin-right: 10px;
+	}
+	#iconBox {
+		height: 70px;
+		display: table-cell;
+		position: relative;
+		vertical-align: middle;
+	}
+}
+
+#pageinfo b {
+	font-size: 15px;
+}
+#pageinfo a {
+	padding: 0 3px;
+	text-decoration: underline;
+}
+@media (max-width: 800px) {
+	#pageinfo {
+		//float: right;
+		text-align: left;
+		display: table-cell;
+		vertical-align: middle;
+		position: relative;
+		height: 70px;
+	}
+	#pageinfo a {
+		padding: 0 6px 0 0;
+	}
+	#pageinfo p {
+		padding: 0;
+		margin: 5px 0;
+	}
+}
+
+#toggleFilters .more,
+#toggleFilters .less {
+	display: none;
+}
+#toggleFilters .more.active,
+#toggleFilters .less.active {
+	display: inline-block;
+}
+
+@media (max-width: 800px) {
+	#fixedSidebar {
+		z-index: 96;
+		width: 250px;
+		height: 70px;
+		position: relative;
+		margin-top: 0;
+		padding-top: 20px;
+		top: 0;
+		left: 50%;
+		margin-left: -100px;
+		//bottom: 0;
+		right: 0;
+		display: table;
+	}
+}
+
+#filterOverview {
+	line-height: 20px;
+	height: 0;
+	overflow: hidden;
+	position: relative;
+}
+@media (max-width: 800px) {
+	#filterOverview {
+		//top: 190px;
+		//background: #ffffff88;
+	}
+}
+#filterOverview p {
+	margin: 0;
+	//display: inline-block;
+	padding: 0;
+}
+#filterOverview a,
+#resetFilters a {
+	margin-bottom: 30px;
+	//padding: 1px 4px;
+	//border-radius: 4px;
+	background: var(--tags-bg);
+	color: var(--tags-txt);
+}
+#filterOverview a.active {
+	background: var(--tags-bg-act);
+	color: var(--tags-txt-act);
+}
+#resetFilters {
+	font-weight: bold;
+}
+#commonTags a.hidden {
+	display: none;
+}
+
+/************************* PLAYLISTS *************************/
+
+#playlists {
+	width: calc( 100% - 400px - 50px);
+	left: 400px;
+	position: relative;
+	top: 20px;
+	//height: 300px;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+@media (max-width: 800px) {
+	#playlists {
+		width: calc(100% - 20px);
+		left: 0;
+		margin: 0 10px;
+		margin-bottom: 30px;
+		top: 180px;
+		height: auto;
+		overflow: hidden;
+	}
+}
+
+#filterActive {
+	display: block;
+	position: relative;
+	width: calc( 100% - 50px - 30px);
+	text-align: left;
+	padding: 25px;
+	background: #ffffcc;
+	margin-bottom: 30px;
+	display: none;
+}
+#resetFilter:after {
+	content: 'x';
+	position: absolute;
+	top: 25px;
+	right: 25px;
+}
+
+.mix {
+	width: 160px;
+	height: 160px;
+	margin: 0 20px 20px 0;
+	padding: 10px;
+	background-color: var(--tags-bg);
+	float: left;
+	display: inline-block;
+	position: relative;
+	background-position: center center !important;
+	background-size: cover !important;
+}
+@media (max-width: 800px) {
+	.mix {
+		width: calc( 50% - 40px);
+		margin: 10px;
+	}
+}
+@media (min-width: 801px) and (max-width: 1000px) {
+	.mix {
+		width: calc( 50% - 40px);
+	}
+}
+@media (min-width: 1001px) and (max-width: 1300px) {
+	.mix {
+		width: calc( 33.33% - 40px);
+	}
+}
+@media (min-width: 1301px) {
+	.mix {
+		width: calc( 25% - 40px);
+	}
+}
+
+.mix:hover .mixHover {
+	opacity: 1;
+}
+.mixHover {
+	opacity: 0;
+	/*-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;*/
+}
+
+.length,
+.date {
+	position: absolute;
+	float: right;
+	background: white;
+	padding: 2px 3px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	right: 10px;
+}
+.length {top: 10px;}
+.date {top: 30px;}
+
+.playerLinks {
+	top: 50%;
+	margin-top: -20px;
+	position: absolute;
+}
+.pl1 {
+	left: 50%;
+	margin-left: calc( (1 * 40px + 1 * 5px) / -2);
+}
+.pl2 {
+	left: 50%;
+	margin-left: calc( (2 * 40px + 2 * 5px) / -2);
+}
+.pl3 {
+	left: 50%;
+	margin-left: calc( (3 * 40px + 3 * 5px) / -2);
+}
+
+.mixLink {
+	width: 40px;
+	height: 40px;
+	background: black;
+	display: block;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	float: left;
+	margin-right: 5px;
+	color: white;
+}
+.mixLink i {
+	font-size: 26px;
+	line-height: 40px;
+}
+
+.mixTags {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	left: 10px;
+	text-align: left;
+}
+.mixTags a {
+	//background: var(--tags-bg);
+	color: var(--tags-txt);
+	background: white;
+	padding: 1px 4px;
+	border-radius: 4px;
+	padding-left: 9px;
+	margin: 4px 4px 0 0;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 10px;
+	line-height: 12px;
+	//text-decoration: underline;
+}
+.mixTags a:before {
+	content: '#';
+	text-decoration: none;
+	font-weight: bold;
+	position: absolute;
+	margin-left: -7px;
+	color: var(--tags-bg-act);
+}
+
+/*.mixWrapper.active {
+	background: olive;
+    background: #ffffffaa;
+    top: 0;
+    bottom: 0;
+    left: 400px;
+    z-index: 98;
+    right: 0;
+    position: fixed;
+}
+@media (max-width: 800px) {
+	.mixWrapper.active {
+		background: yellow;
+		top: 300px;
+		bottom: 0;
+		left: 0;
+	}
+}*/
+
+.mixWrapper.active .mix {
+	//display: none;
+}
+
+.mixInfo {
+	width: calc( 100% - 400px - 50px - 15px - 40px);
+	padding: 20px;
+	background: white;
+	text-align: left;
+	height: 130px;
+	position: fixed;
+	z-index: 99;
+	top: 50%;
+	margin-top: -100px;
+	display: table;
+}
+
+.mixInfo .images {
+	width: 291px;
+	padding: 0;
+	display: table-cell;
+}
+.mixInfo .images img {
+	width: 130px;
+	height: 130px;
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+.mixInfoText {
+	display: block;
+	width: calc( 100% - 290px - 20px - 20px);
+	display: table-cell;
+	vertical-align: middle;
+}
+.mixInfoText b {
+	font-size: 15px;
+}
+.mixInfoText p {
+	padding: 0;
+	margin: 0;
+}
+
+.mixInfoText .details {
+	margin: 3px 0;
+	font-size: 11px;
+}
+.mixInfoText .details i {
+	font-style: normal;
+	font-weight: bold;
+	/*background: cyan;
+padding: 1px 4px;
+margin-right: 1px;
+//line-height: 12px;
+border-radius: 4px;*/
+}
+.mixInfoText .desc {
+	font-size: 12px;
+	padding: 7px 0 4px 0;
+}
+.mixInfoText .links {
+	margin-top: 6px;
+	font-weight: bold;
+}
+.mixInfoText .links a {
+	color: white;
+	//padding: 1px 4px;
+	//border-radius: 4px;
+	font-weight: normal;
+	margin-bottom: 3px;
+    display: inline-block;
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+	.mixInfo .images {
+		width: 145px;
+	}
+	.mixInfo .images img {
+		margin: 0 15px 15px 0;
+	}
+	.mixInfoText {
+		width: calc( 100% - 145px - 20px - 20px);
+		margin-left: 145px;
+	}
+}
+@media (min-width: 1201px) {
+	.mixInfo .images {
+		width: 431px
+	}
+	.mixInfo .images img {
+		width: 200px;
+		height: 200px;
+	}
+	.mixInfoText {
+		width: calc( 100% - 370px - 20px - 20px);
+	}
+}
+
+@media (max-width: 800px) {
+	.mixInfo {
+		//width: 80%;
+		//padding: 20px 10%;
+		width: calc( 100% - 40px);
+		padding: 20px;
+		background: white;
+		text-align: left;
+		height: auto;
+		position: fixed;
+		z-index: 96;
+		margin-top: 0;
+		top: 50%;
+		display: block;
+		left: 0;
+	}
+	.mixInfo .images {
+		width: 100%;
+		margin-bottom: 10px;
+		overflow: hidden;
+		display: block;
+	}
+	.mixInfo .images img {
+		width: 100%;
+		height: 100%;
+	}
+	.mixInfo .images .cover,
+	.mixInfo .images .tracks {
+		margin: 0;
+		width: calc(100% / 2 - 10px);
+		display: block;
+		overflow: hidden;
+		float: left;
+	}
+	.mixInfo .images .cover {
+		margin-right: 20px;
+	}
+	.mixInfoText {
+		width: 100%;
+		display: inline-block;
+		position: relative;
+	}
+}
+
+.zoom {
+	//position: absolute;
+	float: left;
+	margin-left: -40px;
+	margin-top: 5px;
+	font-size: 17px !important;
+	line-height: 20px !important;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	background: white;
+	border-radius: 50px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+}
+
+.closeMixInfo {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 0;
+	top: 0;
+}
+.closeMixInfo i {
+	font-size: 20px;
+}
+
+#fullScreenBox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #000000cc;
+	z-index: 999;
+	display: none;
+}
+
+#fullScreenBox img {
+	width: 80vh;
+	height: 80vh;
+	padding: 10vh 10vw;
+}
+@media (max-width: 800px) {
+	#fullScreenBox img {
+		top: 50%;
+		position: relative;
+		padding: 0;
+	}
+}
+
+.closeFullscreen {
+	position: absolute;
+	top: calc(10vh - 15px);
+	right: calc(10vw - 15px);
+	top: 0;
+	right: 0;
+	color: white;
+}
+
+#mixOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #ffffffcc;
+	z-index: 50;
+	display: none;
+}
+
+#filterOverview a,
+#resetFilters a,
+.mixInfoText .links a
+/*,.mixTags a*/
+{
+	padding: 1px 4px;
+	border-radius: 4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius: 4px;
+}
+
+#jsInfo {
+
+}
+
+body.mobile {
+	//-moz-transform: scale(2, 2);
+	//zoom: 2;
+	font-size: 30px;
+}
+
+body.mobile b {
+	font-size: 40px !important;
+}
+
+/************************* SIDEBAR *************************/
+
+body.mobile #sidebar {
+	//height: 300px;
+	width: 100%;
+	background: white;
+	height: auto;
+	position: fixed;
+	margin-top: 0;
+	top: 0;
+	left: 0;
+	bottom: auto;
+	right: 0;
+	padding: 20px 0;
+}
+
+body.mobile #fixedSidebar {
+	//background: white;
+	margin-top: 0;
+	padding-top: 20px;
+	top: 0;
+	right: 0;
+	z-index: 96;
+	width: calc( 480px + 150px + 20px);
+	height: 150px;
+	left: 50%;
+	position: relative;
+	display: table;
+	margin-left: calc( (480px + 150px + 20px) / -2);
+	text-align: left;
+}
+
+body.mobile #icon {
+	width: 150px;
+	height: 150px;
+	margin-right: 20px;
+}
+
+body.mobile #pageinfo {
+	//float: right;
+	text-align: left;
+	width: 480px;
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	height: 150px;
+}
+body.mobile #pageinfo a {
+	padding: 0 6px 0 0;
+}
+body.mobile #pageinfo p {
+	padding: 0;
+	margin: 10px 0;
+}
+
+body.mobile #toggleFilters .more,
+body.mobile #toggleFilters .less {
+	font-size: 40px;
+}
+
+body.mobile #filterOverview {
+	position: relative;
+	//background: #ffffff88;
+	overflow: hidden;
+	height: 0;
+	line-height: 46px;
+}
+body.mobile #filterOverview b {
+	font-size: 30px !important;
+}
+
+body.mobile #sorting select {
+	-moz-transform: scale(2, 2);
+	zoom: 2;
+	//margin-bottom: 10px;
+}
+
+/************************* PLAYLISTS *************************/
+
+body.mobile #playlists {
+	top: 300px;
+	width: calc(100% - 20px);
+	left: 0;
+	margin: 0 10px 30px 10px;
+	position: relative;
+	height: auto;
+	overflow: hidden;
+}
+
+body.mobile .mix {
+	width: calc( 50% - 40px);
+	margin: 10px;
+}
+body.mobile .mixHover {
+	opacity: 1;
+}
+body.mobile .date {
+	top: 60px;
+}
+
+body.mobile .playerLinks {
+	margin-top: -40px;
+}
+body.mobile .pl2 {
+	left: 50%;
+	margin-left: calc( (2 * 80px + 2 * 5px) / -2);
+}
+body.mobile .mixLink {
+	width: 80px;
+	height: 80px;
+	margin-right: 5px;
+}
+body.mobile .mixLink i {
+	font-size: 54px;
+	line-height: 80px;
+}
+body.mobile .mixTags a {
+	//padding: 3px 8px;
+	//border-radius: 8px;
+	padding-left: 20px;
+	margin: 2px 4px 0 0;
+	font-size: 27px;
+	line-height: 28px;
+}
+body.mobile .mixTags a:before {
+	margin-left: -15px;
+	color: var(--tags-bg-act);
+}
+
+/*body.mobile .mixWrapper.active {
+	background: yellow;
+	top: 300px;
+	bottom: 0;
+	left: 0;
+}*/
+
+body.mobile .mixInfo {
+	//width: 80%;
+	//padding: 40px 10%;
+	width: calc( 100% - 40px);
+	padding: 20px;
+	background: white;
+	text-align: left;
+	height: auto;
+	position: fixed;
+	z-index: 96;
+	margin-top: 0;
+	top: 50%;
+	display: block;
+	left: 0;
+}
+
+body.mobile .mixInfo .images {
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+	display: block;
+}
+
+body.mobile .mixInfo .images img {
+	margin: 0;
+	//width: calc(100% / 2 - 10px);
+	width: 100%;
+	height: 100%;
+}
+
+body.mobile .mixInfo .images .cover {
+	margin-right: 20px !important;
+}
+
+body.mobile .mixInfo .images .cover,
+body.mobile .mixInfo .images .tracks {
+	margin: 0;
+	width: calc(100% / 2 - 10px);
+	display: block;
+	overflow: hidden;
+	float: left;
+}
+
+body.mobile .mixInfoText {
+	width: 100%;
+	display: inline-block;
+	position: relative;
+	margin: 0 !important;
+}
+body.mobile .mixInfoText .details {
+	font-size: 28px;
+}
+body.mobile .mixInfoText .desc {
+	font-size: 30px;
+	padding: 20px 0 14px 0;
+}
+
+body.mobile .zoom {
+	margin-left: -50px;
+	margin-top: 10px;
+	font-size: 40px !important;
+	line-height: 40px !important;
+	width: 40px;
+	height: 40px;
+}
+
+body.mobile .closeMixInfo {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	right: 0;
+	top: 0;
+}
+body.mobile .closeMixInfo i {
+	font-size: 40px;
+	text-align: right;
+	line-height: 40px;
+}
+
+body.mobile #fullScreenBox img {
+	top: 50%;
+	position: relative;
+	padding: 0;
+}
+body.mobile #fullScreenBox i {
+	font-size: 40px;
+}
+
+body.mobile #filterOverview a,
+body.mobile .mixInfoText .links a
+/*, body.mobile .mixTags a*/
+{
+	padding: 2px 8px;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+}	
+
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<!--<link href="playlists.css" rel="stylesheet">
+<link href="playlists.mobile.css" rel="stylesheet">-->
+</head>
+<body>
+
+<div id="sidebar">
+	<div id="fixedSidebar">
+		<div id="iconBox"><img src="https://cdn.myanimelist.net/images/userimages/3421993.jpg?t=1583261400" id="icon"></div>
+		<div id="pageinfo">
+			<b>masterlist.</b>
+			<p>overview of all my playlists</p><p>last update: 15/07/22<br>all dates are dd/mm/yy</p>
+			<p><a href=" https://twitter.com/almighty_bini/status/777612273934331904 " class="twt">twitter</a><a href=" https://oreki-san.tumblr.com/tagged/bini-mix ">tumblr</a><a href=" https://open.spotify.com/user/21gf5346suy2ipe7diug3jyca ">spotify</a></p>
+			<p id="mixCount"></p>
+		</div>
+	</div>
+	<div id="toggleFilters">
+		<i class="material-icons more active">keyboard_arrow_down</i>
+		<i class="material-icons less">keyboard_arrow_up</i>
+	</div>	
+	
+	<div id="filterOverview">
+		<div id="sorting">
+		<p><b>sort:</b>
+			<select name="sort" size=1>
+				<option value="1">date (newest first)</option>
+				<option value="2">date (oldest first)</option>
+				<option value="3">length (shortest first)</option>
+				<option value="4">length (longest first)</option>
+			</select></p>
+		</div>
+		<div id="commonTags">
+			<p><b>genre:</b> <a>kpop</a> <a>metalcore</a> <a>japanese</a> <a>other</a> <a>multi</a> </p>
+			<p><b>listening platform:</b> <a>spotify</a> <a>youtube</a> <a>8tracks</a> </p>
+			<p><b>length:</b> <a title="5-12 songs">short</a> <a title="13-23 songs">medium</a> <a title="24+ songs">long</a> </p>
+			<p><b>year:</b> <a>2014</a> <a>2015</a> <a>2016</a> <a>2017</a> <a>2018</a> <a>2019</a> <a>2020</a>  <a>2021</a> </p>			
+			<p><b>category:</b> <a>concept</a> <a>seasonal</a> <a>personal</a> <a>favs</a> <a>fanmix</a> <a>challenge</a></p>			
+			<p><b>additional tags:</b> <a>lyrics</a> <a>girl-group-only</a> <a>boy-group-only</a> <a>haikyuu</a> <a>yearly-favs</a></p>
+		</div>
+		<b><!--filtering results:-->show playlists with:</b>
+		<p id="andOr"><a id="or" class="active">any of those tags</a> <a id="and">only all those tags</a></p>
+		<p id="resetFilters"><a>reset filters</a></p>
+	</div>
+</div> <!--sidebar-->
+
+<div id="playlists">
+	<div id="filterActive">Playlists tagged: <a>kpop</a>, <a>girl groups</a><div id="resetFilter"></div></div>
+
+	<div id="jsInfo">JavaScript is needed to display this webpage.</div>
+	
+</div><!--playlists-->
+
+<div id="mixOverlay"></div>
+<div id="fullScreenBox"><div class="closeFullscreen"><i class="material-icons">close</i></div><img src=""></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+{
+var playlists = [
+	/*
+	{
+        "id": "",
+        "title": "",
+        "desc": ".",
+        "date": "/20",
+        "songs": 0,
+        "bonus": 0,
+        "length": "0:00",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "",
+            "tracks": ""
+        },
+        "listen": {
+            "spotify": "",
+            "youtube": ""
+        },
+        "links": {
+            "twitter": ""
+        }
+    },
+	*/
+	{
+        "id": "songsThatHitDifferentIn2021",
+        "title": "songs that hit Different™ in 2021",
+        "desc": "a mix of old gems that i rediscovered and new releases that just wouldn't let me go.",
+        "date": "31/12/21",
+        "songs": 29,
+        "bonus": 11,
+        "length": "1:53",
+        "tags": {
+            "year": 2021,
+            "genre": ["other", "multi"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/FH8KLy7XoBAC9vl?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/FH8KLy6WYAAAAgd?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3S1QMGzYG1XIBEvTvSAgrk",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdW17dkpu-33PTvG3mi_mBHS"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1476913782463082500"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2021",
+        "title": "fav kpop songs of 2021",
+        "desc": "my favourite kpop songs of 2021.",
+        "date": "31/12/21",
+        "songs": 25,
+        "bonus": 18,
+        "length": "1:23",
+        "tags": {
+            "year": 2021,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/FH8wUt3XoAcnNTE?format=png",
+            "tracks": "https://pbs.twimg.com/media/FH8wWFvXIAcRpQa?format=png"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/4RRXcMDjOipMiIah6sGxJ0",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVFr2KQ8g7hp69-KVvrg63u"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1476954644358250496"
+        }
+    },
+	{
+        "id": "songsThatHitDifferentIn2020",
+        "title": "songs that hit Different™ in 2020",
+        "desc": "a mix of old gems that i rediscovered and new releases that just wouldn't let me go.",
+        "date": "09/01/21",
+        "songs": 30,
+        "bonus": 12,
+        "length": "1:57",
+        "tags": {
+            "year": 2021,
+            "genre": ["other", "multi"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/ErS93o8XAAUauMv?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/ErS96y6WMAYw7ew?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3VjBerGZY5zvv8g1HRXRmH",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdU66kZAX6DxTtVlhOeuxJgV"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1347911937213034503"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2020",
+        "title": "fav kpop songs of 2020",
+        "desc": "my favourite kpop songs of 2020.",
+        "date": "31/12/20",
+        "songs": 50,
+        "bonus": 0,
+        "length": "2:56",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EqlSjuAW4AIELi1?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EqlSlZ7XUAA4MpI?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0D0lyGhc9zPCUA3gVHVvRM",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWGJA9cFANdagXBXU4o50hX"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1344697306331942913"
+        }
+    },
+	{
+        "id": "rainbowFlag",
+        "title": "rainbow flag",
+        "desc": "a mix of 30+1 akfg songs that inspired the illustrations for huevember 2020.",
+        "date": "30/11/20",
+        "songs": 31,
+        "bonus": 0,
+        "length": "2:08",
+        "tags": {
+            "year": 2020,
+            "genre": ["japanese"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EobKDa8W8AMEH8o?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EobKe9WW8AUaOBI?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/2Gx4nxKASegpIj5Edh8PkC",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWVQ9FXz8i7hnJpHJM_VK0K"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1334977155327995904"
+        }
+    },
+	{
+        "id": "merryChristmasAgain",
+        "title": "merry christmas, again",
+        "desc": "another mix of kpop christmas songs.",
+        "date": "25/11/20",
+        "songs": 42,
+        "bonus": 3,
+        "length": "2:32",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EnsRR2HWMAEmWUg?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EnsRUD0XEAAiPEx?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0H1rxqFNm5hAN9dUUGUNyU",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWp81vV63J7CGXHcdZrZCeU"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1331677677720383490"
+        }
+    },
+	{
+        "id": "30days30songsChallenge4",
+        "title": "30 days 30 songs challenge",
+        "desc": "from my second challenge on twt.",
+        "date": "10/11/20",
+        "songs": 30,
+        "bonus": 0,
+        "length": "1:52",
+        "tags": {
+            "year": 2020,
+            "genre": ["other", "multi"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["personal", "challenge"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/Em41NH2XUAE4J0A?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/Em41OxoXMA0TIaj?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0VKms45CuS9Nle5VrVnLou",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXKkPv708B26o21CnoIKlDE"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1328057552341491714"
+        }
+    },
+	{
+        "id": "youAndITonight",
+        "title": "you and i, tonight",
+        "desc": "a mix of sultry kpop songs for a night with one another.",
+        "date": "22/08/20",
+        "songs": 17,
+        "bonus": 0,
+        "length": "1:00",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EgCJF1GWAAEQTxC?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EgCJF1HX0AMlyGV?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/6tqhpJbA9e4CWDnrvntsyr",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUhsTgWyh2-ANyerW-6vWzQ"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1297187438926934016"
+        }
+    },
+    {
+        "id": "favKpopDebuts",
+        "title": "fav kpop debuts",
+        "desc": "",
+        "date": "26/07/20",
+        "songs": 30,
+        "bonus": 8,
+        "length": "1:47",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/Ed377ytWsAAryCw?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/Ed38DBHWsAAJw3G?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/4GKoQn1X4KnpxsFw3oJIwT",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVTKW6eSyQ6mJ_HVw-Wq1tB"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1287464983559909379"
+        }
+    },
+    {
+        "id": "endlessSummer",
+        "title": "endless summer",
+        "desc": "my personal summer mix; songs that make me feel the sun on my skin and wish that this summer would never end.",
+        "date": "11/08/20",
+        "songs": 32,
+        "bonus": 1,
+        "length": "2:00",
+        "tags": {
+            "year": 2020,
+            "genre": ["other", "multi"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["personal", "seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EfH17etWAAEpwJX?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EfH19jPXYAAB4zI?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/2qYHfqDUdqo4oj12jyEgKG",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXzb300rbhnNn7lOQa_9jQ2"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1293087940424474624"
+        }
+    },
+	{
+        "id": "30days30songsChallenge3",
+        "title": "30 days 30 songs challenge",
+        "desc": "from puu's challenge on twt.",
+        "date": "19/07/20",
+        "songs": 30,
+        "bonus": 0,
+        "length": "2:05",
+        "tags": {
+            "year": 2020,
+            "genre": ["other", "multi"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["personal", "challenge"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EgAonIeXoAIv1k7?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EgAoo7gXgAAsKne?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0eNmnihTo6M8y2Jx6MXRcR",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUWceB3XwkX2yHAKVHDoDmV"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1297081446268645378"
+        }
+    },
+	{
+        "id": "happy10thAnniversaryTeenTop",
+        "title": "happy 10th anniversary teen top",
+        "desc": "my fav teen top songs to celebrate their 10th anniversary.",
+        "date": "09/07/20",
+        "songs": 30,
+        "bonus": 0,
+        "length": "1:25",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EcbAmhgWkAITq-z?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EcbAntBXkAIUiIF?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/5DNaZ1iGHdfSH9C5JZ74PK",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUlwKx39mx_gX0ND_IzIehZ"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1280923590045597697"
+        }
+    },
+	{
+        "id": "30days30songsChallenge2",
+        "title": "30 days 30 songs challenge",
+        "desc": "from jessie's challenge on twt.",
+        "date": "17/07/20",
+        "songs": 30,
+        "bonus": 0,
+        "length": "1:49",
+        "tags": {
+            "year": 2020,
+            "genre": ["other", "multi"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["personal", "challenge"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EdOJAz8XYAIxb0H?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EdOJDhWX0AM9hwU?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/7gazAK6SUTNpjAAPaxRYZe",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXZecgLG9XNZsnU2S-DGYPg"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1284521079373955072"
+        }
+    },
+	{
+        "id": "byTheCampfire",
+        "title": "by the campfire",
+        "desc": "a mix of acoustic and acoustic-inspired kpop songs to accompany you by the campfire. get your guitar out, sing along and enjoy this lovely night with your friends!",
+        "date": "21/06/20",
+        "songs": 30,
+        "bonus": 0,
+        "length": "1:42",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EbCylsYXYAcNYtP?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EbCyqYFXgAMk8hN?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/27vWy3LvejO31EKYRdwaSE",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdX5s3m891cz4zH8D0NZDAvs"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1274717480976551937"
+        }
+    },
+	{
+        "id": "30days30songsChallenge",
+        "title": "30 days 30 songs challenge",
+        "desc": "from the challenge i made on twt.",
+        "date": "13/06/20",
+        "songs": 30,
+        "bonus": 0,
+        "length": "1:55",
+        "tags": {
+            "year": 2020,
+            "genre": ["other", "multi"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["personal0", "challenge"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EaZZ_0sWAAEDPCz?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EaZaBN-WkAUpPcY?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0UHguGYTY035mJ5vQM8Yr8",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdV0Cd5ZBDcHgzTMI9doEmJa"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1271804906316468225"
+        }
+    },
+	{
+        "id": "sweetWitches",
+        "title": "sweet witches",
+        "desc": "a mix of cute and upbeat kpop songs to accompany the thrilling and magical life of a young witch between mixing potions, cursing homework and (accidentally) bewitching people.",
+        "date": "22/05/20",
+        "songs": 22,
+        "bonus": 6,
+        "length": "1:14",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": ["girl-group-only"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EYoXUrOWsAAjwpA?format=jpg&name=small",
+            "tracks": "https://pbs.twimg.com/media/EYoXYkQXkAAYFAJ?format=jpg&name=small"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/7M3dlKmm4ypUWNQDof4iEO",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUBjitpIl4I8sBYIbqfGL5c"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1263862216576638977"
+        }
+    },
+	{
+        "id": "2010YouKnowHowWeDoIt",
+        "title": "2010, you know how we do it!",
+        "desc": "a mix of my fav 2010 kpop jams to celebrate my 10 years with kpop.",
+        "date": "21/04/20",
+        "songs": 61,
+        "bonus": 8,
+        "length": "3:34",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EWJM9AxWAAA0q9Q?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/EWJM_WwXQAEIcFX?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/21NtrpR1NtlqoUhWpi1KIU",
+            "youtube": "https://www.youtube.com/playlist?list=PLyeQNJXBXQdXzJX2lvkNkm_pA00y7VuOD"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1252650202231648257"
+        }
+    },
+	{
+        "id": "drowned",
+        "title": "drowned",
+        "desc": "a mix of late-night kpop songs for lonely sirens.<br>[includes song lyrics]",
+        "date": "21/03/20",
+        "songs": 23,
+        "bonus": 4,
+        "length": "1:21",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": ["girl-group-only", "lyrics"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/ETpUOGIXQAAyPbY.jpg",
+            "tracks": "https://pbs.twimg.com/media/ETpUQFtX0AE8c4b.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/1BKJEJPVEBAnBNNULhuvDn",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWdENogm8E8aZd3qQUIvfrm"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1241398603333226496"
+        }
+    },
+	{
+        "id": "monthlyKpopFavs2019",
+        "title": "monthly kpop favs 2019",
+        "desc": "a mix of my favourite 2019 kpop releases each month.",
+        "date": "03/02/19",
+        "songs": 93,
+        "bonus": 0,
+        "length": "5:13",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["monthly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DyfJGqNWwAA31xA.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/42myiFlbpTQriOh9n3DXsR",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXVHLxdyIWK3lQNFkDo29st"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1092063137023574017"
+        }
+    },
+	{
+        "id": "monthlyKpopFavs2018",
+        "title": "monthly kpop favs 2018",
+        "desc": "a mix of my favourite 2018 kpop releases each month.",
+        "date": "27/02/18",
+        "songs": 91,
+        "bonus": 0,
+        "length": "5:13",
+        "tags": {
+            "year": 2018,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["monthly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DXEZLLhW4AAjDOc.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/2rtq6Cov2d4uxbIf8WI0VQ",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWMoESA1zET7H0ThgIr8d-i"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/968584573641773062"
+        }
+    },
+	{
+        "id": "monthlyKpopFavs2017",
+        "title": "monthly kpop favs 2017",
+        "desc": "a mix of my favourite 2017 kpop releases each month.",
+        "date": "14/04/17",
+        "songs": 87,
+        "bonus": 0,
+        "length": "5:04",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["monthly-favs"]
+        },
+        "images": {
+            "cover": "https://i.scdn.co/image/ab67706c0000da844cd488fb66253274c9be8532"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/4zbhINRCx1sY7J46xWjIao",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdU5tjL60_--4BrS8_4xb0-0"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/852588995993370625"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2019",
+        "title": "fav kpop songs of 2019",
+        "desc": "my favourite kpop songs of 2019.",
+        "date": "31/12/19",
+        "songs": 50,
+        "bonus": 0,
+        "length": "2:52",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/ENIWhDvWkAIKhjw.jpg",
+            "tracks": "https://pbs.twimg.com/media/ENIWiQSX0AE-cGz.jpg "
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/1g2lvTFurdnWAffKy1wbzy",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWZRB9whXzx-J_6sEshTvDV"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1212057943975321600"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2018",
+        "title": "fav kpop songs of 2018",
+        "desc": "my favourite kpop songs of 2018.",
+        "date": "31/12/18",
+        "songs": 50,
+        "bonus": 0,
+        "length": "2:53",
+        "tags": {
+            "year": 2018,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DvwFvDwW0AAgrbm.jpg",
+            "tracks": "https://pbs.twimg.com/media/DvwFwARXQAMe5Tc.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/77xNLiYBANyIPBtQLI3zmT",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUylqwXAS7-MjEq_n9oJiNo"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1079748909138956288"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2017",
+        "title": "fav kpop songs of 2017",
+        "desc": "my favourite kpop songs of 2017.",
+        "date": "27/02/18",
+        "songs": 43,
+        "bonus": 0,
+        "length": "2:30",
+        "tags": {
+            "year": 2018,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DXERUvoWkAAJYn-.jpg",
+            "tracks": "https://pbs.twimg.com/media/DXERWqLWkAA8APC.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/2lyIFTma6JbLoOdb3CuLYv",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXCAB6S22I5zCjmoFIqBgi1"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/968581144278196224"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2016",
+        "title": "fav kpop songs of 2016",
+        "desc": "my favourite kpop songs of 2016.",
+        "date": "31/12/16",
+        "songs": 32,
+        "bonus": 15,
+        "length": "1:50",
+        "tags": {
+            "year": 2016,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/C1BBZrcXEAA8xf2.jpg",
+            "tracks": "https://pbs.twimg.com/media/C1BBbjnXUAAcYhg.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3woi0eRQfH5mIHLcEU8ILZ",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXC0p76WSSAhgmcR3MwzW3q",
+			"8tracks": "https://8tracks.com/almighty-bini/fav-kpop-songs-of-2016"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/815224026553384960",
+			"tumblr": "https://oreki-san.tumblr.com/post/156367020138"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2015",
+        "title": "fav kpop songs of 2015",
+        "desc": "my favourite kpop songs of 2015.",
+        "date": "09/02/16",
+        "songs": 19,
+        "bonus": 0,
+        "length": "1:07",
+        "tags": {
+            "year": 2016,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/7ca66e0bfb82f99912cff778118d4124/tumblr_o2a44pXZ751qen76mo1_540.png",
+            "tracks": "https://66.media.tumblr.com/1b0d07d137cb949628681e2e259af115/tumblr_o2a44pXZ751qen76mo2_540.png"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/20T9ZQc31afEviPIkPUfMO",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVS3mGia0BsFmS4Okc4GO7p",
+			"8tracks": "https://8tracks.com/almighty-bini/fav-kpop-songs-of-2015"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/697127433896591361",
+			"tumblr": "https://oreki-san.tumblr.com/post/143367475478"
+        }
+    },
+	{
+        "id": "favKpopSongsOf2014",
+        "title": "fav kpop songs of 2014",
+        "desc": "my favourite kpop songs of 2014.",
+        "date": "21/01/15",
+        "songs": 18,
+        "bonus": 0,
+        "length": "1:04",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "8tracks"],
+            "category": ["favs"],
+            "additional": ["yearly-favs"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/21593806e6b833b4738b0e0c6a4bcec4/tumblr_nihmzr4ACP1qen76mo1_r1_540.png",
+            "tracks": "https://66.media.tumblr.com/9fa16d0ebbcc70a595c04647219a6635/tumblr_nihmzr4ACP1qen76mo2_r1_540.png"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3PHux1gckrPnrFSm1dAI2r",
+            "8tracks": "https://8tracks.com/almighty-bini/fav-kpop-songs-of-2014"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/557890028446416896",
+			"tumblr": "https://oreki-san.tumblr.com/post/108731649578"
+        }
+    },
+	{
+        "id": "skeletonDance",
+        "title": "skeleton dance",
+        "desc": "a mix of lit and spooky kpop songs for halloween.",
+        "date": "11/10/19",
+        "songs": 12,
+        "bonus": 3,
+        "length": "0:39",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["short"],
+            "platform": ["spotify", "youtube"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EGnqKs-W4AALv5Z.jpg",
+            "tracks": "https://pbs.twimg.com/media/EGnqMX9XYAE-hRG.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/5TLclpM9tzLSirDY8lHtaq",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVNDQtiJPFFSdAssnGiDrT0"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1182735516334264322"
+        }
+    },
+	{
+        "id": "tropicalNightRide",
+        "title": "tropical night ride",
+        "desc": "a mix of summery and tropical electronic kpop songs to enjoy the last rays of the evening sun and endlessly drive through warm summer nights.",
+        "date": "09/08/19",
+        "songs": 35,
+        "bonus": 0,
+        "length": "1:56",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EBjH69aXUAAQZe8.jpg",
+            "tracks": "https://pbs.twimg.com/media/EBjH9ZbX4AI2Xz3.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/32tX3Iw1MvqNzoYn6E0GeO",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdV5A5kRGzCjSXRofUCqnZbU"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1159900726992265218"
+        }
+    },
+	{
+        "id": "highwayJourney",
+        "title": "highway journey",
+        "desc": "a mix of summery and tropical electronic kpop songs to enjoy the hot summer weather. get your sunglasses out, hop into your convertible, turn the radio up and feel the burning sun and the fresh wind!",
+        "date": "12/07/19",
+        "songs": 32,
+        "bonus": 0,
+        "length": "1:50",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/D_SjvJYXkAEgQXB.jpg",
+            "tracks": "https://pbs.twimg.com/media/D_SjwQhWwAIpdwb.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/1kkonfRjTT22JTXeUXyUB9",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVz0LrBoau6bajLo9QtX1kS"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1149725705388929024"
+        }
+    },
+	{
+        "id": "oceanDrive",
+        "title": "ocean drive",
+        "desc": "a mix of summery and tropical electronic kpop songs for your beach trip. get your sunglasses out, hop into your convertible, turn the radio up and feel the burning sun and taste the salt of the sea in the air!",
+        "date": "14/06/19",
+        "songs": 32,
+        "bonus": 0,
+        "length": "1:51",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/D89hblbXUAEPnX9.jpg",
+            "tracks": "https://pbs.twimg.com/media/D89hblhXoAElAfg.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/10rSAx0F5DM950QW9el6R2",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWM52mIhK8Scel_3WuQWNbO"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1139548050068631554"
+        }
+    },
+	{
+        "id": "summerRoadTrip",
+        "title": "summer road trip",
+        "desc": "a mix of summery and tropical electronic kpop songs to enjoy the hot summer weather. get your sunglasses out, hop into your convertible, turn the radio up and feel the burning sun and the fresh wind!",
+        "date": "24/05/17",
+        "songs": 30,
+        "bonus": 2,
+        "length": "1:43",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DAm96_nXgAgbLxx.jpg",
+            "tracks": "https://pbs.twimg.com/media/DAm-BjGXcAMZCMs.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0mZQY7Q4W5VMIvoup18yT9",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWslvgCo2YE8GQgHE2w89aK",
+			"8tracks": "https://8tracks.com/almighty-bini/summer-road-trip"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/867434467564154883"
+        }
+    },
+	{
+        "id": "merryChristmas",
+        "title": "merry christmas",
+        "desc": "a mix of kpop christmas songs.",
+        "date": "09/12/17",
+        "songs": 64,
+        "bonus": 0,
+        "length": "3:56",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DQmHzqBX0AAxep4.jpg",
+            "tracks": "https://pbs.twimg.com/media/DQmH1PyWAAAMDDh.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/33cXecbcRJGfunhr1pfLIr",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUrrjwfuLq4kXiHJOzl6q9a"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/939433521684369409"
+        }
+    },
+	{
+        "id": "goodMorningSpring",
+        "title": "good morning spring",
+        "desc": "a sweet mix to welcome the spring.",
+        "date": "16/03/15",
+        "songs": 19,
+        "bonus": 0,
+        "length": "1:09",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/D1EEeZOXcAACZOh.jpg",
+            "tracks": "https://pbs.twimg.com/media/D1EEvUfXgAAhS-1.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0Sb0ci7fAfKxF2xdG1vOqS",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVmZf69n1_9mtZQagMgl44d",
+			"8tracks": "https://8tracks.com/almighty-bini/good-morning-spring"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1103669613538263040",
+			"tumblr": "https://oreki-san.tumblr.com/post/113815591268"
+        }
+    },
+	{
+        "id": "playlistChallenge1",
+        "title": "playlist challenge #1",
+        "desc": "create 4 playlists from 20 song submissions.",
+        "date": "21/06/19",
+        "songs": 20,
+        "bonus": 0,
+        "length": "1:09",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["challenge"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/D9mteY0WwAIfFus.jpg",
+            "tracks": "https://pbs.twimg.com/media/D9mtfbvWkAAtsOL.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0oP3QSc4mIuT4t63A1rzTF",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdV2x0VICtVAM2xIfDKGcW24"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1142135951663218688"
+        }
+    },
+	{
+        "id": "emojiPlaylistChallenge1",
+        "title": "emoji playlist challenge #1",
+        "desc": "4 short playlists based on 4 emojis ðŸ¥°ðŸ§¦ðŸŽˆðŸŽº.",
+        "date": "24/12/19",
+        "songs": 20,
+        "bonus": 0,
+        "length": "1:08",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["challenge"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EMjBbSZWoAEON-m.jpg",
+            "tracks": "https://pbs.twimg.com/media/EMjBcuIXkAAvcri.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/1gdlgTErEjbE68LysB5DAm",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVbAu6ni3nvaPYE9slR__B8"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1209441535202353158"
+        }
+    },
+	{
+        "id": "halloweenMix2017",
+        "title": "halloween mix 2017",
+        "desc": "31 spooky songs for 31 days of spooktober.",
+        "date": "01/10/17",
+        "songs": 31,
+        "bonus": 0,
+        "length": "1:47",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["seasonal", "misc"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://i.scdn.co/image/ab67706c0000da842a3c860bbf5737416a687de9"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/49NEE4VUDTbqeYhJYIlqgX",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdV77RLL3Wl4jL0SBMmuQZ-j"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/914253149229207552"
+        }
+    },
+	{
+        "id": "happyBirthdayYoongi",
+        "title": "happy birthday yoongi",
+        "desc": "a mix of my fav intros, cyphers, agust d releases, rap parts, lyrics and songs that yoongi produced to celebrate his 24th birthday.",
+        "date": "08/03/17",
+        "songs": 24,
+        "bonus": 0,
+        "length": "1:34",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["youtube"],
+            "category": ["misc"],
+            "additional": ["boy-group-only"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/C6Z12xvWMAA9V6T.jpg",
+            "tracks": "https://pbs.twimg.com/media/C6Z14kvWcAAFOR8.jpg"
+        },
+        "listen": {
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWMUrgpifrTpMcvSb9Ff_-B"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/839490951416512512",
+			"tumblr": "https://oreki-san.tumblr.com/post/158155620473"
+        }
+    },
+	{
+        "id": "magicalGirlsPeppyVer",
+        "title": "magical girls (peppy ver.)",
+        "desc": "a mix of peppy and upbeat songs to accompany the adventurous life of a magical girl.",
+        "date": "16/02/17",
+        "songs": 15,
+        "bonus": 0,
+        "length": "0:51",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["concept"],
+            "additional": ["lyrics"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/C4y4PxlXUAEhyKk.jpg",
+            "tracks": "https://pbs.twimg.com/media/C4y4QkmWIAQZ0TW.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3UGuSYYDv3F2TU5nmVSAfQ",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUxIm7EyAnlafbe1PQeZ3O4",
+			"8tracks": "https://8tracks.com/almighty-bini/magical-girls-peppy-version"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1144655702520205312"
+        }
+    },
+	{
+        "id": "magicalGirlsSweetVer",
+        "title": "magical girls (sweet ver.)",
+        "desc": "a mix of sweet and lovely songs to accompany the exciting life of a magical girl.",
+        "date": "16/02/17",
+        "songs": 15,
+        "bonus": 0,
+        "length": "0:50",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["concept"],
+            "additional": ["lyrics"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/C4y46UrWQAAdbD3?format=jpg",
+            "tracks": "https://pbs.twimg.com/media/C4y473jWYAAqG7I?format=jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3UGuSYYDv3F2TU5nmVSAfQ",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUL3Meb79BC6wpIpOn-xaSm",
+			"8tracks": "https://8tracks.com/almighty-bini/magical-girls-sweet-version"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/832243434274619393"
+        }
+    },
+	{
+        "id": "gunsAndGamble",
+        "title": "guns & gamble",
+        "desc": "a mix of dark kpop songs for your gang affairs.<br>(boygroup songs with \"mafia\" vibes)",
+        "date": "21/02/20",
+        "songs": 33,
+        "bonus": 4,
+        "length": "1:58",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": ["boy-group-only"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/ERUw8sSX0AAHt6e.jpg",
+            "tracks": "https://pbs.twimg.com/media/ERUw_NXXYAAkDkw.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/24yhk135WliUWSmgURx09H",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWU-gcX_LU0HsffTxymHuKT"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1230947937162874880"
+        }
+    },
+	{
+        "id": "cueTheExplosions",
+        "title": "cue the explosions",
+        "desc": "a mix of thrilling kpop songs that could be part of an action movie soundtrack.",
+        "date": "25/01/20",
+        "songs": 27,
+        "bonus": 0,
+        "length": "1:32",
+        "tags": {
+            "year": 2020,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": ["boy-group-only"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EPI6eFSXUAAmBr6.jpg",
+            "tracks": "https://pbs.twimg.com/media/EPI6fuQWsAAwxdb.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/2HgBKAGT5DBBqgRBTi5RnG",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVzBtXopa7JmbAB5ZpQzjZE"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1221102988544106497"
+        }
+    },
+	{
+        "id": "squeakingIntensifies",
+        "title": "[squeaking intensifies]",
+        "desc": "a mix of kpop songs w the squeaking bedâ„¢ noise.",
+        "date": "17/12/19",
+        "songs": 14,
+        "bonus": 2,
+        "length": "0:45",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["sound"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EMA1e1YXkAAkCfH.jpg",
+            "tracks": "https://pbs.twimg.com/media/EMA1gyPWsAYMbVC.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/5T7nFqk61KqPkNCJvAOUpQ",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWpAXtNWdv_ymFYXY8UU-C6"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1207024418737795074"
+        }
+    },
+	{
+        "id": "allEyesOnMe",
+        "title": "all eyes on me",
+        "desc": "a mix for girls that love 2 things: luxury and themselves.<br>(songs for self-centered girls abt luxury and attention)<br>[includes song lyrics]",
+        "date": "26/03/19",
+        "songs": 16,
+        "bonus": 1,
+        "length": "0:53",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": ["girl-group-only", "lyrics"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/D2mR4ZuX0AYBOvh.jpg",
+            "tracks": "https://pbs.twimg.com/media/D2mR6ntXcAAtovc.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/5NgG33myigOw4F7lrNUQUE",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVMp1oK7xEJracPwBvCbaQz"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1110587297936883712"
+        }
+    },
+	{
+        "id": "danceDance",
+        "title": "dance dance",
+        "desc": "my personal feel good playlist.",
+        "date": "11/03/19",
+        "songs": 21,
+        "bonus": 0,
+        "length": "1:13",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["personal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/D1ZXsYdXQAIKivC.jpg",
+            "tracks": "https://pbs.twimg.com/media/D1ZXyXEWsAMEtzm.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/32qRiYdtKSuAqsK0RC29ZB",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdX519_ktFB6xaFBD9kzulmG"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1105168935085842432"
+        }
+    },
+	{
+        "id": "dorffest",
+        "title": "dorffest",
+        "desc": "dorffest (n): a party held in a village where every resident is welcomed to dance, drink and have fun.<br>a weird mix of korean disco and synthpop songs combined w upbeat pop-rock songs and trot - the combination of songs that are played at a dorffest.<br>(upbeat songs that are giving me dorffest vibes)",
+        "date": "29/01/19",
+        "songs": 36,
+        "bonus": 12,
+        "length": "2:04",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DyFB_wiWwAY2Dyh.jpg",
+            "tracks": "https://pbs.twimg.com/media/DyFCDtGX4AEKy0U.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/5MDZvKK1f4bKAffnJRIbYP",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUhHhLeO1BXXzCv9N114V8a"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1090233247181799424"
+        }
+    },
+	{
+        "id": "goodVibesOnly",
+        "title": "good vibes only",
+        "desc": "a mix of positive kpop songs with the word \"good\" in their title. the moods range from sweet and upbeat to party, but they are all uplifting in a way.",
+        "date": "13/07/18",
+        "songs": 20,
+        "bonus": 0,
+        "length": "1:07",
+        "tags": {
+            "year": 2018,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["words"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/Dh_Elk_XcAEYxqX.jpg",
+            "tracks": "https://pbs.twimg.com/media/Dh_EpGoX4AAwrG2.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/4CC3sjcxGomoqm5sCGTPoy?si=xInjirgZQyS3LUTRTtUk8g",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVwi44gJqvkMzx3VwaxA7di"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1017751303110438912"
+        }
+    },
+	{
+        "id": "fckbys",
+        "title": "fckbys",
+        "desc": "a mix of korean rap songs for party nights with the bros.<br>(korean rap songs for party nights)<br>[includes song lyrics]",
+        "date": "0/06/18",
+        "songs": 17,
+        "bonus": 2,
+        "length": "1:00",
+        "tags": {
+            "year": 2018,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": ["boy-group-only", "lyrics"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DfWtiXEWsAQUB0c.jpg",
+            "tracks": "https://pbs.twimg.com/media/DfWtjUsW0AI07Rz.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/438MI6sMszvztr9ESFh4E1",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXMyZbFyTJVjyXi65l5aox4"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1005905221346889728"
+        }
+    },
+	{
+        "id": "burnItUpGirls",
+        "title": "burn it up, girls!",
+        "desc": "a mix of lit kpop songs performed by girl groups and female solo artists.<br>(lit kpop songs by fierce ladies)",
+        "date": "16/11/17",
+        "songs": 33,
+        "bonus": 7,
+        "length": "1:50",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": ["girl-group-only"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DOxbvMYXcAc8u_7.jpg",
+            "tracks": "https://pbs.twimg.com/media/DOxbv8wWkAUj4b-.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/4WLcbZY3H2PDus05xXpmuA",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVcaRbfzJDI6XNe0O4vQOnR"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/931223196166221829"
+        }
+    },
+	{
+        "id": "favKpopIntros",
+        "title": "fav kpop intros",
+        "desc": "",
+        "date": "02/09/17",
+        "songs": 52,
+        "bonus": 1,
+        "length": "1:04",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DIup7YUXYAIaNl8.jpg",
+            "tracks": "https://pbs.twimg.com/media/DIup8QJWsAEchhB.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/2gjhOoQLWOgO7MNKoXT8Rm",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdViaZ27rNvKjEQ5VD2kPx5l"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/904005638870708225"
+        }
+    },
+	{
+        "id": "djPutItBackOn",
+        "title": "dj put it back on!",
+        "desc": "a mix of 2009 hits everyone should know and party to tbh bc this year was such a blessing. the songs kinda go from cute to upbeat to darkish to sad.<br> (this is a personal selection so while i tried to include all the big songs from 2009 some might be missing.)",
+        "date": "18/09/16",
+        "songs": 28,
+        "bonus": 0,
+        "length": "1:40",
+        "tags": {
+            "year": 2016,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/CsqaHM-XYAAM4yJ.jpg",
+            "tracks": "https://pbs.twimg.com/media/CsqaJkZWgAACena.png"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/7yswbhFh05aaH0ayD0FZgf",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXn4xCROibF88HudFKHTgjT",
+			"8tracks": "https://8tracks.com/almighty-bini/dj-put-it-back-on"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/777604809386000384",
+			"tumblr": "https://oreki-san.tumblr.com/post/156367024153"
+        }
+    },
+	{
+        "id": "iCantDrownMyDemons",
+        "title": "i can't drown my demons",
+        "desc": "a mix of metalcore songs for when you're in the mood for some nice, easy listening musicâ„¢<br>(my metalcore+ favs)",
+        "date": "28/04/19",
+        "songs": 32,
+        "bonus": 0,
+        "length": "1:56",
+        "tags": {
+            "year": 2019,
+            "genre": ["metalcore"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/D5QQkOqWsAAQQRJ.jpg",
+            "tracks": "https://pbs.twimg.com/media/D5QQoZVXoAAhDOB.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/21ovOZekNYM00iUjAy1i7E",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdUA_bWrSyntQiFBDWsMf2DZ"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1122546104195850241"
+        }
+    },
+	{
+        "id": "memoriesOfStMystere",
+        "title": "memories of st. mystÃ¨re",
+        "desc": "a mix of korean songs with professor layton vibes. the playlist starts with relaxing bossa nova inspired songs and moves to a tranquil, melancholic mood accompanied by accordion tunes.<br>(korean songs that could be part of the professor layton OST)",
+        "date": "23/07/17",
+        "songs": 15,
+        "bonus": 2,
+        "length": "0:44",
+        "tags": {
+            "year": 2017,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["fanmix"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/DFX87XaWAAAONAM.jpg",
+            "tracks": "https://pbs.twimg.com/media/DFX9HoVXcAAZl3w.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/4wRRE3uJME2e5BZg1IwN39",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVtcP4wlPXHC3OuQ-ZnVrax",
+			"8tracks": "https://8tracks.com/almighty-bini/memories-of-st-mystere"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/888894907166994433"
+        }
+    },
+	{
+        "id": "boyInTheMoon",
+        "title": "boy in the moon",
+        "desc": "a mix of electronic kpop songs that fit tsukishima and pensive late nights.",
+        "date": "17/05/16",
+        "songs": 11,
+        "bonus": 0,
+        "length": "0:40",
+        "tags": {
+            "year": 2016,
+            "genre": ["kpop"],
+            "length": ["short"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["fanmix"],
+            "additional": ["haikyuu"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/4f0a838e98baf4330acfd8ff5543be95/tumblr_o7byawCIxg1qen76mo1_500.gif",
+            "tracks": "https://pbs.twimg.com/media/DgsInIRWkAUFFb2.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/4cUrqfeQV8XT9b8NYDhkyg",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVZ_hrff2PJJYlGlQGT4A5n",
+			"8tracks": "https://8tracks.com/almighty-bini/boy-in-the-moon"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1011913049563901952",
+			"tumblr": "https://oreki-san.tumblr.com/post/145501911608"
+        }
+    },
+	{
+        "id": "moonstruck",
+        "title": "moonstruck",
+        "desc": "a mix of electronic kpop songs that fit tsukishima and pensive late nights, part 2.",
+        "date": "27/06/18",
+        "songs": 11,
+        "bonus": 0,
+        "length": "0:37",
+        "tags": {
+            "year": 2018,
+            "genre": ["kpop"],
+            "length": ["short"],
+            "platform": ["spotify", "youtube"],
+            "category": ["fanmix"],
+            "additional": ["haikyuu"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/Dgtc4PmWsAMIefc.jpg",
+            "tracks": "https://pbs.twimg.com/media/Dgtc5M7WAAAkd0k.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/0j5qncaEP1K2bYMZmeYCC5",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdX_BUBc2-HojK1VQrXZcLIJ"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1012005770928455681"
+        }
+    },
+	{
+        "id": "sweetLoveSweetDreams",
+        "title": "sweet love sweet dreams",
+        "desc": "a mix of sweet and soft songs that are inspired by tsukkiyama.<br>[includes song lyrics]",
+        "date": "23/01/15",
+        "songs": 11,
+        "bonus": 0,
+        "length": "0:41",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["short"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["fanmix"],
+            "additional": ["haikyuu", "lyrics"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/9eadb00884b8304f79c95eae30477006/tumblr_nifxdkj9pV1qen76mo3_r1_500.gif",
+            "tracks": "https://66.media.tumblr.com/2cd1ea1450166b1ed8f20e275bbc01f2/tumblr_nifxdkj9pV1qen76mo2_500.gif"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/6epcNcgyze9wMJpemIEBB3",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdU2CiNX3O_e_Ac4LRrNN-h3",
+			"8tracks": "https://8tracks.com/almighty-bini/sweet-love-sweet-dreams"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/979445713041084416",
+			"tumblr": "https://oreki-san.tumblr.com/post/108914051946"
+        }
+    },
+	{
+        "id": "sunshineGirl",
+        "title": "sunshine girl",
+        "desc": "a mix of bright and cute kpop girl group songs that either remind me of yachi or something she'd listen to.",
+        "date": "09/05/15",
+        "songs": 25,
+        "bonus": 0,
+        "length": "1:26",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["fanmix"],
+            "additional": ["haikyuu", "girl-group-only"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/b46cabed7442a1a9073c314eb7752ed5/tumblr_no34nnMrZH1qen76mo2_500.gif",
+            "tracks": "https://pbs.twimg.com/media/D9nD2QYXsAAUfyx.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/2Xa3marJXGEkcEN3LrLeTU",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVkuqMj9kh7Hn68f89hWHDy",
+			"8tracks": "https://8tracks.com/almighty-bini/sunshine-girl"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1142160906689884160",
+			"tumblr": "https://oreki-san.tumblr.com/post/118851403227"
+        }
+    },
+	{
+        "id": "childOfTheStars",
+        "title": "child of the stars",
+        "desc": "a mix of dreamy-cute kpop songs that are just like yamaguchi himself. the playlist gets calmer towards the end.",
+        "date": "29/08/15",
+        "songs": 12,
+        "bonus": 0,
+        "length": "0:42",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["short"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["fanmix"],
+            "additional": ["haikyuu"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/4436782ecc45ed9a17a0e46bf37512f3/tumblr_ntw2mzOux61qen76mo1_500.gif",
+            "tracks": "https://pbs.twimg.com/media/D-KUAZNWkAENzfx.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/79Cv7s593ZDVNgOqvQ2iGa",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXmfaRHYEha_YTYcUYGrSEl",
+			"8tracks": "https://8tracks.com/almighty-bini/child-of-the-stars"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1144641849107369984",
+			"tumblr": "https://oreki-san.tumblr.com/post/128798265343"
+        }
+    },
+	{
+        "id": "pleaseDontForgetMe",
+        "title": "please don't forget me",
+        "desc": "a mix of songs that reflect how i feel when i think about tokyo ghoul tbh. the lyrics remind me of tokyo ghoul ... like a lot .......",
+        "date": "28/07/15",
+        "songs": 16,
+        "bonus": 0,
+        "length": "0:58",
+        "tags": {
+            "year": 2015,
+            "genre": ["metalcore"],
+            "length": ["medium"],
+            "platform": ["8tracks"],
+            "category": ["fanmix"],
+            "additional": ["lyrics"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/e44c56b963c66e551fc38b77d40dfd28/tumblr_ns9n1hD5aU1qen76mo1_540.png",
+            "tracks": "https://66.media.tumblr.com/bebab7ffbb6cbbdcf5cad780a48cfc0d/tumblr_ns9n1hD5aU1qen76mo3_r2_540.png"
+        },
+        "listen": {
+            "8tracks": "https://8tracks.com/almighty-bini/please-don-t-forget-me"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/626134921204121601",
+			"tumblr": "https://oreki-san.tumblr.com/post/125372338948"
+        }
+    },
+	{
+        "id": "happyBirthdayMai2019",
+        "title": "happy birthday mai 2019",
+        "desc": "this is a small collection of songs that either make me think of mai or that she'd hopefully enjoy !!",
+        "date": "06/08/19",
+        "songs": 13,
+        "bonus": 0,
+        "length": "0:45",
+        "tags": {
+            "year": 2019,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify"],
+            "category": ["personal"],
+            "additional": ["mai"]
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EBOdBtGXYAEbDfO.jpg",
+            "tracks": "https://pbs.twimg.com/media/EBOdBtJXYAEEYZm.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3yJo22CcHlVGYIwNcHSb2C"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1158678852207632384"
+        }
+    },
+	{
+        "id": "happyBirthdayMai2016",
+        "title": "happy birthday mai 2016",
+        "desc": "a mix of songs that either remind me of mai or i rly hope she'd like them !!",
+        "date": "06/08/16",
+        "songs": 15,
+        "bonus": 0,
+        "length": "0:54",
+        "tags": {
+            "year": 2016,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify"],
+            "category": ["personal"],
+            "additional": ["mai"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/81885eb4f0cca3d12964f372b347a48c/tumblr_obgatsCPwr1qen76mo2_540.png",
+            "tracks": "https://66.media.tumblr.com/975abe9dda438a7bac12cec02ab456b2/tumblr_obgatsCPwr1qen76mo1_540.png"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3yJo22CcHlVGYIwNcHSb2C"
+        },
+        "links": {
+			"twitter": "https://twitter.com/almighty_bini/status/761831933332557824",
+            "tumblr": "https://oreki-san.tumblr.com/post/148533964453"
+        }
+    },
+	{
+        "id": "happyBirthdayMai2015",
+        "title": "happy birthday mai 2015",
+        "desc": "this mix of songs reminds me of mai !! i tried to include both kpop and anime osts and make it more calm/cute.",
+        "date": "06/08/15",
+        "songs": 13,
+        "bonus": 0,
+        "length": "0:48",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop", "japanese", "multi"],
+            "length": ["medium"],
+            "platform": ["spotify"],
+            "category": ["personal"],
+            "additional": ["mai"]
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/5f364bb45b38bfa4b6bb071c0c9a3c00/tumblr_nsmjcc1r6Q1qen76mo1_540.png",
+            "tracks": "https://66.media.tumblr.com/6818302ece2550da4f52a6e124725311/tumblr_nsmjcc1r6Q1qen76mo2_540.png"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3yJo22CcHlVGYIwNcHSb2C"
+        },
+        "links": {
+            "tumblr": "https://oreki-san.tumblr.com/post/125997826213"
+        }
+    },
+	{
+        "id": "todaysJourney",
+        "title": "today's journey",
+        "desc": "nÃ¤chster halt: nirgendwo; ausstieg in fahrtrichtung rechts</i><br>a mix created with the intention to listen to it on a lonely train ride. relaxing anime soundtracks and kpop songs, sometimes as instrumental covers.<br>// you obviously could listen to it while studying or sleeping as well :-) i wanted the mix to be cheerful at first but it became kinda sad sorry.",
+        "date": "09/01/15",
+        "songs": 20,
+        "bonus": 0,
+        "length": "1:18",
+        "tags": {
+            "year": 2015,
+            "genre": ["other", "multi"],
+            "length": ["medium"],
+            "platform": ["youtube", "8tracks"],
+            "category": ["personal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/0ffc304a1b924b71a10226b65860bcd0/tumblr_nhuwkkebU81qen76mo1_540.gifv",
+            "tracks": "https://66.media.tumblr.com/1dc0ec3fed4b684a94fb273eca861098/tumblr_nhuwkkebU81qen76mo3_r2_540.png"
+        },
+        "listen": {
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdU_FfjFVRhBW-p67uNjjk-K",
+			"8tracks": "https://8tracks.com/almighty-bini/today-s-journey"
+        },
+        "links": {
+            "tumblr": "https://oreki-san.tumblr.com/post/107629575728"
+        }
+    },
+	{
+        "id": "intoTheSummer",
+        "title": "into the summer",
+        "desc": "a fresh and cheerful mix perfect for summer! a playlist you can listen to when you don't want this summer to end yet or you can't await the upcoming summer. start your day with some cute and lovely tunes, dance to catchy party songs in the afternoon and make it a never-ending night with these upbeat tracks.<br>a playlist you can listen to when you don't want this summer to end yet or you can't await the upcoming summer.",
+        "date": "01/11/14",
+        "songs": 34,
+        "bonus": 0,
+        "length": "1:55",
+        "tags": {
+            "year": 2014,
+            "genre": ["kpop"],
+            "length": ["long"],
+            "platform": ["8tracks"],
+            "category": ["seasonal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://images.8tracks.com/cover/i/002/745/416/8tracks_summer_cover-7530.png",
+			//"https://66.media.tumblr.com/6de8640caf654b3aa4622800e1717020/tumblr_nebp5lN2QX1qen76mo1_400.gif",
+            "tracks": "https://66.media.tumblr.com/8c59f1922da067cbe1a874b758a0ed31/tumblr_nebp5lN2QX1qen76mo2_400.gif"
+        },
+        "listen": {
+            "8tracks": "https://8tracks.com/almighty-bini/into-the-summer"
+        },
+        "links": {
+            "tumblr": "https://oreki-san.tumblr.com/post/101450824663"
+        }
+    },
+	{
+        "id": "100Human",
+        "title": "100% human",
+        "desc": "\"Human genetics are combined with robotic enhancements. They are perfectly designed for complete domination. The future is now.\"<br>a mix of futuristic sounding kpop songs that make me think of androids and cyborgs.",
+        "date": "04/04/15",
+        "songs": 14,
+        "bonus": 0,
+        "length": "0:51",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/C6avIaqWAAILVqz.jpg",
+            "tracks": "https://pbs.twimg.com/media/C6avK6dWMAUjcHj.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/6BbsRkQ0oE9mkXiEEkSgEh",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXOF4BhPuoF0Vku6Tlc6r5y",
+			"8tracks": "https://8tracks.com/almighty-bini/100-human"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/839551854543523842"
+        }
+    },
+	{
+        "id": "hypnotize",
+        "title": "hypnotize",
+        "desc": "a mix of modern/fresh electronic kpop songs.<br>a mix full of songs with a modern and surreal feel i can't even describe. some are good for dancing/party and others are kinda relaxing. these songs have a really unique charm and make me think about summer and space.",
+        "date": "29/03/15",
+        "songs": 15,
+        "bonus": 0,
+        "length": "0:59",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["youtube", "8tracks"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/Cz-LKvzXAAAols7.jpg",
+            "tracks": "https://66.media.tumblr.com/d3089db5dce18fd0b4041ffbc68f1dce/tumblr_nlywrt9KYh1qen76mo2_540.gif"
+        },
+        "listen": {
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXdfqOrJiZbF_ppbOca6j0A",
+			"8tracks": "https://8tracks.com/almighty-bini/hypnotize"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/810520425335767041",
+			"tumblr": "https://oreki-san.tumblr.com/post/114928595028"
+        }
+    },
+	{
+        "id": "itsOk",
+        "title": "it's ok",
+        "desc": "a mix you can listen to when you feel really sad and want to cry. it's ok to be sad at the moment because it will be alright in the future. everything will be alright.",
+        "date": "06/09/14",
+        "songs": 17,
+        "bonus": 0,
+        "length": "1:04",
+        "tags": {
+            "year": 2014,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube", "8tracks"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/04b43a3fd4c67ac93d04fd2841a7715e/tumblr_nbkxlprGjd1qen76mo1_500.gif",
+            "tracks": "https://66.media.tumblr.com/8bf62a777eec98b4493cc8ec97576f6b/tumblr_nbkxlprGjd1qen76mo2_r1_500.png"
+        },
+        "listen": {
+			"spotify": "https://open.spotify.com/user/21gf5346suy2ipe7diug3jyca/playlist/2R3ltPGW7T0r70GF17jAb4",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdXrdnBeHlmzw3w9tTNDqXMK",
+            "8tracks": "https://8tracks.com/almighty-bini/it-s-ok"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1066768543189016578",
+			"tumblr": "https://oreki-san.tumblr.com/post/96973329023"
+        }
+    },
+	{
+        "id": "itsAlright",
+        "title": "it's alright",
+        "desc": "a mix for the emo hoursâ„¢.",
+        "date": "25/11/18",
+        "songs": 23,
+        "bonus": 0,
+        "length": "1:33",
+        "tags": {
+            "year": 2018,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["spotify", "youtube"],
+            "category": ["concept"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/Ds3mfNAXoAYiYkU.jpg",
+            "tracks": "https://pbs.twimg.com/media/Ds3mjcoXQAA-Pez.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/1fjRZQ4wZlReHqRawRcxRr",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdWkXzoFIx8l8vcAKGwR5w-m"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1066768543189016578"
+        }
+    },
+	{
+        "id": "memoryTape",
+        "title": "memory tape",
+        "desc": "a mix of iconic jams from my early childhood.<br>(genre: western late 90s and early 2000 songs)",
+        "date": "11/08/19",
+        "songs": 21,
+        "bonus": 13,
+        "length": "1:23",
+        "tags": {
+            "year": 2019,
+            "genre": ["other"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["personal"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EBrb3wSWwAASELV.jpg",
+            "tracks": "https://pbs.twimg.com/media/EBrb5XeXoAEoeOg.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/3lABzJygwc78muWBp6iueq",
+            "youtube": "https://www.youtube.com/playlist?list=PLyeQNJXBXQdVjaFgxb7_FnO5CDatX2PhR"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1160486414469029888"
+        }
+    },
+	{
+        "id": "akfgFavs",
+        "title": "#AKFGfavs",
+        "desc": "a mix of my fav akfg songs.",
+        "date": "24/11/19",
+        "songs": 40,
+        "bonus": 0,
+        "length": "2:46",
+        "tags": {
+            "year": 2019,
+            "genre": ["japanese"],
+            "length": ["long"],
+            "platform": ["spotify", "youtube"],
+            "category": ["favs"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://pbs.twimg.com/media/EKJBIF-XUAEGTam.jpg",
+            "tracks": "https://pbs.twimg.com/media/EKJBJRtWkAUfEmp.jpg"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/14d3iJWrAe58Iow6QKmlmp",
+            "youtube": "https://music.youtube.com/playlist?list=PLyeQNJXBXQdVIiZqo8tIy30MfXQsEXzTT"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1198592779691143168"
+        }
+    },
+	{
+        "id": "chillAkg",
+        "title": "#chillAKG",
+        "desc": "a mix of calm and chill akfg songs.<br>i felt like there was not enough of them on 8tracks and i always wanted to make a mix of my fav band.",
+        "date": "23/10/15",
+        "songs": 19,
+        "bonus": 0,
+        "length": "1:31",
+        "tags": {
+            "year": 2015,
+            "genre": ["japanese"],
+            "length": ["medium"],
+            "platform": ["spotify"],
+            "category": [],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://66.media.tumblr.com/ef828a71894651a120eba9dae1e232d6/tumblr_nweqncn77w1qen76mo1_r1_540.gif",
+            "tracks": "https://66.media.tumblr.com/1adfc81a7bfc5cd514b9b661e4cd3994/tumblr_nweqncn77w1qen76mo4_r2_540.gif"
+        },
+        "listen": {
+            "spotify": "https://open.spotify.com/playlist/083rCdnDNk3tynvyP6ZmOQ"
+        },
+        "links": {
+            "twitter": "https://twitter.com/almighty_bini/status/1033333655882682368",
+			"tumblr": "https://oreki-san.tumblr.com/post/132209840172"
+        }
+    },
+	{
+        "id": "youreMyGirl",
+        "title": "you're my girl",
+        "desc": "a mix filled with cute and peppy songs dedicated to sweet girls.",
+        "date": "04/05/15",
+        "songs": 14,
+        "bonus": 0,
+        "length": "0:45",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["8tracks"],
+            "category": ["words"],
+            "additional": []
+        },
+        "images": {
+            "cover": "https://images.8tracks.com/cover/i/009/028/423/girl_pl_8tr-7550.png", //"https://66.media.tumblr.com/199b3d9da2e9881b4024abc20dd89394/tumblr_nnskr2UaYP1qen76mo2_400.png",
+            "tracks": "https://66.media.tumblr.com/db0cd19fac03c5d8ecea1be65911f627/tumblr_nnskr2UaYP1qen76mo1_r1_400.png"
+        },
+        "listen": {
+            "8tracks": "https://8tracks.com/almighty-bini/you-re-my-girl"
+        },
+        "links": {
+            "tumblr": "https://oreki-san.tumblr.com/post/118129136223"
+        }
+    },
+	{
+        "id": "youreMyLady",
+        "title": "you're my lady",
+        "desc": "a mix filled with smooth and suave songs dedicated to beautiful ladies.",
+        "date": "04/05/15",
+        "songs": 13,
+        "bonus": 0,
+        "length": "0:44",
+        "tags": {
+            "year": 2015,
+            "genre": ["kpop"],
+            "length": ["medium"],
+            "platform": ["8tracks"],
+            "category": ["words"],
+            "additional": ["boy-group-only"]
+        },
+        "images": {
+            "cover": "https://images.8tracks.com/cover/i/009/028/421/lady_pl_8tr-4462.png", //"https://66.media.tumblr.com/9fb7521e061918a8419249cbd9e5b499/tumblr_nnskr2UaYP1qen76mo4_400.png",
+            "tracks": "https://66.media.tumblr.com/95db40a8c7cd9c5c12fa8eff29987d7d/tumblr_nnskr2UaYP1qen76mo5_400.png"
+        },
+        "listen": {
+            "8tracks": "https://8tracks.com/almighty-bini/you-re-my-lady"
+        },
+        "links": {
+            "tumblr": "https://oreki-san.tumblr.com/post/118129136223"
+        }
+    }
+];
+}
+function getTagsAsClass(tags) {
+	var i = 0; 
+	var tagString = '';
+	for (var property in tags) {
+		//console.log('tags:    p: ' + property + ' t[p]: ' + tags[property] + '; length: ' + tags[property].length);
+		if (tags[property].length == undefined) {
+			//console.log('\t\t ' + tags[property]);
+			tagString = tagString + ' ' + tags[property];
+		}
+		for (var i = 0; i < tags[property].length; i++) {
+			//console.log('\t\t ' + i + ': ' + tags[property][i]);
+			tagString = tagString + ' ' + tags[property][i];
+		}
+	}
+	//console.log(tagString);
+	return tagString;
+}
+
+function getTagsAsLinks(tags) {
+	var i = 0; 
+	var tagString = '';
+	for (var property in tags) {
+		//console.log('tags:    p: ' + property + ' t[p]: ' + tags[property] + '; length: ' + tags[property].length);
+		if (tags[property].length == undefined) {
+			//console.log('\t\t ' + tags[property]);
+			tagString = tagString + '<a>' + tags[property] + '</a>';
+		}
+		for (var i = 0; i < tags[property].length; i++) {
+			//console.log('\t\t ' + i + ': ' + tags[property][i]);
+			tagString = tagString + '<a>' + tags[property][i] + '</a>';
+		}
+	}
+	//console.log(tagString);
+	return tagString;
+}
+
+function getLinks(links) {
+	var str = '';
+	for (var property in links) {
+		str = str + '<a href="' + links[property] + '" class="' + property + '">' + property + '</a> ';
+	}
+	return str;
+}
+
+function getPlayLinks(links) {
+var playCount = 0;
+var str = '';
+
+	for (var property in links) {
+		str = str + '<a href="'+links[property]+'" class="mixLink ' + property + '"><i class="material-icons">music_note</i></a> ';
+		playCount++;
+	}
+	return '<div class="playerLinks pl' + playCount + '"> ' + str + '</div>';
+}
+
+function readJson() {
+	for (var i = 0; i < playlists.length; i++) {
+	  var mix = playlists[i];
+	  //for (var property in mix) console.log('item ' + i + ': ' + property + '=' + mix[property]);
+	  
+		$('#playlists').append(
+			'<div class="mixWrapper">' +
+				'<div class="mix ' + getTagsAsClass(mix.tags) + '" ' +
+						'data-id="' + mix.id + '" ' + 'style="background: url(\'' + (mix.images ? mix.images.cover : '') + '\');">' +
+					'<div class="mixHover">' +
+						'<div class="length">' + mix.songs + (mix.bonus > 0 ? '+' + mix.bonus : '') + ' songs / ' + mix.length + 'h</div>' +
+						'<div class="date">' + mix.date + '</div>' +
+						getPlayLinks(mix.listen) + 
+						'<div class="mixTags">' + getTagsAsLinks(mix.tags) + '</div>' +
+					'</div>' +
+				'</div>' +
+				'<div class="mixInfo" id="' + mix.id + '">' +
+					'<div class="images">' +
+						'<div class="cover">' + (mix.images ? '<img src="' + mix.images.cover + '"><i class="material-icons zoom">zoom_in</i>' : '') + '</div>' +
+						'<div class="tracks">' + (mix.images && mix.images.tracks ? '<img src="' + mix.images.tracks + '"><i class="material-icons zoom">zoom_in</i>' : '') + '</div>' +
+					'</div>' +
+					'<div class="mixInfoText">' +
+						'<div class="closeMixInfo"><i class="material-icons">close</i></div>' +
+						'<b>' + mix.title + '</b>' +
+						'<p class="details"><i>length:</i> ' + mix.songs + (mix.bonus > 0 ? '+' + mix.bonus : '') + 
+								' songs (' + mix.length + 'h); <i>date:</i> ' + mix.date + '</p>' +
+						'<p class="desc">' + mix.desc + '</p>' +
+						'<p class="links">listen: ' + getLinks(mix.listen) + ' share: ' + getLinks(mix.links) + ' ' + createPermalink(mix.id) + '</p>' +
+					'</div>' +
+				'</div>' +
+			'</div>'
+		);
+	  
+	  // If property names are known beforehand, you can also just do e.g.
+	  // alert(object.id + ',' + object.Title);
+	}
+}
+
+function getLength(a) {
+    var length1 = $(a).find(".length").text();
+    length1 = (length1.split('/'));
+    if (length1.length > 1) {
+        length1 = (length1[1]).slice(0, -1);
+        length1 = length1.split(':');
+        return (parseInt(length1[0]) * 60 + parseInt(length1[1]));
+    } else return 0;
+}
+
+function sortLengthDescending(a, b) {
+    var length1 = getLength(a);
+    var length2 = getLength(b);
+    return length1 < length2 ? 1 : -1;
+};
+
+function sortLengthAscending(a, b) {
+    var length1 = getLength(a);
+    var length2 = getLength(b);
+    return length1 > length2 ? 1 : -1;
+};
+
+function sortDateDescending(a, b) {
+    var date1 = $(a).find(".date").text();
+    date1 = date1.split('/');
+    date1 = new Date(date1[2], date1[1] - 1, date1[0]);
+    var date2 = $(b).find(".date").text();
+    date2 = date2.split('/');
+    date2 = new Date(date2[2], date2[1] - 1, date2[0]);
+
+    return date1 < date2 ? 1 : -1;
+};
+
+function sortDateAscending(a, b) {
+    var date1 = $(a).find(".date").text();
+    date1 = date1.split('/');
+    date1 = new Date(date1[2], date1[1] - 1, date1[0]);
+    var date2 = $(b).find(".date").text();
+    date2 = date2.split('/');
+    date2 = new Date(date2[2], date2[1] - 1, date2[0]);
+
+    return date1 > date2 ? 1 : -1;
+};
+
+function openFilterView() {
+    //$('#filterOverview').show();
+    $('#filterOverview').css('height', '100%');
+    $('#toggleFilters .less').addClass('active');
+    $('#toggleFilters .more').removeClass('active');
+}
+
+function closeFilterView() {
+    //$('#filterOverview').hide();
+    $('#filterOverview').css('height', '0');
+    $('#toggleFilters .more').addClass('active');
+    $('#toggleFilters .less').removeClass('active');
+}
+
+function setFilter(filterName) {
+	console.log((filterName.match(/\./g) || []).length);
+	// set and/or
+	if ((filterName.match(/\./g) || []).length > 1) {
+		if ((filterName.indexOf(' ') >= 0)) {
+			//toggleConcatType($('#or')); // or is default
+		} else
+			toggleConcatType($('#and'));
+	}
+	
+	filterName = filterName.replaceAll(' ', ''); 
+	filterName = filterName.split('.');
+	var tag;
+	var filter;
+	for (var i = 0; i < filterName.length; i++) {
+		filter = filterName[i];
+		if ((filter != undefined) && (filter != '')) {
+			filter = filter.replaceAll(',', ''); 
+			console.log(filter);
+			//tag = $('#filterOverview #commonTags a:contains(' + filter + ')');
+			tag = $('#filterOverview #commonTags a').filter(function() { return $(this).text() === filter; });
+			if (tag.hasClass('active')) tag.removeClass('active');
+			else tag.addClass('active');
+		}
+	}
+	applyFilter();
+}
+
+function applyFilter() {
+    var curActive = '';
+	//if ((filterName != undefined) && filterName != '') curActive = filterName; else
+	{
+		$('.mix').hide();
+		$('#filterOverview #commonTags a.active').each(function(index) {
+			if (($('#or').hasClass('active')) && (curActive != '')) curActive = curActive + ', ';
+			curActive = curActive + '.' + $(this).text();
+			//console.log(index + ": " + $(this).text());
+		});
+		console.log('filter ' + curActive);
+		$('.mix').hide().filter(curActive).show();
+		
+		addToUrl('filter', curActive);
+	}
+	
+	countMixes();
+}
+
+function toggleConcatType(tag) {
+    if (tag.attr('id') == 'or') {
+        if ($('#or').hasClass('active')) {
+            $('#or').removeClass('active');
+            $('#and').addClass('active');
+        } else {
+            $('#or').addClass('active');
+            $('#and').removeClass('active');
+        }
+    }
+    if (tag.attr('id') == 'and') {
+        if ($('#and').hasClass('active')) {
+            $('#and').removeClass('active');
+            $('#or').addClass('active');
+        } else {
+            $('#and').addClass('active');
+            $('#or').removeClass('active');
+        }
+    }
+    applyFilter();
+}
+
+function resetFilters() {
+    $('.mix').show();
+    $('#filterOverview #commonTags a.active, #and').removeClass('active');
+    $('#or').addClass('active');
+}
+
+function clickFilter(tag, source) {
+    var className = tag.text(); //tag.className;
+	//console.log(className);
+    // toggle visuals
+	if (source == "commonTags") {
+		if (tag.hasClass('active')) tag.removeClass('active');
+		else tag.addClass('active');
+	}
+	if (source == "mixTags") {
+		tag = $('#filterOverview #commonTags a:contains(' + className + ')');
+		if (tag.hasClass('active')) tag.removeClass('active');
+		else tag.addClass('active');
+	}
+    applyFilter();
+}
+
+function countMixes() {
+	var mixCnt = $('.mix:visible').length;
+	$('#mixCount').text(mixCnt + ' playlist' + (mixCnt != 1 ? 's': '') + ' shown.');
+}
+
+function openFullscreen(img) {
+    //var url = img.attr('src');
+    var url = (img.find('img')).attr('src');
+    $('#fullScreenBox img').attr('src', url);
+    $('#fullScreenBox').show();
+}
+
+function closeFullscreen() {
+    $('#fullScreenBox').hide();
+}
+
+function setMixHeight() {
+    //console.log('mixheight called');
+    // overview
+    var w = $('.mix').width();
+    $('.mix').height(w);
+    w = $('.mixInfo img').width();
+    $('.mixInfo img').height(w);
+
+    // mixInfo
+    $('.mixInfo').each(function(index) {
+        $(this).find('img').height($(this).find('img').width());
+        //console.log($(window).width());
+        if (($(window).width() <= 800) || ($('body').hasClass('mobile'))) {
+            var marginTop = ($(this).height() / 2) - 30;
+            //console.log($(this).attr('id') + '\t\t' + $(this).height() + '\t\t' + marginTop);
+            $(this).css('marginTop', '-' + marginTop + 'px');
+        } else
+            $(this).css('marginTop', '');
+    });
+}
+
+function setFullScreenSize() {
+    var h = $(window).height() * 0.8;
+    var w = $(window).width() * 0.8;
+    if (($(window).width() <= 800) || ($('body').hasClass('mobile'))) {
+        $('#fullScreenBox img').css('marginTop', w / (-2));
+    } else {
+        $('#fullScreenBox img').css('marginTop', 0);
+    }
+    if (h > w) {
+        $('#fullScreenBox img').height(w);
+        $('#fullScreenBox img').width(w);
+    } else {
+        $('#fullScreenBox img').height(h);
+        $('#fullScreenBox img').width(h);
+    }
+}
+
+var mainTitle = '';
+
+function addToUrl(key, value) {
+	var newUrl = '';
+	var oldUrl = window.location.href;
+    oldUrl = oldUrl.split('?');
+	if (oldUrl.length > 1) {
+		oldUrl = oldUrl[1];
+		//console.log('oldurl ' + oldUrl);
+		
+		var urlParts = oldUrl.split('&');
+		var length = (urlParts.length ? urlParts.length : 0);
+		for (var i = 0; i < length; i++) {
+			if (urlParts[i].split('=')[0] != key) // all other keys
+				newUrl = newUrl + urlParts[i] + '&';
+		}
+		newUrl = newUrl.substring(0, newUrl.length-1); // delete last '&'
+	} 
+	
+	newUrl = '?' + newUrl + (((value != '') && (value != undefined)) ? ('&' + key + '=' + value) : '');
+		
+	//console.log('newurl ' + newUrl);
+	//console.log('value ' + value);
+	
+	window.history.pushState(null, null, newUrl);
+	return newUrl;
+}
+
+function openPlaylistInfo(mix) {
+    $('#mixOverlay').show();
+    var id = mix.data('id');
+    $('#' + id).show();
+    (mix.closest('.mixWrapper')).addClass('active');
+    setMixHeight();
+	document.title = mainTitle + ' - ' + mix.closest('.mixWrapper').find('.mixInfoText b').text();
+	addToUrl('mix', id);
+}
+
+function closePlaylistInfo(mixInfo) {
+    $('#mixOverlay').hide();
+    if (mixInfo.hasClass('closeMixInfo')) {
+        (mixInfo.closest('.mixInfo')).hide();
+        (mixInfo.closest('.mixWrapper')).removeClass('active');
+    } else { // mixOverlay
+        var wrapper = $('#playlists').find('.mixWrapper.active');
+        (wrapper.find('.mixInfo')).hide();
+        wrapper.removeClass('active');
+    }
+	document.title = mainTitle;
+	addToUrl('mix', '');
+}
+
+// deprecated
+function openPermalink() {
+    var url = window.location.href;
+    url = url.split('&');
+    var mixTitle = jQuery.grep(url, function(value, i) {
+        return value.indexOf('mix') != -1
+    })[0];
+    if (mixTitle != undefined) {
+        mixTitle = mixTitle.split('=');
+
+        if (mixTitle.length >= 2) {
+            mixTitle = mixTitle[1]
+
+            console.log(mixTitle);
+
+            // ?twt&mix=allEyesOnMe
+
+            $('#mixOverlay').show();
+            //if (!($(".playerLinks").get(0)).contains(mix.target)) {
+            var mix = $("#playlists").find("[data-id='" + mixTitle + "']");
+            var id = mix.data('id');
+            $('#' + id).show();
+            (mix.closest('.mixWrapper')).addClass('active');
+            setMixHeight();
+        }
+    }
+}
+
+function evaluateUrl() {
+	var oldUrl = window.location.href;
+    oldUrl = oldUrl.split('?');
+	if (oldUrl.length > 1) {
+		oldUrl = oldUrl[1];
+		oldUrl = oldUrl.replaceAll('%20', ' ');
+		
+		var urlParts = oldUrl.split('&');
+		var length = (urlParts.length ? urlParts.length : 0);
+		for (var i = 0; i < length; i++) {
+			var key = urlParts[i].split('=')[0];
+			var val = (urlParts[i].split('=').length > 0) ? urlParts[i].split('=')[1] : '';
+			
+			if (key == 'mix') openPlaylistInfo($('.mix[data-id=' + val + ']'));
+			if (key == 'filter') {
+				openFilterView();
+				setFilter(val);
+			}
+		}
+	} 
+}
+
+function createPermalink(id) {
+	return '<a data-url="' + (window.location.href).split('?')[0] + '?mix=' + id + '" class="permalink">copy permalink</a> ';
+}
+
+// https://stackoverflow.com/a/33928558
+function copyToClipboard(text) {
+    if (window.clipboardData && window.clipboardData.setData) {
+        // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
+        return clipboardData.setData("Text", text);
+    }
+    else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        var textarea = document.createElement("textarea");
+        textarea.textContent = text;
+        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+        }
+        catch (ex) {
+            console.warn("Copy to clipboard failed.", ex);
+            return false;
+        }
+        finally {
+            document.body.removeChild(textarea);
+        }
+    }
+}
+
+$(document).ready(function() {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        console.log('mobile');
+        $('body').addClass('mobile');
+        /*$('body').css('zoom','400%'); // Webkit browsers
+  $('body').css('zoom','2.0'); // Other non-webkit browsers
+  $('body').css('-moz-transform','scale(4.0, 4.0)'); // Moz-browsers
+  */
+    }
+
+	$('#jsInfo').hide();
+	readJson();
+	
+	mainTitle = document.title;
+	
+    $('.mixInfo').hide();
+    $('#fullScreenBox').hide();
+    $('#mixOverlay').hide();
+    setMixHeight();
+    setFullScreenSize();
+    //openPermalink();
+	evaluateUrl();
+
+    $('.mixWrapper').sort(sortDateDescending).appendTo('#playlists'); // newest first
+	
+	countMixes();
+
+    $('select[name="sort"]').change(function() {
+        if ($(this).val() == "1") $('.mixWrapper').sort(sortDateDescending).appendTo('#playlists'); // newest first
+        if ($(this).val() == "2") $('.mixWrapper').sort(sortDateAscending).appendTo('#playlists'); // oldest first
+        if ($(this).val() == "3") $('.mixWrapper').sort(sortLengthAscending).appendTo('#playlists'); // shortest first
+        if ($(this).val() == "4") $('.mixWrapper').sort(sortLengthDescending).appendTo('#playlists'); // longest first
+    })
+
+    $('#filterOverview #commonTags a').click(function() {
+        clickFilter($(this), "commonTags");
+    });
+	$('.mixTags a').click(function() {
+        clickFilter($(this), "mixTags");
+    });
+    $('#filterOverview a#or, #filterOverview a#and').click(function() {
+        toggleConcatType($(this));
+    });
+    $('#filterOverview p#resetFilters').click(function() {
+        resetFilters();
+    });
+
+    //$('.mixInfo img').click(function() {
+    $('.mixInfo .cover, .mixInfo .tracks').click(function() {
+        openFullscreen($(this));
+    });
+    $('#fullScreenBox').click(function() {
+        closeFullscreen();
+    });
+
+    $('#toggleFilters .more').click(function() {
+        openFilterView();
+    });
+    $('#toggleFilters .less').click(function() {
+        closeFilterView();
+    });
+    $('#playlists').click(function() {
+        if ($('body').hasClass('mobile') && ($('#toggleFilters .less').hasClass('active')))
+            closeFilterView();
+    });
+
+    $('.mix').click(function(e) {
+        if (e.target !== this)
+            return;
+        //console.log('clicked');
+        if (!($('body').hasClass('mobile') && ($('#toggleFilters .less').hasClass('active'))))
+            openPlaylistInfo($(this));
+    });
+    $('.closeMixInfo, #mixOverlay').click(function() {
+        closePlaylistInfo($(this));
+    });
+	
+	$('.mixInfoText .links .permalink').click(function() {
+		console.log($(this).data('url'));
+		copyToClipboard($(this).data('url'));
+	});
+
+    if (window.location.href.indexOf("twt") > -1) {
+        $('.twitter').show();
+        $('.twt').show();
+    } else {
+        $('.twitter').hide();
+        $('.twt').hide();
+    }
+});
+
+/*document.addEventListener('DOMContentLoaded', function() {
+   alert('loaded');
+});*/
+
+$(window).on('resize', function() {
+    //console.log('resize');
+    /*var win = $(this); //this = window
+    if (win.height() >= 820) { }
+    if (win.width() >= 1280) { }*/
+
+    setMixHeight();
+    setFullScreenSize();
+});
+</script>
+
+</body>
+</html>
