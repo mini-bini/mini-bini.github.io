@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!--
+ 
+© almighty-bini - 27.06.21
+
+DO NOT STEAL THE CODES, DO NOT REMOVE THE CREDITS!
+ 
+-->
+
+<title>mittagsvorschläge.</title>
+<link rel="shortcut icon" href="http://media.tumblr.com/tumblr_lny197UbF91qepbs7.gif">
+
+<style>
+
+body {
+font-size: 16px;
+font-family: Arial;
+}
+
+#container {
+padding: 30px;
+margin: auto;
+}
+
+</style>
+</head>
+
+<body>
+<div id="container"></div>
+
+<script type="text/javascript"> 
+
+function ran(arr) {
+	var len = arr.length;
+	var index = Math.floor(Math.random() * len);
+	console.log(index);
+	return arr[index];
+}
+
+function add(from, to, prob) {
+	var obj = ran(from);
+	if (Math.random() < prob)
+		to.push(obj);
+}
+
+function combine(from, to) {
+	for (var i = 0; i < from.length; i++)
+		to.push(from[i]);
+}
+	
+var huhn = Array('Ingwer-/Paprikahühnchen', 'Cordon Bleu', 'Zwiebelfleisch', 'Chicken Wings', 'Hähnchenkeule', 'Hähnchen in Bacon');
+var schwein = Array('Schnitzel', 'Jägerschnitzel', 'Rollbraten', 'Kasseler');
+var rind = Array('Rinderroulade', 'Rinderbraten');	
+var hack = Array('Bouletten', 'Kohlroulade', 'Hackbraten');
+var fisch = Array('Backfisch/Fischstäbchen', 'Fisch mit Soße');
+var fleisch = Array();
+
+add(huhn, fleisch, 1);
+add(schwein, fleisch, 1);
+add(rind, fleisch, 0.4);
+add(hack, fleisch, 0.8);
+add(fisch, fleisch, 0.6);
+console.log(fleisch);
+
+var kartoffeln = Array('Kartoffeln', 'Pellkartoffeln', 'Kartoffelecken', 'Bratkartoffeln', 'Klößen', 'Kroketten', 'Pommes', 'Kartoffelbrei', 'Backkartoffeln');
+var nudeln = Array('Spaghetti', 'Nudeln', 'Tortellini', 'Ravioli', 'Schmetterlingsnudeln', 'Ramen');
+var reis = Array('Reis');
+var beilage1 = Array();
+
+add(kartoffeln, beilage1, 1);
+add(nudeln, beilage1, 0.8);
+add(reis, beilage1, 0.6);
+console.log(beilage1);
+
+var beilage2 = Array('weißen Bohnen', 'grünen Bohnen', 'Rotkohl', 'Sauerkraut', 'Spinat', 'Mischgemüse', 'Schmorkohl', 'Wachsbohnen', 'Brokkoli', 'Buttergemüse', 'Rosenkohl', 'Blumenkohl');
+
+var eintopf = Array('Hühnersuppe', 'Nudelsuppe', 'Möhreneintopf', 'Kartoffelsuppe', 'Erbsensuppe', 'Linsensuppe', 'grüne-Bohnen-Eintopf', 'weiße-Bohnen-Eintopf', 'Soljanka', 'Pusztatopf');
+
+var gericht2 = Array(
+	'Kartoffelpuffer', 'Eierkuchen', 'Hefeklöße', 'Germknödel', 'Milchreis', 'Grießbrei', 'Milchnudeln', 'Schokopuddingsuppe',
+	'Pellkartoffeln mit Kräuterquark', 'asiatischer Topf', 'Chili Con Carne', 'Spaghetti Bolognese', 'Nudeln mit Tomatensoße', 'Spinat mit Spiegelei', 'Lasagne', 'Zucchini mit Hackfleisch', 'Hamburger', 'Wraps', 'Klopse', 'Frikassee', 'Nudeln mit Brokkoli-Käse-Soße', 'Burger');
+combine(eintopf, gericht2);
+
+var gericht1 = ran(fleisch) + ' mit ' + ran(beilage1) + ' und ' + ran(beilage2);
+document.getElementById('container').innerHTML = gericht1 + '<br>oder<br>' + ran(gericht2);
+	
+</script>
+</body>
+</html>
