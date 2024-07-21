@@ -39,7 +39,7 @@ a {
 	color: #cb9cb1;
 }
 
-#wishlist, #exists {
+.container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -100,12 +100,14 @@ h1 {
 
 <div id="info">links to the website are on each image. prices are auto-converted from the british price so depending on the store the value might differ.<br>
 list of german sellers <a href="https://www.sylvanianfamilies.com/de-de/H%C3%A4ndler/">here</a> and handy sylvanian wiki <a href="https://sylvanianfamilies.fandom.com/wiki/Sylvanian_Families_Wiki">here</a>.<br>	
-(last update: 30.12.2023)</div>
+(last update: 21.07.2024)</div>
 
 <h1>wishlist</h1>
-<div id="wishlist"></div>
+<div class="container" id="wishlist"></div>
 <h1>sets i own already</h1>
-<div id="exists"></div>
+<div class="container" id="exists"></div>
+<h1>flea market purchases</h1>
+<div class="container" id="fleamarket"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -125,6 +127,16 @@ var exists = [
 		"date": "",
 		"is": ""
 	},*/
+	{
+		"name": "Baby Seashore Friends Series 11",
+		"details": "Cat with Turtle Backpack",
+		"id": "5721",
+		"img": "https://sylvanianfamilies.co.uk/media/catalog/product/cache/2ce802ea15153971318b913a36177fca/5/7/5721_c02_baby_seashore_friends_series_1.webp",
+		"link": "https://sylvanianfamilies.co.uk/products/baby-seashore-friends-series",
+		"is": "mom",
+		"date": "19.02.24",
+		"figure": "Ryan Persian"
+	},
 	{
 		"name": "Baby Treats Series 8",
 		"details": "Cat with Muffin",
@@ -380,7 +392,7 @@ var exists = [
 	{
 		"name": "Toilet Set",
 		"id": "5020",
-		"img": "https://static.wikia.nocookie.net/sylvanian/images/e/ef/Toilet_Set.jpg",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/fe/Toilet_Set_3563.jpg",
 		"link": "https://sylvanianfamilies.co.uk/products/toilet-set",
 		"from": "mom",
 		"date": "24.12.2022"
@@ -438,6 +450,140 @@ var exists = [
 }
 
 {
+var fleamarket = [
+	{
+		"name": "Baby Shopping Series 2",
+		"id": "5382",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/f5/Midnight_Marlowe_%285381%29.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Shopping_Series",
+		"date": "23.06.2024",
+		"figure": "Midnight Marlowe",
+		"missing": "Shopping Cart"
+	},
+	{
+		"name": "Baby Shopping Series 2",
+		"id": "5382",
+		"img": "https://sylvaniantreasure.com/api/media/items/photo_2024-02-01_13.55.40_1.jpeg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Shopping_Series",
+		"date": "23.06.2024",
+		"figure": "Breeze Chocolate",
+		"missing": "Baguette"
+		// could also be 5438 Baby Outdoor Series 3 Breeze Chocolate with Treasure Chest
+	},
+	{
+		"name": "Baby Band Series 1",
+		"id": "5325",
+		"img": "https://i.ebayimg.com/images/g/3RsAAOSwlTldqjbj/s-l960.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Band_Series",
+		"date": "23.06.2024",
+		"figure": "Jason Osborne"
+	},
+	{
+		"name": "Baby Band Series 1",
+		"id": "5325",
+		"img": "https://i.ebayimg.com/images/g/msUAAOSwLARdqjby/s-l960.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Band_Series",
+		"date": "23.06.2024",
+		"figure": "Milo Cakebread",
+		"missing": "Figure (Milo Cakebread)"
+	},
+	{
+		"name": "Baby Outdoor Series 3",
+		"id": "5438",
+		"img": "https://sylvaniantreasure.com/api/media/items/photo_2024-02-01_15.01.17.jpeg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Outdoor_Series",
+		"date": "23.06.2024",
+		"figure": "Justin Caramel",
+		"missing": "Fishing Rod"
+	},
+	{
+		"name": "Chocolate Rabbit Baby Princess",
+		"id": "9001",
+		"img": "https://web.archive.org/web/20221226072254im_/http://static.sylvaniancollector.net/images/content/dc816344edb2cacc4acede35446b33c5.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"origPrice": "3.99",
+		"link": "https://web.archive.org/web/20221226072254/https://www.sylvaniancollector.net/page.php?page=1116&th=collection",
+		"date": "23.06.2024",
+		"figure": "Crème Chocolate (?)"
+	},
+	{
+		"name": "Chocolate Rabbit Baby with Rocking Horse",
+		"id": "9002",
+		"img": "https://web.archive.org/web/20221226072254im_/http://static.sylvaniancollector.net/images/content/d8359997fd296551509b84c8e372221e.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://web.archive.org/web/20221226072254/https://www.sylvaniancollector.net/page.php?page=1116&th=collection",
+		"date": "23.06.2024",
+		"figure": "Breeze Chocolate (?)",
+		"missing": "Figure (Breeze Chocolate)"
+	},
+	{
+		"name": "Babies Ride and Play",
+		"id": "5040",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/2/21/Babies_Ride_and_Play.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Babies_Ride_and_Play",
+		"date": "23.06.2024",
+		"figure": "Hannah Periwinkle & Alfie Walnut",
+		"missing": "Figure (Kate Periwinkle), Watering Can + Spade, Ride-On-Toy Holder"
+	},
+	{
+		"name": "Seaside Camping Set",
+		"id": "5209",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/8/83/Seaside_Camping_Set.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Seaside_Camping_Set",
+		"date": "23.06.2024",
+		"figure": "Tiffany Golightly",
+		"includes": "Figure (Tiffany Golightly), Sleeping Bag"
+	},
+	{
+		"name": "Triple Bunk Beds",
+		"id": "4448",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/2/25/Triple_Bunk_Beds_4448.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://www.sylvanianfamilies.com/en-uk/catalog/item_detail.php?product_id=179",
+		"date": "23.06.2024",
+		"missing": "Yellow Mattress"
+	},
+	{
+		"name": "Classic Telephone",
+		"id": "5030/5392",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/b/b6/Classic_Telephone.jpg",
+		"batch": "a",
+		"price": "5.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Classic_Furniture_Set",
+		"date": "26.05.2024",
+		"missing": "Schedule Board, Pen, 3 Pieces of Memo Paper, Telephone Sticker"
+	},
+	{
+		"name": "Chocolate Rabbit Sister Set",
+		"id": "5016/5392",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/c/ca/Chocolate_Rabbit_Sister_Set.jpg",
+		"batch": "a",
+		"price": "5.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Classic_Furniture_Set",
+		"date": "26.05.2024",
+		"missing": "Green Notebook, Yellow Pen, Figure (Freya Chocolate)"
+	}
+]
+}
+
+{
 var wishlist = [
 	/*{
 		"name": "",
@@ -482,7 +628,8 @@ var wishlist = [
 		"img": "https://mytoys.scene7.com/is/image/myToys/ext/23221322-01.jpg",
 		"price": "27.00",
 		"link": "https://sylvanianfamilies.co.uk/shop/husky-family.html",
-		"prio": 1
+		"prio": 1,
+		"hide": true
 	},
 	{
 		"name": "Darling Ducklings Baby Carriage",
@@ -500,7 +647,8 @@ var wishlist = [
 		"price": "35.00",
 		"pricefromsmythtoys": true,
 		"link": "https://www.smythstoys.com/de/de-de/spielzeug/puppen-und-zubeh%C3%B6r/sylvanian-families/sylvanian-families-figuren/sylvanian-families-chocolate-rabbit-family-celebration-set/p/189627",
-		"prio": 1
+		"prio": 1,
+		"hide": true
 	},
 	{
 		"name": "Raincoat Babies",
@@ -573,7 +721,8 @@ var wishlist = [
 		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/5054131050309_uk.jpg",
 		"price": "10.00",
 		"link": "https://www.sylvanianfamilies.com/de-ch/catalog/item_detail.php?product_id=565",
-		"prio": 2
+		"prio": 2,
+		"hide": true
 	},
 	{
 		"name": "Chocolate Rabbit Mother Set",
@@ -813,6 +962,25 @@ $(document).ready(function() {
 				'<div class="info">' + set.name + ' (' + set.id + ')' + 
 					(set.figure ? '<br><i>' + set.figure + '</i>' : '') + 
 				'</div>' + 
+			'</div>'  +
+		'');
+	}
+	
+	for (let i = 0; i < fleamarket.length; i++) {
+		let set = fleamarket[i];
+	
+		$('#fleamarket').append(
+			'<div class="set">' +
+				'<a class="image" href="' + set.link + '" title="link to sylvanian families website">' + 
+					'<img src="' + set.img + '">' + 
+				'</a>' + 
+				'<div class="info">' + set.name + ' (' + set.id + ')' + 
+					(set.figure ? '<br><i>' + set.figure + '</i>' : '') + 
+					((set.includes || set.missing) ? '<br><i>' : '') +
+					(set.includes ? 'Includes: ' + set.includes : '') +
+					(set.missing ? 'Missing: ' + set.missing : '') +
+					((set.includes || set.missing) ? '</i>' : '') +
+				'</div>' +
 			'</div>'  +
 		'');
 	}
