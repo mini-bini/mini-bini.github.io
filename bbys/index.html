@@ -1,2160 +1,991 @@
-<!--
-THIS PAGE WAS CREATED ON 09.10.2021 BY almighty-bini
-DO NOT COPY THE CODES!
--->
- 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
  
-<title>bbys.</title>
-<link rel="shortcut icon" href="https://media.tumblr.com/tumblr_m0or6qOXCX1r8kpz7.gif">
-<link rel="alternate" type="application/rss+xml" href="https://oreki-san.tumblr.com/rss">
+<!--
  
-<style type="text/css">
- 
-:root {
-	--info: #FFFFFF;
-	--box: #FFFFFF;
-	--detail: #FFFFFF66;
-	--font: #4C5270;
-} 
+© almighty-bini - 09.01.2022
 
-html, body {
-	position: relative;
-	margin: 0;
-}
+DO NOT STEAL THE CODES, DO NOT REMOVE THE CREDITS!
  
+-->
+
+<title>bini's sylvanian wishlist.</title>
+<link rel="shortcut icon" href="https://64.media.tumblr.com/f0b34e8f747533cbcc70937aaa782d30/tumblr_inline_p7mgkh9kaz1qdlkyg_75sq.gif">
+
+
+<style>
+
+html, body {margin: 0;}
+
 body {
-    color: var(--font);
-    font-family: "consolas";
-    font-size: 12px;
-    word-wrap: break-word;
-}
-	
-#s-m-t-tooltip {
-    background: #fff;
-    color: var(--font);
-    text-align: center;
-    z-index: 9999;
-    max-width: 120px;
-    display: block;
-    padding: 3px 6px;
-    margin: 0px 20px;
+	font-family: "consolas", monospace;
+	font-size: 12px;
+	word-wrap: break-word;
+	color: #666666;
+	overflow-x: hidden;
+	padding: 50px;
+	max-width: 1500px;
+    margin: auto;
 }
 
-#container {
+#info {
+	background: #ffffb8;
 	padding: 20px;
-    margin: 20px;
-	max-width: 900px;
-	margin: auto;
+	margin: 10px;
+}
+
+a {
+	color: #cb9cb1;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.set {
+	margin: 10px;
+	border: 1px solid #F4A9A8;
+	width: 240px;
+	text-align: center;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+	flex-grow: 1;
+}
+.hide {
+	display: none;
+}
+
+a.image {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.set img {
+	max-width: 100%;
+	max-height: 220px;
+    object-fit: contain;
+}
+.info {
+    flex-grow: 0;
+}
+
+b {
+	color: #F4A9A8;
+}
+i {
+	color: #acc1e1;
+}
+
+h1 {
+	margin: 10px;
 	margin-top: 30px;
 }
 
-#filterInfo {
-	background: white;
-	padding: 15px 25px;
-	padding: 20px;
-	max-width: calc(900px - 40px - 10px);
-	max-width: 460px;
-    width: calc(100% - 50px - 60px);
-	height: 30px;
-	top: 50px;
-	display: flex;
-	justify-content: space-between;
-    align-items: center;
-	z-index: 100;
-	
-	/*position: fixed;
-    left: 50%;
-    transform: translate(-50%, 0);*/
-	//position: sticky;
-	margin: auto;
-	margin-bottom: 40px;
+.prio {
+	font-size: 20px;
 }
-#filterInfo .material-icons-round, #filterInfo .material-icons-outlined {
-	font-size: 18px;
-}
-#resetFilters { margin-left: 6px; }
-.pd {
-	margin-right: 10px;
-	vertical-align: middle;
-}
-.line {
-	display: flex;
-	align-items: center;
-}
-.hidden { display: none !important; }
-#tagLine { align-items: center; }
-#tags {
-	flex: 1 1 auto;
-    display: inline-block;
-}
-.click { cursor: pointer; }
-.sticky { position: sticky; }
-.help { cursor: help; }
-
-#content {
-	display: flex;
-	flex-wrap: wrap;
-}
-	
-.header {
-    clear: both;
-    background: var(--box);
-	padding: 2px 5px;
-	padding: 10px;
-	font-weight: bold;
-	font-size: 13px;
-	margin: 5px;
-	flex: 0 1 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-} 
-
-.outer {
-    width: 170px;
-    height: 300px;
-    margin: 5px;
-    background: var(--info);
-	position: relative;
-	background-size: cover;
-	background-position: 50%;
-	flex: 0 0 calc(25% - 10px);
-}
-@media screen and (max-width: 750px) {
-	.outer { flex: 0 0 calc(33.33% - 10px); }
-}
-@media screen and (max-width: 550px) {
-	.outer { flex: 0 0 calc(50% - 10px); }
-}
-
-.img, .front {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-}
-.img {
-	background-size: cover;
-	background-position: 50%;
-	z-index: -1;
-}
-
-.img.mangacap { mix-blend-mode: multiply; }
-.img.animecap {
-	filter: contrast(1.05) brightness(1.05) grayscale(1);
-	mix-blend-mode: multiply;
-}
-
-/* low tiers */
-.monochrome {
-	filter: grayscale(80%);
-	width: 120px;
-	height: 200px;
-	font-size: 80%;
-}
-.monochrome .info {
-	display: none;
-}
-
-.title {
-	display: block;
-    text-align: center;
-	margin: 10px;
-	font-weight: bold;
-}
-
-.name, .series {
-    display: inline-block;
-	padding: 2px 5px;
-}
-.name {
-	display: inline-block;
-	background: var(--box);
-	/*text-shadow: 1px 1px 0px var(--detail);
-	margin: 0 2px 2px 0;*/
-}
-.series {
-	background: white;
-	font-style: oblique;
-}
-.courier {
-	font-family: "courier new";
-	text-transform: uppercase;
-	letter-spacing: 1px;
-    font-size: 1.2em;	
-}
-
-.info {
-	z-index: 9;
-    display: block;
-    bottom: 0;
-    position: absolute;
-    background-color: var(--info);
-    padding: 5px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-	
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-	justify-content: space-between;
-}
-
-.overview {
-	margin-bottom: 10px;
-}
-.overview b {
-	font-weight: normal;
-	font-size: 1.2em;
-}
-.overview:after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  left: 0;
-  margin-top: 2px;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
-  border-bottom: 1px solid var(--detail);
-}
-.overview table { width: 100%; }
-.overview table td { width: 50%; text-align: center; }
-
-.chara {
-	text-align: center;
-	margin-top: 5px;
-}
-
-.comment {
-    background: var(--detail);
-    padding: 5px;
-    margin: 10px;
-	height: 170px;
-	width: calc(100% - 30px);
-	overflow: auto;
-}
-
-.categories { text-align: center; }
-.category {
-	display: inline-block;
-	background: var(--box);
-	margin: 2px;
-	padding: 2px 5px;
-	cursor: pointer;
-}
-
-#navigation {
-	display: none;
-}
-.nav {
-	background: red;
-	padding: 10px;
-    border-radius: 100px;
-    margin: 5px;
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-	font-size: 80%;
-    font-family: courier new;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-/* rotating animation */
-.outer, .front, .info {
-	transition: all 0.6s ease-in-out;
-}
-.outer {
-	transform-style: preserve-3d;
-}
-.outer:hover, .info {
-	transform: rotateY(180deg);
-}
-.front, .info {
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	z-index: 1;
-}
-#content { /*perspective: 5000px;*/ }
 
 </style>
- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 
-<!-- style my tooltips -->
-<script type="text/javascript" src="https://static.tumblr.com/7qjmkr5/IUmmdsy41/jquery.style-my-tooltips.js"></script>
-<script>(function($){$(document).ready(function(){$("[title]").style_my_tooltips();});})(jQuery);</script> 
-
-<link href="#s-m-t-tooltip" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
 
-<div id="navigation"></div>
+<div id="info">links to the website are on each image. prices are auto-converted from the british price so depending on the store the value might differ.<br>
+list of german sellers <a href="https://www.sylvanianfamilies.com/de-de/H%C3%A4ndler/">here</a> and handy sylvanian wiki <a href="https://sylvanianfamilies.fandom.com/wiki/Sylvanian_Families_Wiki">here</a>.<br>	
+(last update: 21.07.2024)</div>
 
-<div id="container">
-	<div id="filterInfo">
-		<div>
-			<div class="line" id="infoLine"><span class="material-icons-outlined pd">info</span><div id="description">the order within tiers is random; multiple personality types are listed when the community opinion is fairly divided; click on tags to filter; hover icons for details</div></div>
-			<div class="line hidden" id="tagLine"><span class="material-icons-round pd">sell</span> <div>characters tagged with <b><span id="tags">tag</span></b></div></div>
-		</div>
-		<span id="resetFilters" class="material-icons-round click">close</span>
-	</div>
+<h1>wishlist</h1>
+<div class="container" id="wishlist"></div>
+<h1>sets i own already</h1>
+<div class="container" id="exists"></div>
+<h1>flea market purchases</h1>
+<div class="container" id="fleamarket"></div>
 
-	<div id="content"></div>
-</div>
-<div id="mbti"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!--<div id="title"><h3>bini's bbys.</h3>
-    a list of my precious bbys in animes. the order is random.<br>
-    <a href="/">back</a> &middot; <a href="/ask">message</a> &middot; <a href="/links">links</a> &middot; <a href="https://almighty-bini.tumblr.com" title="by almighty-bini">&copy;</a>
-</div>-->
-
-<script>  
-const heartStr = '&hearts;'
-var states = [
-    {"name": "exists",  "string": "_",      "material": "space_bar"}, 
-    {"name": "seen",    "string": "X",      "material": "clear"}, 
-    {"name": "liked",   "string": heartStr, "material": "favorite_border"}, 
-    {"name": "loved",   "string": heartStr, "material": "favorite_border"}, 
-    {"name": "ult",     "string": heartStr, "material": "favorite_border"}, 
-    {"name": "unknown", "string": "?",      "material": "question_mark"}
-];
+<script type="text/javascript">
 
 {
-var tiers = [
-    {
-        "name": "ult",
-        "title": "ult",
-        "description": "",
-        "rank": 1
-    },
+var exists = [
+	/*{
+		"name": "",
+		"details": "",
+		"id": "",
+		"img": "",
+		"price": "",
+		"link": "",
+		"prio": ,
+		"from": "",
+		"date": "",
+		"is": ""
+	},*/
 	{
-        "name": "loml",
-        "title": "love of my life",
-        "description": "",
-        "rank": 2
-    },
+		"name": "Baby Seashore Friends Series 11",
+		"details": "Cat with Turtle Backpack",
+		"id": "5721",
+		"img": "https://sylvanianfamilies.co.uk/media/catalog/product/cache/2ce802ea15153971318b913a36177fca/5/7/5721_c02_baby_seashore_friends_series_1.webp",
+		"link": "https://sylvanianfamilies.co.uk/products/baby-seashore-friends-series",
+		"is": "mom",
+		"date": "19.02.24",
+		"figure": "Ryan Persian"
+	},
 	{
-        "name": "princess",
-        "title": "my precious princesses",
-        "description": "",
-        "rank": 3
-    },
+		"name": "Baby Treats Series 8",
+		"details": "Cat with Muffin",
+		"id": "5648",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/23221324-04.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-treats-series-8.html",
+		"from": "bini",
+		"date": "07.05.2022",
+		"figure": "Scott Sandy"
+	},
 	{
-        "name": "marry",
-        "title": "marry me",
-        "description": "",
-        "rank": 3
-    },
+		"name": "Baby Treats Series 8",
+		"details": "Mouse with Cake",
+		"id": "5648",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/23221324-08.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-treats-series-8.html",
+		"from": "mom",
+		"date": "07.05.2022",
+		"is": "mom",
+		"figure": "Albert Marshmallow"
+	},
 	{
-        "name": "love",
-        "title": "i lov them &#x1F97A;",
-        "description": "",
-        "rank": 3
-    },
+		"name": "Baby Costume Series 6",
+		"details": "Deer with Witch Hat",
+		"id": "5544",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/2072_1610416647470.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055441.pt03.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-costume-series-6.html",
+		"from": "mom",
+		"figure": "Matthew Buckley"
+	},
 	{
-        "name": "son",
-        "title": "children",
-        "description": "",
-        "rank": 4
-    },
+		"name": "Baby Camping Series 5",
+		"details": "Deer with Binoculars",
+		"id": "5482",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/16350232-07.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-camping-series-5.html",
+		"from": "mom",
+		"figure": "Matthew Buckley"
+	},
 	{
-        "name": "daughter",
-        "title": "children",
-        "description": "",
-        "rank": 4
-    },
+		"name": "Baby Camping Series 5",
+		"details": "Bunny with Scarf",
+		"id": "5482",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/16350232-08.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-camping-series-5.html",
+		"from": "mom",
+		"is": "mom?",
+		"figure": "Comfrey Cottontail"
+	},
 	{
-        "name": "idek",
-        //"title": "\"theyre not MY kid but theyre a kid i care abt\"",
-        //"title": "lowkey take me on a date pls",
-		"title": "i'm hearteyes",
-		"description": "",
-        "rank": 4
-    },
+		"name": "Baby Outdoor Series 3",
+		"details": "Mouse with Marshmallow",
+		"id": "5438",
+		"img": "https://m.media-amazon.com/images/I/814jv2fa1YL._AC_SL1500_.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/4/5437_c06_baby_outdoor_series_marshmallow_mouse.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-outdoor-series-3.html",
+		"from": "mom",
+		"figure": "Albert Marshmallow"
+	},
 	{
-        "name": "toolong",
-        "title": "it's been too long pensive",
-        "description": "",
-        "rank": 5
-    },
+		"name": "Baby Shopping Series 2",
+		"details": "Bear with Ice Cream",
+		"id": "5381",
+		"img": "http://www.cebitoys.com/Uploads/UrunResimleri/buyuk/sylvanian-families-minifigur-alisveris-36b1fc.jpg",
+		"link": "https://www.sylvanianfamilies.com/de-de/Produkte/item_detail.php?product_id=1821",
+		"from": "mom",
+		"figure": "Beth Polaris"
+	},
 	{
-        "name": "rip",
-        "title": "i've failed u pensive",
-        "description": "",
-        "rank": 6
-    }
-];
+		"name": "Baby Band Series 1",
+		"details": "Squirrel with Timbrel",
+		"id": "5325",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/1736_1527490641659.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/3/5321_img9.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-band-series-surprise-pack.html",
+		"from": "mom",
+		"figure": "Ambrose Walnut"
+	},
+	{
+		"name": "Walnut Squirrel Baby",
+		"id": "5065",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/4/4e/Ambrose_Walnut_%285065%29.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5065_walnut_squirrel_baby_c_sylvanian.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/walnut-squirrel-baby.html",
+		"from": "puu",
+		"date": "24.12.2017",
+		"figure": "Ambrose Walnut"
+	},
+	{
+		"name": "Baby Carry Case (Dog on Slide)",
+		"id": "5204",
+		"img": "https://thumbs.coleka.com/media/item/201610/31/sylvanian-families-valisette-chien-et-toboggan-5204-003.webp",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/2/5204_baby_carry_case_dog_on_slide_2.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-carry-case-dog-on-slide.html",
+		"from": "mom",
+		"figure": "Poppy Fenton"
+	},
+	{
+		"name": "Baby Carry Case (Cat on Swing)",
+		"id": "5201",
+		"img": "https://images.lobbes.nl/images/items/4690200b.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/2/5201_baby_carry_case_cat_on_swing.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/baby-carry-case-cat-on-swing.html",
+		"from": "mom",
+		"figure": "Ginni Golightly"
+	},
+	{
+		"name": "Husky Twins",
+		"id": "5638",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/0/07/Husky_Twins_5638.jpg",
+		"link": "https://sylvanianfamilies.co.uk/products/husky-twins",
+		"from": "mom",
+		"date": "24.12.2022",
+		"figure": "Amber Husky, Jeremy Husky"
+	},
+	{
+		"name": "Marshmallow Mouse Triplets",
+		"id": "5337",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/1737_1527491589504.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/3/5337_01.jpg",
+		"price": "12.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/marshmallow-mouse-triplets.html",
+		"prio": 3,
+		"from": "mom",
+		"date": "11.08.2022",
+		"figure": "Mary, Edward & Elizabeth Marshmallow"
+	},
+	{
+		"name": "Triplets Care Set",
+		"id": "5532",
+		"img": "https://m.media-amazon.com/images/I/71rB2Az7rYL._AC_SL1500_.jpg",
+		//"https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055328.pt06.jpg",
+		"price": "24.00",
+		"link": "https://sylvanianfamilies.co.uk/new/triplets-care-set.html",
+		"prio": 1,
+		"from": "mom",
+		"date": "11.08.2023",
+		"figure": "Flora, Fauna & Philip Chocolate"
+	},
+	{
+		"name": "Costume Cuties - Kitty & Cub",
+		"id": "5597",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/3/32/Costume_Cuties_%28Kitty_%26_Cub%29.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055977.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/new/costume-cuties-kitty-cub.html",
+		"prio": 2,
+		"from": "bini",
+		"date": "31.05.2022",
+		"figure": "Sandy Neptune, Apricot Sandy"
+	},
+	{
+		"name": "Costume Cuties - Bunny & Puppy",
+		"id": "5596",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/9/94/Costume_Cuties_%28Bunny_%26_Puppy%29.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131055960.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/new/costume-cuties-bunny-puppy.html",
+		"from": "bini",
+		"date": "31.05.2022",
+		"figure": "Angelica Marlowe, Micki Goldbacke"
+	},
+	{
+		"name": "Costume Cuties - Bunny & Birdie",
+		"id": "5594",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/fa/Costume_Cuties_%28Bunny_%26_Birdie%29.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/5/5594_costume_cuties_bunny_birdie_product.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/new/costume-cuties-bunny-birdie.html",
+		"from": "bini",
+		"date": "31.05.2022",
+		"figure": "Brooklyn Doughty, Milo Cakebread"
+	},
+	{
+		"name": "Baby Duo Undersea Friends",
+		"id": "5684",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/6/6b/Baby_Duo_%E2%80%93_Undersea_Friends.jpg",
+		"link": "",
+		"from": "mom",
+		"date": "09.04.2023",
+		"figure": "Mo McBurrows, Poppy Fenton"
+	},
+	{
+		"name": "Pushchair",
+		"id": "4460",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/5054131044605_uk.jpg",
+		"link": "https://www.sylvanianfamilies.com/en-uk/catalog/item_detail.php?product_id=176",
+		"from": "mom",
+		"date": "11.08.2022"
+	},
+	{
+		"name": "Kitchen Cooking Set",
+		"id": "5028",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/2328099-01.jpg",
+		"price": "12.00",
+		"link": "https://www.amazon.de/Sylvanian-Families-5028-5028-K%C3%BCchen-Puppenzubeh%C3%B6r/dp/B00HRRCS3Q/",
+		"prio": 1,
+		"from": "puu",
+		"date": "11.08.2022"
+	},
+	{
+		"name": "Breakfast Playset",
+		"id": "5444",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/f6/Breakfast_Playset.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131054444.pt01.jpg",
+		"price": "12.00",
+		"link": "https://www.sylvanianfamilies.com/en-uk/catalog/item_detail.php?product_id=1992",
+		"prio": 1,
+		"from": "mom",
+		"date": "24.12.2023"
+	},
+	{
+		"name": "Chocolate Rabbit Baby Set",
+		"id": "5017",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/5/5b/Chocolate_Rabbit_Baby_Set.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/products/chocolate-rabbit-baby-set",
+		"prio": 1,
+		"from": "mom",
+		"date": "24.12.2023",
+		"figure": "Crème Chocolate"
+	},
+	{
+		"name": "Triple Bunk Beds",
+		"id": "4448",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/2/25/Triple_Bunk_Beds_4448.jpg",
+		"price": "13.00",
+		"link": "https://www.sylvanianfamilies.com/en-uk/catalog/item_detail.php?product_id=179",
+		"prio": 2,
+		"from": "puu",
+		"date": "24.12.2023"
+	},
+	{
+		"name": "Crib with Mobile",
+		"id": "5534",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/2062_1610413583138.jpg",
+		"price": "12.00",
+		"link": "https://www.sylvanianfamilies.com/en-nz/catalog/item_detail.php?product_id=2062",
+		"prio": 2,
+		"from": "puu",
+		"date": "11.08.2023"
+	},
+	{
+		"name": "Washing Machine Set",
+		"id": "5027",
+		"img": "https://i.pinimg.com/originals/e7/df/c4/e7dfc4220174a79d3b46d64f0c8aaa82.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5027_washing_machine_set_1_c_sylvanian.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/washing-machine-set.html",
+		"from": "puu",
+		"date": "24.12.2020"
+	},
+	{
+		"name": "Toilet Set",
+		"id": "5020",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/fe/Toilet_Set_3563.jpg",
+		"link": "https://sylvanianfamilies.co.uk/products/toilet-set",
+		"from": "mom",
+		"date": "24.12.2022"
+	},
+	{
+		"name": "Cupboard with Oven",
+		"id": "5023",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/0/04/Cupboard_with_Oven.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5023_cupboard_with_oven_1_c_sylvanian_1.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/cupboard-with-oven.html",
+		"from": "mom",
+		"date": "24.12.2016"
+	},
+	{
+		"name": "Girl's Dressing Table",
+		"id": "5031",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/d/d7/Girl%27s_Dressing_Table_2936.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5031_girls_dressing_table_1_c_sylvanian.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/girl-s-dressing-table.html",
+		"from": "mom"
+	},
+	{
+		"name": "Kitchen Island",
+		"id": "5442",
+		"img": "https://www.toyworldmackay.com.au/wp-content/uploads/2021/06/Sylvanian-Families-Kitchen-Island-2.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131054420.pt01.jpg",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/kitchen-island.html",
+		"from": "mom",
+		"date": "24.12.2020"
+	},
+	{
+		"name": "Dining Room Set",
+		"id": "5340",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/d/d7/Dining_Room_Set_5340.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/_/5.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/dining-room-set.html",
+		"prio": 1,
+		"from": "bini",
+		"date": "30.05.2022"
+	},
+	{
+		"name": "Kitchen Play Set",
+		"id": "5341",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/9/94/Kitchen_Play_Set.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/1/21548.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/kitchen-play-set.html",
+		"prio": 2,
+		"pricefromsmythtoys": true,
+		"from": "bini",
+		"date": "30.05.2022"
+	}
+]
 }
 
 {
-var characters = [
-    {
-        "name": "kei tsukishima",
-		"displayname": "tsukki",
-        "series": "haikyuu!!",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/tsuk4.jpg",
-			"tumblr": "https://64.media.tumblr.com/6274f6e6e96df96f86e9d892992133c2/e9e44e5057f85932-bf/s250x400/23eaf64d8c8b4c2d0e4eeb10a611de5ad4cd9444.jpg"
-		},
-        "format": [
-            {"type": "anime", "year": "2014", "loved": true, "state": "unknown"}, 
-            {"type": "manga", "year": "2014", "loved": true, "state": "ult"}
-        ],
-        "tier": "ult", "categories": ["snarky", "blond", "sports"],
-        "from": "2014", "until": "",
-        "mbti": "intj",
-		"sunsign": "libra",
-        "update": "09.10.21",
-		"notes": "i am SO bothered by the fact that i can't rmb when i fell in love w tsuk !!!!!"
-    },
-	{
-        "name": "howl",
-        "series": "howl's moving castle",
-		"img": {
-			"icon": "imgs/howl.jpg",
-			"tumblr": "https://64.media.tumblr.com/ba3a641c79870f97b452c8d675f558ef/e9a7bbf5af967d02-1d/s640x960/257c11b7919b09817fe59a36f138cf17fa69a2c1.jpg"
-		},
-        "format": [
-            {"type": "anime", "year": "", "loved": true, "state": "ult"}, 
-            {"type": "book", "year": "2020", "loved": true, "state": "ult"}
-        ],
-        "tier": "ult", "categories": ["sparkly", "dumb", "blond"],
-        "from": "?", "until": "",
-		"mbti": ["enfj", "enfp"],
-		"sunsign": "aquarius",
-        "update": "09.10.21",
-		"notes": "movie howl might be good, but book howl is <i>so much better</i>"
-    },
-	{
-		"name": "yato",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/yato.jpg",
-			"tumblr": "https://64.media.tumblr.com/a08358edb881d6bd32560596367ff507/b0a1bd7952995206-04/s540x810/4a31147d200fc521fdfebf39966c79b3bf346cc1.jpg"
-		},
-		"series": "noragami",
-        "format": [
-            {"type": "anime", "year": "2015", "state": "loved"}, 
-            {"type": "manga", "year": "2020", "state": "ult"}
-        ],
-        "tier": "ult", "categories": ["dumb"],
-        "from": "2015", "until": "",
-        "mbti": "entp",
-		"sunsign": "unknown",
-        "update": "09.10.21",
-		"notes": "i've always loved yato bc he's so funny but i rly fell for him when i read the manga &#x1F97A;"
-	},
-	{
-		"name": "kiba",
-		"displayname": "",
-		"img": {
-			"icon2": "imgs/kiba.jpg",
-			"tumblr": "https://64.media.tumblr.com/81d3f42ef29dc8c389da8e293478a0f8/8608cf8e3ac247b2-af/s500x750/2da7cd90c5dd5e1d000ced883bb365e2488cc7f5.jpg"
-		},
-		"series": "wolf's rain",
-        "format": [
-			{"type": "manga", "year": "2007", "state": "seen"},
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "love", "categories": ["puppy"],
-        "from": "2021", "until": "",
-        "mbti": "infp",
-		"sunsign": "unknown",
-        "update": "09.10.21",
-		"notes": "can't rmb if i already liked him during the rewatch 2018 but i def felt it in 2021 &#x1F97A;"
-	},
-	{
-        "name": "kenji yamaguchi",
-		"displayname": "yamaken",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/yamaken.jpg",
-			"tumblr": "https://64.media.tumblr.com/df4c928e56e7e1a3eaadde88eccd2b86/e9e44e5057f85932-fd/s500x750/283787e1eb8582ebf5864fc85767278a3e923a5c.jpg"
-		},
-        "series": "tonari no kaibutsu-kun",
-        "format": [
-            {"type": "anime", "year": "2013", "loved": false, "state": "seen"}, 
-            {"type": "manga", "year": "2020", "loved": true, "state": "loved"}
-        ],
-        "tier": "loml", "categories": ["snarky", "blond", "shoujo", "blush"],
-        "from": "2020", "until": "",
-		"mbti": "intj",
-		"sunsign": "taurus",
-        "update": "09.10.21",
-		"notes": "yamaken hard-carried this manga for me; all his dokidoki scenes were SUPERIOR and i am STILL thinking abt timeskip-yamaken >->o how did i not SEE him in the anime ??"
-    },
-	{
-		"name": "mirai kuriyama",
-		"img": {
-			"icon": "https://static.tumblr.com/ea1f4aa356b9ea75ca38b92340264128/xkmu7fe/r91n5q8rq/tumblr_static_2j9ivm8601s0gsw44kcc8k4s4.png"
-		},
-		"series": "kyoukai no kanata",
-		"format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2013", "until": "~2016",
-        "mbti": "isfp",
-        "update": "09.10.21",
-		"notes": "i wish she'd still be in my favs in 2021 but i didn't feel much during the rewatch 2021 )):"
-	},
-	{
-		"name": "ai shindou",
-		"img": {
-			"icon": "https://static.tumblr.com/9ea92e05bf18313afc7d6e6a481be77b/xkmu7fe/QcJn5q8rq/tumblr_static_4n6lwo97mtk4w4g4ccw0kgs44.png"
-		},
-		"series": "kyoukai no kanata",
-		"format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2013", "until": "~2014",
-        "mbti": "infp",
-        "update": "09.10.21",
-		"notes": "once again felt nth during the rewatch 2021"
-	},
-	{
-		"name": "riza hawkeye",
-		"displayname": "riza",
-		"img": {
-			"icon2": "imgs/riza2.jpg",
-			"tumblr": "https://64.media.tumblr.com/70be5e58e58a08349a48a06c6f556d4f/8ea1382628d3f5fa-26/s500x750/261779b812afd9e1881c8b8e3fc6ce5906973010.jpg"
-		},
-		"series": "fullmetal alchemist",
-        "format": [
-			{"type": "manga", "year": "2007?", "state": "loved"},
-            {"type": "anime", "year": "2012", "state": "loved"}
-        ],
-        "tier": "marry", "categories": ["blond"],
-        "from": "2007?", "until": "",
-        "mbti": "istj",
-		"sunsign": "libra",
-        "update": "02.03.24", // new img // "29.01.22",
-		"notes": "my queen >->o ma'am, hand in marriage pls"
-	},
-	{
-		"name": "winry rockbell",
-		"displayname": "winry",
-		"img": {
-			"icon": "https://static.tumblr.com/4eeb8f2111d9548d53c57af1042e1079/xkmu7fe/M6Qn5q8rr/tumblr_static_9wol5ak23tsgo0g4co40sgsw4.png"
-		},
-		"series": "fullmetal alchemist",
-        "format": [
-			{"type": "manga", "year": "2007?", "state": "liked"},
-            {"type": "anime", "year": "2012", "state": "unknown"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2007?", "until": "",
-        "mbti": "esfj",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "yui hirasawa",
-		"displayname": "yui",
-		"img": {
-			"icon2": "imgs/yui2.jpg",
-			"tumblr": "https://64.media.tumblr.com/fc1e344c2dab1b9ff8eed8795fec7c48/b0a1bd7952995206-05/s540x810/c395fea8f0581c74b0d865a273e03d42be3cb5f5.jpg"
-		},
-		"series": "k-on!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-			//,{"type": "manga", "year": "", "state": "none"}
-        ],
-        "tier": "daughter", "categories": ["dumb", "puppy", "kin"],
-        "from": "2013", "until": "",
-        "mbti": "enfp",
-		"sunsign": "sagittarius",
-        "update": "09.10.21",
-		"notes": "i still find her highkey relatable"
-	},
-	{
-		"name": "azusa nakano",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/a5b9cc30b2bd6127f5dbb910063e3d70/xkmu7fe/Am2n5q8rs/tumblr_static_22rvlvnzu6asw4go4wokc08g8.png"
-		},
-		"series": "k-on!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"},
-			{"type": "manga", "year": "", "state": "none"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2013", "until": "2014",
-        "mbti": "istj",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "mio akiyama",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/db7e9529f2e223297bf726f4d280497d/xkmu7fe/ocin5q8rs/tumblr_static_2ks8qwdvabacskscw0gkggogg.png"
-		},
-		"series": "k-on!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"},
-			{"type": "manga", "year": "", "state": "none"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2013", "until": "2014",
-        "mbti": ["istj", "isfj"],
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "tsumugi kotobuki",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/b4b550dddefece79bf6354b7b92fb867/xkmu7fe/pQ7n5q8rs/tumblr_static_cpqit3vir5kwosogkgcgwkw44.png"
-		},
-		"series": "k-on!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"},
-			{"type": "manga", "year": "", "state": "none"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2013", "until": "2014",
-        "mbti": "infp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "ritsu tainaka",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/a911460c5ad33e42596922dcad1fd730/xkmu7fe/I1Xn5q8rt/tumblr_static_8dvofgvwgq88ss08occo88s00.png"
-		},
-		"series": "k-on!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"},
-			{"type": "manga", "year": "", "state": "none"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2013", "until": "2014",
-        "mbti": "estp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "usagi tsukino",
-		"displayname": "usagi",
-		"img": {
-			"icon2": "imgs/usagi.jpg",
-			"tumblr": "https://64.media.tumblr.com/0ad47a3c75cef61536ee6e0e9972087e/e9e44e5057f85932-c7/s400x600/02c6d8ecbb8bb2f32bf285a43022008ad433df6e.jpg"
-		},
-		"series": "sailor moon",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "loved"}, 
-            {"type": "manga", "year": "2021", "state": "seen"}
-        ],
-        "tier": "daughter", "categories": ["dumb", "blond", "kin"],
-        "from": "2014", "until": "",
-        "mbti": ["esfj", "enfj", "esfp", "enfp"],
-		"sunsign": "cancer",
-        "update": "29.01.22",
-		"notes": "she's cute, she's funny, she's dumb and she's fighting evil by moonlight. everything i look for in a person"
-	},
-	{
-		"name": "makoto kino",
-		"displayname": "makoto",
-		"img": {
-			"icon2": "imgs/jupiter.jpg",
-			"tumblr": "https://64.media.tumblr.com/6f6571598287d18a04b44a3c07f50de8/b0a1bd7952995206-ea/s500x750/fce64040291c01493a20be8f393ee72b66564aa0.jpg"
-		},
-		"series": "sailor moon",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2021", "state": "seen"}
-        ],
-        "tier": "idek", "categories": [],
-        "from": "pre-2014", "until": "",
-        "mbti": "esfj",
-		"sunsign": "sagittarius",
-        "update": "29.01.22",
-		"notes": "we're fated lovers since the year 2000"
-	},
-	{
-		"name": "haruka tenoh",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/9090fba46dccba1be9cd0c10baeb438f/xkmu7fe/HYwn5q8ru/tumblr_static_69186h07vt8os0s0ss4g0wsw4.png"
-		},
-		"series": "sailor moon",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2021", "state": "seen"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2014", "until": "~2015",
-        "mbti": "istp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "haruka nanase",
-		"displayname": "haru",
-		"img": {
-			"icon": "imgs/haru2.jpg",
-			"tumblr": "https://64.media.tumblr.com/7e97460fc63f00a4cea2f250486b51af/e9a7bbf5af967d02-f0/s500x750/ec9303e5d73540246378ea22c3271852d7486cc8.jpg"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "loved"}
-        ],
-        "tier": "loml", "categories": ["dumb", "sports"],
-        "from": "2021", "until": "",
-        "mbti": "isfp",
-		"sunsign": "cancer",
-        "update": "09.10.21",
-		"notes": "he only came thru in 2021 but went straight for my heart how did i never notice him before"
-	},
-	{
-		"name": "momotarou mikoshiba",
-		"displayname": "momo",
-		"img": {
-			"icon2": "imgs/momo.jpg",
-			"tumblr": "https://64.media.tumblr.com/54037776606ff68c703d5612f00d74e6/8608cf8e3ac247b2-45/s500x750/7976f14467cb1907fc1867f9bf0bd9c9f7a934fd.jpg"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}
-        ],
-        "tier": "rip", "categories": ["dumb", "sports", "puppy"],
-        "from": "2021", "until": "06.03.24",
-        "mbti": "esfp",
-		"sunsign": "sagittarius",
-        "update": "06.03.24", // removed // "29.01.22",
-		"notes": "p sure i found him a bit annoying at first, but his single braincell is so precious how could i not love him"
-	},
-	{
-		"name": "rei ryugazaki",
-		"displayname": "rei",
-		"img": {
-			"icon2": "imgs/rei.jpg",
-			"tumblr": "https://64.media.tumblr.com/6a45c313b93733177d8b1b9c6fc887ae/8608cf8e3ac247b2-46/s500x750/4023ea1eb289bfae9714678ef2f59043c43ad850.jpg"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "son", "categories": ["dumb", "sports"],
-        "from": "2021", "until": "",
-        "mbti": "istj",
-		"sunsign": "sagittarius",
-        "update": "06.03.24", // from love to son // "09.10.21",
-		"notes": "he's so funny for no reason, but i only realized this in 2021 &#x1F927;"
-	},
-	{
-		"name": "asahi shiina",
-		"displayname": "asahi",
-		"img": {
-			"icon2": "imgs/asahi.jpg",
-			"tumblr": "https://64.media.tumblr.com/9dae5e4edd419ca672b235a8331f7fce/e9a7bbf5af967d02-c7/s500x750/b6b6169dc0e8facbc62d80a75a38dced61955624.jpg"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "movie", "year": "2018", "state": "liked"}
-        ],
-        "tier": "rip", "categories": ["puppy", "sports"],
-        "from": "2018", "until": "~2022",
-        "mbti": "estp",
-		"sunsign": "aries",
-        "update": "06.03.24", // removed // "23.03.23", // "09.10.21",
-		"notes": "i think i might like baby-asahi a bit more actually<br><br>2023-bini here, and i gotta say i was a fool before, uni-asahi is GOOD too"
-	},
-	{
-		"name": "makoto tachibana",
-		"displayname": "makoto",
-		"img": {
-			"icon": "https://static.tumblr.com/a976cd7c2d0c1f9328e96e66bb084663/xkmu7fe/YMSn5q8ru/tumblr_static_8h5fjzqkwi880kws8c48ogs48.png"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "loved"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2013", "until": "~2016",
-        "mbti": ["esfj", "isfj"],
-        "update": "09.10.21",
-		"notes": "sry makoto &#x1F614;"
-	},
-	{
-		"name": "gou matsuoka",
-		"displayname": "gou",
-		"img": {
-			"type": "anime",
-			"icon2": "imgs/gou.jpg",
-			"tumblr": "https://64.media.tumblr.com/8c22bb6fb99da89cabd58841d3b21b75/e9a7bbf5af967d02-33/s500x750/56b4caeca945286cb5fe55999eb6bd72eace299e.jpg"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "daughter", "categories": ["sports"],
-        "from": "2013", "until": "~2016",
-        "mbti": "esfj",
-		"sunsign": "capricorn",
-        "update": "09.10.21",
-		"notes": "it didn't feel the same when i saw her again in 2021 &#x1F614; bUT she is still a child !!"
-	},
-	{
-		"name": "rin matsuoka",
-		"displayname": "rin",
-		"img": {
-			"icon": "imgs/rin2.jpg",
-			"tumblr": "https://64.media.tumblr.com/cb59b073313005be6277e42d8a197910/8608cf8e3ac247b2-89/s640x960/64096e1a772c31d991a1b8cf691069297a79ce8e.jpg"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "loved"}
-        ],
-        "tier": "loml", "categories": ["snarky", "sports"],
-        "from": "2015?", "until": "",
-        "mbti": "enfj",
-		"sunsign": "aquarius",
-        "update": "29.01.22",
-		"notes": "sry but his intro w the rap song as bgm ? absolutely ICONIC. how can he be snarky and dumb and a crybaby all at the same time ?? we stan a versatile man"
-	},
-	{
-		"name": "sousuke yamazaki",
-		"displayname": "sousuke",
-		"img": {
-			"icon_": "https://static.tumblr.com/5f3b9d6c1f14185e83a7f778613aba12/xkmu7fe/M9xncqb7g/tumblr_static_avy6fghdgm0css0c08k4wwwc8.png",
-			"icon2": "imgs/sousuke2.jpg",
-			"tumblr": "https://64.media.tumblr.com/72c3b8d69afbd583932d7dc42ff2f385/b0a1bd7952995206-4e/s400x600/ec071a8e2d7d20cf56e08c747046b449335a18f8.jpg"
-		},
-		"series": "free!",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}
-        ],
-        "tier": "idek", "categories": ["sports"],
-        "from": "2014", "until": "~2018",
-        "mbti": "istj",
-		"sunsign": "virgo",
-        "update": "09.10.21",
-		"notes": "he faded so into the background in s3 )): my angry emo boy"
-	},
-	{
-		"name": "mikasa ackerman",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/3a9b88c5e789c4875fe79e8d8e1b73db/xkmu7fe/PJIn5qbo3/tumblr_static_659bj1zlyygw0cowkc0o84k84.png"
-		},
-		"series": "shingeki no kyojin",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2014", "state": "unknown"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2014", "until": "~2015",
-        "mbti": "istj",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "annie leonhardt",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/fdeba3b25d912f2742c0fc294d8e1c46/xkmu7fe/B98n5q8rv/tumblr_static_7axc4tfiq1ogkk0w0wco888ws.png"
-		},
-		"series": "shingeki no kyojin",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2014", "state": "unknown"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2014", "until": "~2015",
-        "mbti": "istp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "sasha braus",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/f7b76c1bb8b712a48e80739b7bda42d4/xkmu7fe/lImn5q9u0/tumblr_static_91jbanm8on40ogk0wk4gw0sw8.png"
-		},
-		"series": "shingeki no kyojin",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2014", "state": "unknown"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2014", "until": "2021",
-        "mbti": "esfp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "armin arlert",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/1beacaa1efceadcb18dc897c65f24b59/xkmu7fe/nNXn5q9u1/tumblr_static_eo3pfw6h3u0o840cwosc4oscg.png"
-		},
-		"series": "shingeki no kyojin",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "loved"}, 
-            {"type": "manga", "year": "2014", "state": "loved"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "", "until": "",
-        "mbti": "infj",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "hanji zoe",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/e9a8a3c559b1b2f1caa8f8b7c4656e95/xkmu7fe/Xwon5q9u1/tumblr_static_8a1ai1jr4z0oks804gcwocs88.png"
-		},
-		"series": "shingeki no kyojin",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2014", "state": "unknown"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "", "until": "",
-        "mbti": "entp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "asuka langley soryu",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/09d125af2fe0b735f48c354b515e5ab8/xkmu7fe/287n5qbo4/tumblr_static_ctq9qg0vzagogc4ksw0gko80w.png"
-		},
-		"series": "neon genesis evangelion",
-        "format": [
-            {"type": "movie", "year": "2012", "state": "liked"}, 
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2012", "until": "~2013",
-        "mbti": ["entj", "estj"],
-        "update": "09.10.21",
-		"notes": "tbh dk why i liked her before, she was p annoying when i rewatched the movies 2021 >.>"
-	},
-	{
-		"name": "eru chitanda",
-		"displayname": "chitanda",
-		"img": {
-			"icon": "https://static.tumblr.com/f397578385cf6e62ee2e9b15c5995454/xkmu7fe/I24n5qbo4/tumblr_static_38jvas6a4wsggowo40swwcs4w.png"
-		},
-		"series": "hyouka",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2013", "until": "~2016",
-        "mbti": "enfp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "houtarou oreki",
-		"displayname": "oreki",
-		"img": {
-			"type": "anime",
-			"icon2": "imgs/oreki2.jpg",
-			"tumblr": "https://64.media.tumblr.com/d3408627b2a74d8da6c0e8eb193def5e/8608cf8e3ac247b2-fd/s500x750/499bef8d24876f7e4ee5e50546beb57ec3447cf3.jpg"
-		},
-		"series": "hyouka",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "loved"}
-        ],
-        "tier": "loml", "categories": ["snarky"],
-        "from": "2013", "until": "",
-        "mbti": "intj",
-		"sunsign": "taurus",
-        "update": "09.10.21",
-		"notes": "isn't he like the first intj i loved ? it's been a while since i last saw him but honestly he still has my heart"
-	},
-	{
-		"name": "tamako kitashirakawa",
-		"displayname": "tamako",
-		"img": {
-			"icon2": "imgs/tamako.jpg",
-			"tumblr": "https://64.media.tumblr.com/3ab4689d1eaf6329a3a4e9220288f304/e9e44e5057f85932-40/s500x750/ed325941e565973cc09ab82ff5ac163da56e9ba1.jpg"
-		},
-		"series": "tamako market",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "loved"}
-        ],
-        "tier": "daughter", "categories": ["dumb"],
-        "from": "2013", "until": "",
-        "mbti": "enfp",
-		"sunsign": "capricorn",
-        "update": "23.0.23", // "29.01.22",
-		"notes": "i forgot what an absolute airhead she is lmao no wonder she's been here for a decade"
-	},
-	{
-		"name": "anko kitashirakawa",
-		"displayname": "anko",
-		"img": {
-			"icon": "https://static.tumblr.com/1dbfa8bb59e6d39a76997520a1574606/xkmu7fe/hf6n5qa9z/tumblr_static_4wyf8j37m0ao44s4g0sswc88s.png"
-		},
-		"series": "tamako market",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2013", "until": "~2015",
-        "mbti": "estj",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "asako natsume",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/20670eeca02eb5efd23d1b58b7fe90e8/xkmu7fe/gWVn5qbo5/tumblr_static_k2xi7j5t99sooccwkoks08w4.png"
-		},
-		"series": "tonari no kaibutsu-kun",
-		"format": [
-            {"type": "anime", "year": "2013", "state": "liked"}, 
-            {"type": "manga", "year": "2020", "state": "seen"}
-        ],
-        "tier": "toolong", "categories": ["shoujo", "dumb"],
-        "from": "2013", "until": "pre-2020",
-        "mbti": ["esfp", "esfj"],
-        "update": "09.10.21",
-		"notes": "i can't rmb feeling much for her when i read the manga sadly &#x1F927;"
-	},
-	{
-		"name": "cheza",
-		"displayname": "",
-		"img": {
-			"type": "anime",
-			"icon2": "imgs/cheza.jpg",
-			"tumblr": "https://64.media.tumblr.com/cce0dd541f1ae03f550058267e9672a4/e9a7bbf5af967d02-63/s400x600/af03f385fab6aa0086bd5e8cce2267c0140fef9c.jpg"
-		},
-		"series": "wolf’s rain",
-        "format": [
-			{"type": "manga", "year": "2007", "state": "loved"},
-            {"type": "anime", "year": "2013", "state": "loved"}
-        ],
-        "tier": "princess", "categories": ["kin"],
-        "from": "2007", "until": "",
-        "mbti": "infp",
-		"sunsign": "unknown",
-        "update": "09.10.21",
-		"notes": "literally my first kin i love her sm"
-	},
-	{
-		"name": "nezumi",
-		"displayname": "",
-		"img": {
-			"icon": "https://static.tumblr.com/76bf58d04ae23cb7e45905dae57cc028/xkmu7fe/9kVn5qbo6/tumblr_static_d7borbxp8rkg4c88wowcc0gkc.png"
-		},
-		"series": "no. 6",
-        "format": [
-            {"type": "anime", "year": "2013", "state": "liked"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2013", "until": "2014?",
-        "mbti": "istp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "kenma kozume",
-		"displayname": "kenma",
-		"img": {
-			"type": "anime",
-			"icon2": "imgs/kenma.jpg",
-			"tumblr": "https://64.media.tumblr.com/03154cfb4054d98e482f2cf568285f6c/e9a7bbf5af967d02-49/s400x600/45cee7f46393c7b864fc91a503d3083b86d32c31.jpg"
-		},
-		"series": "haikyuu!!",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2014", "state": "liked"}
-        ],
-        "tier": "son", "categories": ["blond", "sports"],
-        "from": "2014", "until": "",
-        "mbti": "intp",
-		"sunsign": "libra",
-        "update": "29.01.22",
-		"notes": "pretty sure he was my first fav in hq! soft and funny and rly relatable"
-	},
-	{
-		"name": "tadashi yamaguchi",
-		"displayname": "yams",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/yams4.jpg",
-			"tumblr": "https://64.media.tumblr.com/c254d1831f076b41efbf2f956205c109/54dfcd452ae558d6-ce/s400x600/d0a6f2a055e4931ee04a3d7f875887fc01cbd48c.jpg"
-		},
-		"series": "haikyuu!!",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "unknown"}, 
-            {"type": "manga", "year": "2014", "state": "loved"}
-        ],
-        "tier": "loml", "categories": ["sports"],
-        "from": "2014", "until": "",
-        "mbti": "infp",
-		"sunsign": "scorpio",
-        "update": "09.10.21",
-		"notes": "protecc him at all costs"
-	},
-	{
-		"name": "lev haiba",
-		"displayname": "lev",
-		"img": {
-			"type": "manga",
-			"icon2": "https://pbs.twimg.com/profile_images/1368717072054812672/ShgYkxND.jpg",
-			"tumblr": "https://64.media.tumblr.com/3ef3dae284df38499623e96e42c177e0/e9e44e5057f85932-a8/s400x600/5c156b4b93ef1c046d3a1fada8bc424a062877e5.jpg"
-		},
-		"series": "haikyuu!!",
-        "format": [
-			{"type": "manga", "year": "2014", "state": "loved"},
-            {"type": "anime", "year": "2015", "state": "loved"}
-        ],
-        "tier": "son", "categories": ["dumb", "sports", "puppy"],
-        "from": "2014", "until": "",
-        "mbti": "esfp",
-		"sunsign": "scorpio",
-        "update": "09.10.21",
-		"notes": "I! LOVE! HIM!"
-	},
-	{
-		"name": "morisuke yaku",
-		"displayname": "yaku",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/yaku.jpg",
-			"tumblr": "https://64.media.tumblr.com/cc4db437052a83724e59d3fe3316a476/b0a1bd7952995206-2c/s250x400/eadefc42106213cd8bcb824be3f63e8a9e831d01.jpg"
-		},
-		"series": "haikyuu!!",
-        "format": [
-			{"type": "anime", "year": "2014", "state": "liked"},
-			{"type": "manga", "year": "2014", "state": "liked"}
-        ],
-        "tier": "idek", "categories": ["sports"],
-        "from": "2016", "until": "",
-        "mbti": "estj",
-		"sunsign": "leo",
-        "update": "09.10.21",
-		"notes": "idk when it started but now he makes my heart go dokidoki. i love my tiny man"
-	},
-	{
-		"name": "tobio kageyama",
-		"displayname": "kageyama",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/kageyama2.jpg",
-			"tumblr": "https://64.media.tumblr.com/3710875d9d92f74240d00db803e6937a/b0a1bd7952995206-be/s500x750/c95f0014438db65611b96fd91493fa6caae7f6c0.jpg"
-		},
-		"series": "haikyuu!!",
-        "format": [
-			{"type": "manga", "year": "2014", "state": "liked"},
-            {"type": "anime", "year": "2014", "state": "liked"}
-        ],
-        "tier": "love", "categories": ["sports", "dumb"],
-        "from": "2020", "until": "",
-        "mbti": "istj",
-		"sunsign": "capricorn",
-        "update": "09.10.21",
-		"notes": "i'm late to the party "
-	},
-	{
-		"name": "hitoka yachi",
-		"displayname": "yacchan",
-		"img": {
-			"type": "anime",
-			"icon2": "imgs/yachi2.jpg",
-			"tumblr": "https://64.media.tumblr.com/b1282e30e870be0fcfcc114ecac6b612/b0a1bd7952995206-19/s400x600/3e1279b64d52b6f84328895b25e1fd17cc4051f8.jpg"
-		},
-		"series": "haikyuu!!",
-        "format": [
-			{"type": "manga", "year": "2014", "state": "ult"},
-            {"type": "anime", "year": "2015", "state": "ult"}
-        ],
-        "tier": "princess", "categories": ["sports", "blond", "kin"],
-        "from": "2014", "until": "",
-        "mbti": "isfj",
-		"sunsign": "virgo",
-        "update": "09.10.21",
-		"notes": "<i>\"well she'd certainly be at the top of my loves of my life bc she'd easily win against any other in the list there ...... who am i kidding, for yacchan i'd even throw tsuk off a cliff w/o a 2nd thought that lanky beanstalk &#x1F612;\"</i><br>basically an ult, she's just here bc i like her in the princess category &#x1F60A;"
-	},
-	{
-		"name": "ken kaneki",
-		"displayname": "kaneki",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/kaneki.jpg",
-			"tumblr": "https://64.media.tumblr.com/717fc1b052e487eb93e9f778b3134b32/e9a7bbf5af967d02-84/s400x600/9743699abba6496d3e6d882bd92c81ea86ff6b6d.jpg"
-		},
-		"series": "tokyo ghoul",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"}, 
-            {"type": "manga", "year": "2015", "state": "loved"}
-        ],
-        "tier": "rip", "categories": [],
-        "from": "2014", "until": "06.03.24",
-        "mbti": ["infp", "infj"],
-		"sunsign": "sagittarius",
-        "update": "06.03.24", // removed // "09.10.21",
-		"notes": "somebody give this boy a hug pls TT"
-	},
-	{
-		"name": "otoya ittoki",
-		"displayname": "",
-		"img": {
-			"icon": "https://secure.static.tumblr.com/20dfe2fc127999247804b1f6e34ff059/xkmu7fe/usfnkc2uf/tumblr_static_bktpx1mx0oowwcsgwgg00kgso.png"
-		},
-		"series": "uta no prince-sama",
-		"format": [
-            {"type": "anime", "year": "2014", "state": "liked"},
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2014", "until": "2015",
-        "mbti": "esfp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "ciel phantomhive",
-		"displayname": "ciel",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/ciel.jpg",
-			"tumblr": "https://64.media.tumblr.com/b09ee08c43f3495d85a5dfbeba8168d0/e9a7bbf5af967d02-08/s500x750/ae15088ab88804848a290bb8f56db51900025a6a.jpg"
-		},
-		"series": "kuroshitsuji",
-        "format": [
-            {"type": "manga", "year": "2014", "state": "liked"},
-			{"type": "anime", "year": "2014", "state": "liked"}
-        ],
-        "tier": "son", "categories": ["snarky"],
-        "from": "2014", "until": "",
-        "mbti": "intj",
-		"sunsign": "sagittarius",
-        "update": "09.10.21",
-		"notes": "idk man i just wish i would dress like him"
-	},
-	{
-		"name": "yuuta togashi",
-		"displayname": "yuuta",
-		"img": {
-			"icon": "https://secure.static.tumblr.com/a3d7f37fd74f894396ee3d20daf7b609/xkmu7fe/UZjnkc329/tumblr_static_b6nqahxcd7kggwk4wowg0cs80.png"
-		},
-		"series": "chuunibyou",
-		"format": [
-            {"type": "anime", "year": "2015", "state": "liked"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2015", "until": "",
-        "mbti": "isfj",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "rikka takanashi",
-		"displayname": "rikka",
-		"img": {
-			"icon": "https://secure.static.tumblr.com/2367b3a2d1614e65782c2d9607218a02/xkmu7fe/Popnkc34e/tumblr_static_3piblqa1ngo4kwo8ssc0wokwk.png"
-		},
-		"series": "chuunibyou",
-		"format": [
-            {"type": "anime", "year": "2015 ", "state": "liked"}
-        ],
-        "tier": "toolong", "categories": [],
-        "from": "2015", "until": "",
-        "mbti": "infp",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "ren mihashi",
-		"displayname": "mihashi",
-		"img": {
-			"type": "anime",
-			"icon2": "imgs/mihashi.jpg",
-			"tumblr": "https://64.media.tumblr.com/cb872a140e6febf2a9f7c7eaddd469b2/8608cf8e3ac247b2-ad/s500x750/736ddae8f3b95c5e39ea6a0a7245562983cf4db5.jpg"
-		},
-		"series": "ookiku furikabutte",
-		"format": [
-            {"type": "anime", "year": "2015", "state": "liked"}
-			//,{"type": "manga", "year": "", "state": "none"}
-        ],
-        "tier": "son", "categories": ["sports", "puppy"],
-        "from": "2015", "until": "",
-        "mbti": "infp",
-		"sunsign": "taurus",
-        "update": "29.01.22",
-		"notes": "tfw u wanna press the protect button for 2 seasons straight"
-	},
-	{
-		"name": "futaba yoshioka",
-		"displayname": "",
-		"img": {
-			"icon": "https://secure.static.tumblr.com/f75bbc98cefbd45b4bc4620ddb091410/xkmu7fe/b9Snkc38v/tumblr_static_6xq3y08pvzk8oc4w0w0wss00w.png"
-		},
-		"series": "ao haru ride",
-        "format": [
-            {"type": "anime", "year": "2015", "state": "liked"}, 
-            {"type": "manga", "year": "2020", "state": "unknown"}
-        ],
-        "tier": "toolong", "categories": ["shoujo"],
-        "from": "", "until": "",
-        "mbti": "esfj",
-        "update": "09.10.21",
-		"notes": ""
-	},
-	{
-		"name": "sawako kuronuma",
-		"displayname": "sawako",
-		"img": {
-			"icon2": "imgs/sawako.jpg",
-			"tumblr": "https://64.media.tumblr.com/95a511c3e066cb6785f3c45b58db643a/e9e44e5057f85932-8c/s250x400/3d445bee7c69268a5ced8f4951201ac4d9bb26bc.jpg"
-		},
-		"series": "kimi ni todoke",
-        "format": [
-            {"type": "anime", "year": "2015", "state": "liked"}, 
-            {"type": "manga", "year": "2020", "state": "liked"}
-        ],
-        "tier": "princess", "categories": ["shoujo"],
-        "from": "2015", "until": "",
-        "mbti": ["infp", "isfp", "infj", "isfj"],
-		"sunsign": "capricorn",
-        "update": "29.01.22",
-		"notes": "watch the anime, do it for her"
-	},
-	
-	{
-		"name": "mikaela hyakuya",
-		"displayname": "mika",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/mika2.jpg",
-			"tumblr": "https://64.media.tumblr.com/5dd9ede8864e7d9547f62b0d7e5b73cd/b0a1bd7952995206-42/s500x750/29224606e14cbf6e7c166139e5604989418200bf.jpg"
-		},
-		"series": "owari no seraph",
-        "format": [
-            {"type": "anime", "year": "2016", "state": "liked"}, 
-            {"type": "manga", "year": "2021", "state": "loved"}
-        ],
-        "tier": "love", "categories": ["blond", "vampire"],
-        "from": "2016", "until": "",
-        "mbti": "infj",
-		"sunsign": "taurus",
-        "update": "09.10.21",
-		"notes": "LITERALLY DON'T TALK TO ME ABT MIKA OR I WILL CRY ON THE SPOT. my poor vampire son deserved better"
-	},
-	{
-		"name": "krul tepes",
-		"displayname": "krul",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/krul2.jpg",
-			"tumblr": "https://64.media.tumblr.com/ca7284cc5d58780ac1c8e1456583538b/8608cf8e3ac247b2-23/s640x960/7cfb02ffbaa9bc9fa5ee28b974a2122d43e120dd.jpg"
-		},
-		"series": "owari no seraph",
-        "format": [
-            {"type": "anime", "year": "2016", "state": "liked"}, 
-            {"type": "manga", "year": "2021", "state": "liked"}
-        ],
-        "tier": "princess", "categories": ["vampire"],
-        "from": "2016", "until": "",
-        "mbti": "istp",
-		"sunsign": "scorpio",
-        "update": "29.01.22",
-		"notes": "my smol vampire princess !!!"
-	},
-	{
-		"name": "crowley eusford",
-		"displayname": "crowley",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/crowley.jpg",
-			"tumblr": "https://64.media.tumblr.com/cd835eb6b8762ceae65aa1169e858707/e9a7bbf5af967d02-b7/s640x960/2ebb3c6cdb6c727d01d2e4321499b30c169e8277.jpg"
-		},
-		"series": "owari no seraph",
-        "format": [
-            {"type": "anime", "year": "2016", "state": "seen"}, 
-            {"type": "manga", "year": "2021", "state": "liked"}
-        ],
-        "tier": "marry", "categories": ["vampire"],
-        "from": "2021", "until": "",
-        "mbti": "enfj",
-		"sunsign": "sagittarius",
-        "update": "23.08.23", // "09.10.21",
-		"notes": "i've seen the anime twice- nothing. then i read the manga and BOOM &#x1F60D; HIS TIDDIES DON'T LIE"
-	},
-	{
-		"name": "shiho kimizuki",
-		"displayname": "kimizuki",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/kimizuki.jpg",
-			"tumblr": "https://64.media.tumblr.com/0409de21abc90913d7d454dc590880c8/8608cf8e3ac247b2-df/s500x750/ceae780e3027bf7b5ff5f5fa053c4458528176a0.jpg"
-		},
-		"series": "owari no seraph",
-        "format": [
-            {"type": "anime", "year": "2016", "state": "seen"}, 
-            {"type": "manga", "year": "2021", "state": "liked"}
-        ],
-        "tier": "rip", "categories": ["snarky"],
-        "from": "2021", "until": "~2022",
-        "mbti": "istj",
-		"sunsign": "sagittarius",
-        "update": "23.03.23", // "09.10.21",
-		"notes": "i came for the tsukki look but stayed bc he's a rly sweet character &#x1F97A;<br><br>2023-reread just didn't feel the same &#x1f614;"
-	},
-	{
-		"name": "tamaki suoh",
-		"displayname": "tamaki",
-		"img": {
-			"icon2": "imgs/tamaki.jpg",
-			"tumblr": "https://64.media.tumblr.com/7745f2a43461d4209319c607e7b1724f/e9e44e5057f85932-b8/s500x750/eb1392e9c5c38778b9ba944956452da83d3b0deb.jpg"
-		},
-		"series": "ouran high school host club",
-        "format": [
-            {"type": "anime", "year": "2015", "state": "seen"}, 
-            {"type": "manga", "year": "2021", "state": "loved"}
-        ],
-        "tier": "love", "categories": ["dumb", "blond", "sparkly", "blush", "shoujo"],
-        "from": "2021", "until": "",
-        "mbti": "enfj",
-		"sunsign": "aries",
-		"update": "29.09.22", // downgrade from loml to love
-		//"09.10.21",
-		"notes": "so i saw this one alignment chart and tamaki apparently was the prime example of a himbim. already aware of my questionable taste in men i started reading the manga and he did NOT disappoint he's so precious &#x1F97A;"
-	},
-	{
-		"name": "langa hasegawa",
-		"displayname": "langa",
-		"img": {
-			"icon2": "imgs/langa.jpg",
-			"tumblr": "https://64.media.tumblr.com/50606a7c452b4848b00a97c2d31c5567/8608cf8e3ac247b2-68/s500x750/26309545e84a7834fd513a6bf1b75b6ad3778a8f.jpg"
-		},
-		"series": "sk8",
-        "format": [
-            {"type": "anime", "year": "2021", "state": "liked"}
-        ],
-        "tier": "love", "categories": ["sports", "dumb", "puppy"],
-        "from": "2021", "until": "",
-        "mbti": ["istj", "intj", "istp", "intp"],
-		"sunsign": "aquarius",
-        "update": "09.10.21",
-		"notes": "love at first sight bc i'm a ho for soft pretty boys &#x270C;"
-	},
-	{
-		"name": "sesshomaru",
-		"displayname": "",
-		"img": {
-			"icon": "imgs/sesshomaru.jpg",
-			"tumblr": "https://64.media.tumblr.com/5619275f295ace6689ec6bb7c1324605/b0a1bd7952995206-83/s500x750/ee580fb6777935e7844b2199b597bb1c312f91f3.jpg"
-		},
-		"series": "inuyasha",
-        "format": [
-            {"type": "anime", "year": "2013?", "state": "liked"},
-			{"type": "manga", "year": "2022", "state": "liked"},
-        ],
-        "tier": "idek", "categories": ["snarky"],
-        "from": "2013?", "until": "",
-        "mbti": "intj",
-		"sunsign": "unknown",
-        "update": "25.09.22", //"09.10.21",
-		"notes": "u need to warm up to him but then he's got u HOOKED ... happened to me twice &#x1F62C;"
-	},
-	{
-		"name": "staz blood",
-		"displayname": "staz",
-		"img": {
-			"icon2": "imgs/staz2.jpg",
-			"tumblr": "https://64.media.tumblr.com/252856d74784ea44db553669a9bea689/b0a1bd7952995206-b3/s400x600/58bbff45154d546a4a19dc1e3e71bfe40a20b05b.jpg"
-		},
-		"series": "blood lad",
-        "format": [
-            {"type": "anime", "year": "2014", "state": "liked"},
-			{"type": "manga", "year": "2021", "state": "liked"},
-        ],
-        "tier": "rip", "categories": ["dumb", "vampire"],
-        "from": "2014", "until": "06.03.24",
-        "mbti": "intp",
-		"sunsign": "sagittarius",
-        "update": "06.03.24", // removed // "09.10.21",
-		"notes": "listen, if a man has yato energy i stan him and this guy right here is such a NEET (and weeb too) i have no choice but to love him. i must say it got a bit less during the second half of the manga tho. the fact that he's a vampire is a big PLUS"
-	},
-	{
-		"name": "daiki mamura",
-		"displayname": "mamura",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/mamura.jpg",
-			"tumblr": "https://64.media.tumblr.com/22cb3dd5a094628065f63590c1d60865/8608cf8e3ac247b2-48/s640x960/530a336c097d2dca7648dbdc563e63efbde41f3e.jpg"
-		},
-		"series": "hirunaka no ryuusei",
-        "format": [
-			{"type": "manga", "year": "2016", "state": "loved"}
-        ],
-        "tier": "love", "categories": ["shoujo", "blond", "blush"],
-        "from": "2016", "until": "",
-        "mbti": "intp",
-		"sunsign": "aquarius",
-        "update": "09.10.21",
-		"notes": "fell in love w him in 2016, somehow forgot abt him ??? and fell in love again in 2020. also the BEST blushy boy in existence &#x1F624;"
-	},
-	{
-		"name": "touma kikuchi",
-		"displayname": "touma",
-		"img": {
-			"type": "manga",
-			"icon2": "imgs/touma.jpg",
-			"tumblr": "https://64.media.tumblr.com/0c6a3f52c9782dbf49a4ab0e39051140/e9e44e5057f85932-6b/s500x750/cdf91f6a6fb0f3ae229c7ec909948682610dd37d.jpg"
-		},
-		"series": "ao haru ride",
-        "format": [          
-			//{"type": "anime", "year": "2015", "state": "none"},
-			{"type": "manga", "year": "2020", "state": "loved"}
-        ],
-        "tier": "son", "categories": ["shoujo", "blush", "blond"],
-        "from": "2020", "until": "",
-        "mbti": "",
-		"sunsign": "aquarius",
-        "update": "22.02.24", // downgrade from love to son // "09.10.21",
-		"notes": "kou was nice but i've been team touma i mean look at his blush COME ON"
-	},
-	{
-		"name": "miyano",
-		"displayname": "",
-		"img": {
-			"icon": "imgs/miyano.jpg",
-			"tumblr": "https://64.media.tumblr.com/aa4b32a5b994c96eb07cfc454f95f469/54dfcd452ae558d6-ae/s1280x1920/35df976266be269ba21547938c26b47536a241a6.jpg"
-		},
-		"series": "tanaka-kun is always listless",
-        "format": [
-			{"type": "anime", "year": "2016", "state": "liked"},
-			{"type": "manga", "year": "2021", "state": "liked"}
-        ],
-        "tier": "daughter", "categories": ["kin"],
-        "from": "2016", "until": "",
-        "mbti": "enfp",
-		"sunsign": "pisces",
-        "update": "25.09.22",
-		"notes": "she's short, she's into art, she has frizzy hair, she gets mistaken as a grade schooler, she's me"
-	},
-	{
-		"name": "jaken",
-		"displayname": "",
-		"img": {
-			"icon": "imgs/jaken2.jpg",
-			"tumblr": "https://64.media.tumblr.com/0fc142a1488f5189491401443a2f1d96/54dfcd452ae558d6-18/s1280x1920/17e894932046086d34ff17e3937f0ccbc3ddf7c3.jpg"
-		},
-		"series": "inuyasha",
-        "format": [          
-			{"type": "anime", "year": "2013?", "state": "loved"},
-			{"type": "manga", "year": "2022", "state": "liked"},
-			
-        ],
-        "tier": "love", "categories": [],
-        "from": "2013", "until": "",
-        "mbti": ["esfj", "enfj"],
-		"sunsign": "unknown",
-        "update": "28.09.22",
-		"notes": "y'all be like \"wtf bini\" but i truly love jaken he deserves to be here"
-	},
-	{
-		"name": "hiiragi kashima",
-		"displayname": "hiiragi",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/hiiragi.jpg",
-			"tumblr": "https://64.media.tumblr.com/232dfa2a0fd78891be02fd748dde538e/54dfcd452ae558d6-61/s1280x1920/08be3d6afea80fe2c49638698511fdb753fd75e9.jpg"
-		},
-		"series": "given",
-        "format": [          
-			{"type": "anime", "year": "2021", "state": "seen"},
-			{"type": "manga", "year": "2022", "state": "liked"}
-			
-        ],
-        "tier": "son", "categories": ["blond"],
-        "from": "05.05.2022", "until": "",
-        "mbti": "enfp",
-		"sunsign": "taurus",
-        "update": "25.09.22",
-		"notes": "u already had me at his intro as \"delinquent princess\" but him being a fool in love gave me the rest"
-	},
-	{
-		"name": "chifuyu matsuno",
-		"displayname": "chifuyu",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/chifuyu1.jpg",
-			"tumblr": "https://64.media.tumblr.com/6652a98914328426c6a6ef1a6a4d6b8d/54dfcd452ae558d6-fc/s1280x1920/81ffe7e82c036884ae4252f5d5fd4b1631552788.jpg"
-		},
-		"series": "tokyo revengers",
-        "format": [          
-			{"type": "manga", "year": "2022", "state": "loved"},
-			{"type": "anime", "year": "2023", "state": "loved"}
-        ],
-        "tier": "ult", "categories": ["blond"],
-        "from": "21.09.2022", "until": "",
-        "mbti": ["infp", "enfp"],
-		"sunsign": "sagittarius",
-        "update": "22.02.24", // upgrade from loml to ult // "23.08.23", // upgrade from love to loml // "25.09.22",
-		"notes": "congrats to chifuyu for gradually climbing from 3rd tier and being the first character to make it to ult since i created this tier list &#x1F97A; absolutely deserve tbh he has my heart"
-	},
-	{
-		"name": "takashi mitsuya",
-		"displayname": "mitsuya",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/mitsuya.jpg",
-			"tumblr": "https://64.media.tumblr.com/1a3412751c3c698996a3f0f2fb7928f7/54dfcd452ae558d6-5b/s1280x1920/bb0fce15309526d24de287d9dcb9626c09671b14.jpg"
-		},
-		"series": "tokyo revengers",
-        "format": [          
-			{"type": "manga", "year": "2022", "state": "liked"},
-			{"type": "anime", "year": "2023", "state": "liked"}
-        ],
-        "tier": "idek", "categories": [],
-        "from": "20.09.2022", "until": "",
-        "mbti": "infj",
-		"sunsign": "cancer",
-        "update": "23.08.23", // "25.09.22",
-		"notes": "\"hold on-- mitsuya's hot AND a houseman ???? that's not fair !!!!!!\""
-	},
-	{
-		"name": "hakkai shiba",
-		"displayname": "hakkai",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/hakkai.jpg",
-			"tumblr": "https://64.media.tumblr.com/3d835838473fd51a3d2ef03aee1a5439/54dfcd452ae558d6-a2/s400x600/1f6dd29c5b94773f13ab27c28e71bc9c42e93604.jpg"
-		},
-		"series": "tokyo revengers",
-        "format": [          
-			{"type": "manga", "year": "2022", "state": "liked"},
-			{"type": "anime", "year": "2023", "state": "liked"}
-        ],
-        "tier": "son", "categories": ["puppy"],
-        "from": "22.09.2022", "until": "",
-        "mbti": "infp",
-		"sunsign": "virgo",
-        "update": "23.08.23", // "03.10.22",
-		"notes": "he's precious pls protect him"
-	},
-	{
-		"name": "keigo magami",
-		"displayname": "keigo",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/keigo1.jpg",
-			"tumblr": "https://64.media.tumblr.com/15c51d336850e2c3d2ba00f980f7a5b9/54dfcd452ae558d6-bf/s640x960/b902116166df27a5b67a6d82878df9cfb0de70a3.jpg"
-		},
-		"series": "witch watch",
-        "format": [          
-			{"type": "manga", "year": "2023", "state": "liked"}
-        ],
-        "tier": "son", "categories": ["dumb"],
-        "from": "25.06.23", "until": "",
-        "mbti": "intp",
-		"sunsign": "capricorn",
-        "update": "23.08.23",
-		"notes": "my cringy son but i love him !! we stan character development ! i have to admit tho that i do not claim wolf"
-	},
-	{
-		"name": "charon",
-		"displayname": "charon",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/charon.jpg",
-			"tumblr": "https://64.media.tumblr.com/f1caa837a3fe559b142498867c0e077e/54dfcd452ae558d6-34/s500x750/a92a3cb0300e5c98fe584ba05df4e13958e8adde.jpg"
-		},
-		"series": "fire force",
-        "format": [          
-			{"type": "anime", "year": "2022", "state": "liked"},
-			{"type": "manga", "year": "2023", "state": "liked"}
-        ],
-        "tier": "idek", "categories": [],
-        "from": "11.2022", "until": "",
-        "mbti": "estp",
-		"sunsign": "cancer",
-        "update": "23.08.23",
-		"notes": "he's so Big &#x1F975; especially his heart &#x1F97A;"
-	},
-	{
-		"name": "iruka umino",
-		"displayname": "iruka",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/iruka.jpg",
-			"tumblr": "https://64.media.tumblr.com/d6a869d3723204d783f14c26d369a3f4/8ea1382628d3f5fa-37/s1280x1920/edd9552be60097e51796316399b74885a5c7ee57.jpg"
-		},
-		"series": "naruto",
-        "format": [          
-			{"type": "manga", "year": "2023", "state": "liked"},
-			{"type": "anime", "year": "", "state": "exists"}
-        ],
-        "tier": "marry", "categories": [],
-        "from": "13.11.2023", "until": "",
-        "mbti": "esfj",
-		"sunsign": "gemini",
-        "update": "22.02.24",
-		"notes": "literally the most perfect man in existence. i don't accept criticism"
-	},
-	{
-		"name": "kakashi hatake",
-		"displayname": "kakashi",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/kakashi.jpg",
-			"tumblr": "https://64.media.tumblr.com/1b962788eb9008cddec9b670df38cc5f/8ea1382628d3f5fa-19/s500x750/5e7dc6f2b4723ca0e15a37af7663a123cb74ed71.jpg"
-		},
-		"series": "naruto",
-        "format": [          
-			{"type": "manga", "year": "2023", "state": "liked"},
-			{"type": "anime", "year": "", "state": "exists"}
-        ],
-        "tier": "idek", "categories": [],
-        "from": "13.11.2023", "until": "",
-        "mbti": "intp",
-		"sunsign": "virgo",
-        "update": "22.03.24",
-		"notes": "a sexy man"
-	},
-	{
-		"name": "chihiro goshima",
-		"displayname": "chihiro",
-		"img": {
-			"type": "manga",
-			"icon": "imgs/chihiro.jpg",
-			"tumblr": "https://64.media.tumblr.com/78941b2323ab06dcf5dd4561bb79a406/8ea1382628d3f5fa-84/s640x960/ee2f63ba7b7c15f116938e972ce6e385839ff726.jpg"
-		},
-		"series": "those not-so-sweet boys",
-        "format": [          
-			{"type": "manga", "year": "2024", "state": "liked"}
-        ],
-        "tier": "son", "categories": ["shoujo", "blush", "blond"],
-        "from": "12.03.24", "until": "",
-        "mbti": "",
-		"sunsign": "cancer",
-        "update": "22.03.24",
-		"notes": "u basically give me shoujo-chifuyu and expect me to nOT FALL IN LOVE ??????"
-	},
-	{
-		"name": "shuu fujiwara",
-		"displayname": "shuu",
-		"img": {
-			"icon": "imgs/shuu.jpg",
-			"tumblr": "https://64.media.tumblr.com/302d7d196cb9ad85be1ef1c9ae6f3ff3/8ea1382628d3f5fa-57/s1280x1920/489b90a1e027eff6cf9121cbb310115ce98c753b.jpg"
-		},
-		"series": "tsurune",
-        "format": [          
-			{"type": "anime", "year": "2022", "state": "liked"}
-        ],
-        "tier": "son", "categories": ["sports"],
-        "from": "03.03.24", "until": "",
-        "mbti": ["istj", "intj", "istp", "intp"],
-		"sunsign": "taurus",
-        "update": "22.03.24",
-		"notes": "literally a prince !!!!!<br>i didn't notice him in 2022 during s1 but in 2024 for s2 he Punched me in the face >->o"
-	},
-	{
-		"name": "koushirou fuwa",
-		"displayname": "fuwa",
-		"img": {
-			"icon": "imgs/fuwa.jpg",
-			"tumblr": "https://64.media.tumblr.com/afeaaa4756d3c3406cdff8ae54750869/8ea1382628d3f5fa-94/s1280x1920/cde45a1f7a5e668881e667a02fff80c07ac77f42.jpg"
-		},
-		"series": "tsurune",
-        "format": [
-			{"type": "anime", "year": "2024", "state": "liked"}
-        ],
-        "tier": "idek", "categories": ["sports"],
-        "from": "03.03.24", "until": "",
-        "mbti": "esfp",
-		"sunsign": "scorpio",
-        "update": "22.03.24",
-		"notes": "i started simping for superficial reasons but he's actually so wholesome"
+var fleamarket = [
+	{
+		"name": "Baby Shopping Series 2",
+		"id": "5382",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/f5/Midnight_Marlowe_%285381%29.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Shopping_Series",
+		"date": "23.06.2024",
+		"figure": "Midnight Marlowe",
+		"missing": "Shopping Cart"
+	},
+	{
+		"name": "Baby Shopping Series 2",
+		"id": "5382",
+		"img": "https://sylvaniantreasure.com/api/media/items/photo_2024-02-01_13.55.40_1.jpeg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Shopping_Series",
+		"date": "23.06.2024",
+		"figure": "Breeze Chocolate",
+		"missing": "Baguette"
+		// could also be 5438 Baby Outdoor Series 3 Breeze Chocolate with Treasure Chest
+	},
+	{
+		"name": "Baby Band Series 1",
+		"id": "5325",
+		"img": "https://i.ebayimg.com/images/g/3RsAAOSwlTldqjbj/s-l960.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Band_Series",
+		"date": "23.06.2024",
+		"figure": "Jason Osborne"
+	},
+	{
+		"name": "Baby Band Series 1",
+		"id": "5325",
+		"img": "https://i.ebayimg.com/images/g/msUAAOSwLARdqjby/s-l960.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Band_Series",
+		"date": "23.06.2024",
+		"figure": "Milo Cakebread",
+		"missing": "Figure (Milo Cakebread)"
+	},
+	{
+		"name": "Baby Outdoor Series 3",
+		"id": "5438",
+		"img": "https://sylvaniantreasure.com/api/media/items/photo_2024-02-01_15.01.17.jpeg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Series_Blind_Bags#Baby_Outdoor_Series",
+		"date": "23.06.2024",
+		"figure": "Justin Caramel",
+		"missing": "Fishing Rod"
+	},
+	{
+		"name": "Chocolate Rabbit Baby Princess",
+		"id": "9001",
+		"img": "https://web.archive.org/web/20221226072254im_/http://static.sylvaniancollector.net/images/content/dc816344edb2cacc4acede35446b33c5.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"origPrice": "3.99",
+		"link": "https://web.archive.org/web/20221226072254/https://www.sylvaniancollector.net/page.php?page=1116&th=collection",
+		"date": "23.06.2024",
+		"figure": "Crème Chocolate (?)"
+	},
+	{
+		"name": "Chocolate Rabbit Baby with Rocking Horse",
+		"id": "9002",
+		"img": "https://web.archive.org/web/20221226072254im_/http://static.sylvaniancollector.net/images/content/d8359997fd296551509b84c8e372221e.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://web.archive.org/web/20221226072254/https://www.sylvaniancollector.net/page.php?page=1116&th=collection",
+		"date": "23.06.2024",
+		"figure": "Breeze Chocolate (?)",
+		"missing": "Figure (Breeze Chocolate)"
+	},
+	{
+		"name": "Babies Ride and Play",
+		"id": "5040",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/2/21/Babies_Ride_and_Play.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Babies_Ride_and_Play",
+		"date": "23.06.2024",
+		"figure": "Hannah Periwinkle & Alfie Walnut",
+		"missing": "Figure (Kate Periwinkle), Watering Can + Spade, Ride-On-Toy Holder"
+	},
+	{
+		"name": "Seaside Camping Set",
+		"id": "5209",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/8/83/Seaside_Camping_Set.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Seaside_Camping_Set",
+		"date": "23.06.2024",
+		"figure": "Tiffany Golightly",
+		"includes": "Figure (Tiffany Golightly), Sleeping Bag"
+	},
+	{
+		"name": "Triple Bunk Beds",
+		"id": "4448",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/2/25/Triple_Bunk_Beds_4448.jpg",
+		"batch": "b",
+		"price": "9.00",
+		"link": "https://www.sylvanianfamilies.com/en-uk/catalog/item_detail.php?product_id=179",
+		"date": "23.06.2024",
+		"missing": "Yellow Mattress"
+	},
+	{
+		"name": "Classic Telephone",
+		"id": "5030/5392",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/b/b6/Classic_Telephone.jpg",
+		"batch": "a",
+		"price": "5.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Classic_Furniture_Set",
+		"date": "26.05.2024",
+		"missing": "Schedule Board, Pen, 3 Pieces of Memo Paper, Telephone Sticker"
+	},
+	{
+		"name": "Chocolate Rabbit Sister Set",
+		"id": "5016/5392",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/c/ca/Chocolate_Rabbit_Sister_Set.jpg",
+		"batch": "a",
+		"price": "5.00",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Classic_Furniture_Set",
+		"date": "26.05.2024",
+		"missing": "Green Notebook, Yellow Pen, Figure (Freya Chocolate)"
+	}
+]
+}
+
+{
+var wishlist = [
+	/*{
+		"name": "",
+		"id": "",
+		"img": "",
+		"price": "",
+		"link": "",
+		"exclusive" ,
+		"prio": 
+	},*/
+	{
+		"name": "Baby Trio (Mascot)",
+		"id": "2082",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/1/15/Baby_Trio_%28Mascot%29.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2082-2.jpg",
+		"price": "24.00",
+		"link": "https://sylvanianfamilies.co.uk/exclusives/baby-trio-mascot.html",
+		"exclusive": true,
+		"prio": 3
+	},
+	{
+		"name": "Costume Cuties - Kitty & Froggy",
+		"id": "5595",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/8/89/Costume_Cuties_%28Kitty_%26_Froggy%29.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/5/5595_pk_fr_costume_cuties_kitty_froggy_1.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/exclusives/costume-cuties-kitty-froggy.html",
+		"exclusive": true,
+		"prio": 2
+	},
+	{
+		"name": "Persian Cat Triplets",
+		"id": "5458",
+		"img": "https://m.media-amazon.com/images/I/811CrQovXKL._AC_SL1500_.jpg",
+		"price": "12.00",
+		"link": "https://www.amazon.de/Sylvanian-Families-Perserkatzen-Drillinge-5458/dp/B087MSC9QF",
+		"prio": 1
+	},
+	{
+		"name": "Husky Family",
+		"id": "5636",
+		"img": "https://mytoys.scene7.com/is/image/myToys/ext/23221322-01.jpg",
+		"price": "27.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/husky-family.html",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Darling Ducklings Baby Carriage",
+		"id": "5601",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/0/02/Darling_Ducklings_Baby_Carriage.jpg",
+		"price": "20.00",
+		"link": "https://www.smythstoys.com/de/de-de/spielzeug/puppen-und-zubeh%c3%b6r/sylvanian-families/sylvanian-families-figuren/sylvanian-families-entenbabies-mit-kinderwagen-spielset/p/196631",
+		"prio": 1
+	},
+	{
+		"name": "Chocolate Rabbit Family Celebration Set",
+		"id": "5506",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/f4/Chocolate_Rabbit_Family_Celebration_Set.jpg",
+		"img2": "https://image.smythstoys.com/original/mobile/189627_2.jpg",
+		"price": "35.00",
+		"pricefromsmythtoys": true,
+		"link": "https://www.smythstoys.com/de/de-de/spielzeug/puppen-und-zubeh%C3%B6r/sylvanian-families/sylvanian-families-figuren/sylvanian-families-chocolate-rabbit-family-celebration-set/p/189627",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Raincoat Babies",
+		"id": "2083",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/b/ba/Raincoat_Babies.jpg",
+		"price": "40.00",
+		"link": "https://sylvanianfamilies.co.uk/products/raincoat-babies",
+		"exclusive": true,
+		"prio": 1
+	},
+	{
+		"name": "Nursery Party Set",
+		"id": "5104",
+		"img": "https://www.sylvanianstorekeepers.com/sysimgdocs/rszimages/5104a_pr598_2.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/1/5104_party_set_c_sylvanian.jpg",
+		"price": "15.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/nursery-party-set.html",
+		"prio": 3
+	},
+	{
+		"name": "Nursery Picnic Set",
+		"id": "5103",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/1/5103_nursery_picnic_set_c_sylvanian.jpg",
+		"price": "13.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/nursery-picnic-set.html",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Classic Brown Cupboard Set",
+		"id": "2076",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2076_im01_classic_brown_cupboard_set.jpg",
+		"price": "12.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/classic-brown-cupboard-set.html",
+		"prio": 0,
+		"exclusive": true,
+		"hide": true
+	},
+	{
+		"name": "Classic Brown Kitchen Stove & Sink Set",
+		"id": "2077",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2077_im01_classic_brown_kitchen_stove_sink_set.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/classic-brown-kitchen-stove-sink-set.html",
+		"prio": 0,
+		"exclusive": true,
+		"hide": true
+	},
+	{
+		"name": "Country Kitchen Set",
+		"id": "5033",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/5054131050330_uk.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5033_country_kitchen_set_1_c_sylvanian.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.co.uk/catalog/product/view/id/69/s/country-kitchen-set/category/33/",
+		"prio": 2
+	},
+	{
+		"name": "Cottage Kitchen Set",
+		"id": "2945",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/7/74/Cottage_Kitchen_Set.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Cottage_Kitchen_Set",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Classic Telephone",
+		"id": "5030",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/5054131050309_uk.jpg",
+		"price": "10.00",
+		"link": "https://www.sylvanianfamilies.com/de-ch/catalog/item_detail.php?product_id=565",
+		"prio": 2,
+		"hide": true
+	},
+	{
+		"name": "Chocolate Rabbit Mother Set",
+		"id": "5014",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5014_chocolate_rabbit_mother_set_c_sylvanian.jpg",
+		"price": "20.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/chocolate-rabbit-mother-set.html",
+		"hide": true
+	},
+	{
+		"name": "Chocolate Rabbit Sister Set",
+		"id": "5016",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5016chocolate_rabbit_sister_set.jpg",
+		"price": "20.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/chocolate-rabbit-sister-set.html"
+		,"pricefromsmythtoys": true,
+		"hide": true
+	},
+	{
+		"name": "Classic Furniture Set",
+		"id": "5392",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/5/5f/Classic_Furniture_Set.jpg",
+		"img2": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/3/5392_pk_a_classic_furniture_set.jpg",
+		"price": "28.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/classic-furniture-set-371.html",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Refrigerator Set",
+		"id": "5021",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5021_refrigerator_set_1_c_sylvanian.jpg",
+		"price": "12.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/refrigerator-set.html",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Breakfast Set",
+		"id": "5024",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/5054131050248_uk.jpg",
+		"price": "8.50",
+		"link": "https://sylvanianfamilies.co.uk/products/breakfast-set",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Classic Brown Bed and Chest Set",
+		"id": "2075",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/2/0/2075_c01_classic_brown_bed_and_chest_set_1_.jpg",
+		"price": "17.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/furniture/classic-brown-bed-and-chest-set.html",
+		"prio": 0,
+		"exclusive": true,
+		"hide": true
+	},
+	{
+		"name": "Playful Starter Furniture Set (Mother)",
+		"id": "5449",
+		"img": "https://sylvanianfamilies.co.uk/pub/media/catalog/product/cache/01eaf428b17532348177b82192e562c1/5/0/5054131054499.pt02.jpg",
+		"price": "32.00",
+		"link": "https://sylvanianfamilies.co.uk/shop/shop/playful-starter-furniture-set-mother.html",
+		"hide": true
+	},
+	{
+		"name": "Classic Kitchen Set",
+		"id": "5289",
+		"img": "https://i.pinimg.com/originals/fb/d5/66/fbd5663ec5f4c3704e3660c0ee54e196.jpg",
+		"price": "14.00",
+		"externalprice": true,
+		"hide": true
+	},
+	{
+		"name": "Fun Foods – Fridge & Fruits",
+		"id": "2132",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/f6/Fun_Foods_-_Fridge_%26_Fruits.jpg",
+		"price": "10.00",
+		"link": "https://sylvanianfamilies.co.uk/products/fun-food-fridge-fruits",
+		"exclusive": true,
+		"prio": 1
+	},
+	{
+		"name": "Fun Foods – Beverages & Basics",
+		"id": "2133",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/e/ec/Fun_Foods_-_Beverages_%26_Basics.jpg",
+		"price": "10.00",
+		"link": "https://sylvanianfamilies.co.uk/products/fun-foods-beverages-basics",
+		"exclusive": true,
+		"prio": 1
+	},
+	{
+		"name": "Homemade Pancake Set",
+		"id": "5225",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/9/91/Homemade_Pancake_Set.jpg",
+		"price": "10.00",
+		"link": "https://sylvanianfamilies.co.uk/products/homemade-pancake-set",
+		"prio": 2
+	},
+	{
+		"name": "Kitchen Cookware Set",
+		"id": "5090",
+		"img": "https://sylvanianfamilies.co.uk/media/catalog/product/cache/9f941c0fffef84f250aceb5fdad3d609/5/0/5090_kitchen_cookware_1_c_sylvanian.jpg",
+		"price": "10.00",
+		"link": "https://sylvanianfamilies.co.uk/products/kitchen-cookware-set",
+		"prio": 3
+	},
+	{
+		"name": "Microwave Cabinet",
+		"id": "5443",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/1/1f/Microwave_Cabinet.jpg",
+		"price": "10.00",
+		"link": "https://sylvanianfamilies.co.uk/products/microwave-cabinet",
+		"prio": 1,
+	},
+	{
+		"name": "Kitchen Cabinet",
+		"id": "2937",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/a/a9/Kitchen_Cabinet.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Kitchen_Cabinet",
+		"prio": 3
+	},
+	{
+		"name": "Grocery Shopping",
+		"id": "5043",
+		"img": "https://www.sylvanianfamilies.com/assets/includes_gl/img/products/5054131050439_uk.jpg",
+		"price": "18.00",
+		"link": "https://sylvanianfamilies.co.uk/products/grocery-shopping",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Washing Set",
+		"id": "2921",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/1/1f/Washing_Set.jpg",
+		"price": "",
+		"link": "https://www.sylvanianfamilies.com/en-ph/catalog/item_detail.php?product_id=75",
+		"prio": 2
+	},
+	{
+		"name": "The Sylvanian Toy Shop",
+		"id": "4865",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/f/fb/The_Sylvanian_Toy_Shop.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/The_Sylvanian_Toy_Shop",
+		"prio": 1
+	},
+	{
+		"name": "Dropleaf Table and Sideboard Set",
+		"id": "4227",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/a/ae/Dropleaf_Table_and_Sideboard_Set.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Dropleaf_Table_and_Sideboard_Set",
+		"prio": 2
+	},
+	{
+		"name": "Country Kitchen Set",
+		"id": "4226",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/a/a4/Country_Kitchen_Set_4226.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Country_Kitchen_Set_(4226)",
+		"prio": 1
+	},
+	{
+		"name": "Rustic Kitchen Set",
+		"id": "4637",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/4/44/Rustic_Kitchen_Set.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Rustic_Kitchen_Set",
+		"prio": 1,
+		"hide": true
+	},
+	{
+		"name": "Baby Bathroom",
+		"id": "4360",
+		"img": "https://static.wikia.nocookie.net/sylvanian/images/c/c2/Baby_Bathroom.jpg",
+		"price": "",
+		"link": "https://sylvanianfamilies.fandom.com/wiki/Baby_Bathroom",
+		"prio": 1,
+		"hide": true
 	}
 ];
 }
 
-var app = '';
-var tierLists = [];
-var mbtiTypes = [];
-var sunsignTypes = [];
-
-// finds tier object for given tier name
-function findTierObj(name) {
-    var emptyObj = {
-        "name": "none",
-        "title": "none",
-        "description": "",
-        "rank": 99
-    };
-    for (let i = 0; i < tiers.length; i++) 
-        if (tiers[i].name == name) return tiers[i];
-    return emptyObj;//null;
-}
-
-class tier { 
-    constructor(n) {
-        this.name = n;
-        this.tierObj = findTierObj(n);
-        this.list = [];
-    }
-}
-
-function getTitleOfTierName(tierList, name) {
-	for (let i = 0; i < tierList.length; i++) {
-        var obj = tierList[i];
-        if (obj.name == name) return obj.title;
-    }
-    return null;
-}
-
-function findInTiers(list, name) {
-    for (let i = 0; i < list.length; i++) {
-        var obj = list[i];
-		//if (obj.name == name) return obj;
-		if (getTitleOfTierName(tiers, obj.name) == getTitleOfTierName(tiers, name)) return obj;
-    }
-    return null;
-}
-
-function findInMbti(list, type) {
-	for (var i = 0; i < list.length; i++) {
-        var obj = list[i];
-        if (obj.type == type) return obj;
-    }
-    return null;
-}
-
-// array toString
-
-function mbtiToString(elem) {
-	return elem.type + ' - ' + elem.value;
-}
-
-function toStringAsList(arr) {
-	var out = '';
-	for (var i = 0; i < arr.length; i++) {
-		out = out + String(i+1).padStart(2, '0') + ': ' + mbtiToString(arr[i]) + '\n';
+function setPrio(prio) {
+	let val = '';
+	for (let i = 0; i < prio; i++) {
+		val += '&#128293;';
 	}
-    return out;
-}
-
-Array.prototype.toStringSpace = function() {
-	var out = '';
-	for (var i = 0; i < this.length; i++) {
-		out = out + (i > 0 ? ' ' :'') + this[i];
-	}
-    return out;
-}
-
-function toStringWithSpace(str) {
-	if (Array.isArray(str))
-		return str.toStringSpace();
-	else
-		return str;
-}
-
-/*Object.prototype.toString = function() {
-	//console.log('object tostring');
-	var out = '';
-	for (key in this) {
-		out = out + key + ': ' + this[key] + '; ';
-	}
-  return out;
-}*/
-
-// Randomize array in-place using Durstenfeld shuffle algorithm
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        let temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
-
-// get to display
-
-function getStringOfFavState(state) {
-    for (let i = 0; i < states.length; i++) 
-        if (states[i].name == state) {
-			//let display = states[i].string;
-			let display = '<span class="material-icons-round">' + states[i].material + '</span>'; // material icon
-		
-            //if (states[i].string == heartStr)
-                return '<a class="help" title="' + states[i].name + '">' + display + '</a>';
-            //else return display;
-        }
-    return ' ';
-}
-
-function getFavState(c) {
-    let format = c.format;
-    let a = '<table><tr>';
-	if (format)
-		for (let i = 0; i < format.length; i++) {
-			let f2 = format[i];
-			a += '<td><div class="icon">' + getStringOfFavState(f2.state) + '</div> ' + f2.type + (f2.year ? ' (' + f2.year + ')' : '' ) + '</td>';
-		}
-	a = a + '</tr></table>';
-    return a;
-}
-
-function getImgAsBackgroundStyle(c) {
-	var url = '';
-	/*if (c.img.icon)
-		url = c.img.icon;
-	else if (c.img.icon2)
-		url = c.img.icon2;*/
-	url = c.img.tumblr;
-	/*let name = c.displayname ? c.displayname : c.name;
-	let url_base64 = '';//base64s[name];
-	url = url_base64 ? ('data:image/jpg;base64,' + url_base64) : url;*/
-	url = (url ? 'style="background-image: url(\'' + url + '\')"': '');
-	return url;
-}
-
-function getCategoryClasses(c) {
-	return ' ' + toStringWithSpace(c.categories) + 
-		   ' ' + toStringWithSpace(c.mbti) +
-		   (c.sunsign ? ' ' + toStringWithSpace(c.sunsign) : '');
-}
-
-const allCategories = new Set();
-
-function getCategoryTags(c) {
-	let categories = '';
-	// mbti
-	if (Array.isArray(c.mbti))
-		for (let k = 0; k < c.mbti.length; k++)
-			categories = categories + '<span class="category">' + c.mbti[k] + '</span>';
-	else { if (c.mbti) categories = categories + '<span class="category">' + c.mbti + '</span>'; }
+	if (prio == 0) val = '&#10067;';
 	
-	// sun sign
-	if (c.sunsign && (c.sunsign != 'unknown')) categories = categories + '<span class="category">' + c.sunsign + '</span>';
-	
-	// other
-	for (var k = 0; k < c.categories.length; k++) {
-		categories = categories + '<span class="category">' + c.categories[k] + '</span>';
-		allCategories.add(c.categories[k]);
+	switch(prio) {
+		case 0: type = 'unknown'; break;
+		case 1: type = 'low'; break;
+		case 2: type = 'medium'; break;
+		case 3: type = 'high'; break;
+		default: type = 'unknown'; break;
 	}
-	return categories;
+	let str = '<a title="priority ' + type + '">' + val + '</a>';
+	return str;
 }
 
-function getName(c) {
-	return (c.displayname && c.displayname.length > 0) ?
-		c.displayname : c.name;
-}
+$(document).ready(function() {
 
-function getImgTypeClass(c) {
-	return ((c.img.type && c.img.type == 'manga') ? ' mangacap' : ' animecap');
-}
-
-function getTierRankTitle(rank) {
-	let t = 'tier'
-	switch (rank) {
-		case 1: return 'highest ' + t;
-		case 2: return '2nd ' + t;
-		case 3: return '3rd ' + t;
-		default: return rank + 'th ' + t;
-	}
-}
-
-let lastUpdate = new Date(2000, 0, 1);
-
-// document ready
-
-// go through characters
-for (let i = 0; i < characters.length; i++) {
-    let c = characters[i];
-    
-	// add characters to their tiers
-    let t = c.tier;
-    let obj = findInTiers(tierLists, t); // find tierObj
-    if (obj)
-        obj.list.push(c);
-    else {
-        let newTier = new tier(t); // create new tierObj
-        newTier.list.push(c);
-        tierLists.push(newTier);
-    }
+	let price = 0;
 	
-	// get last update
-	let date = c.update.split('.')
-	if (date.length > 2) lastUpdate = Math.max(lastUpdate, new Date('20' + date[2], date[1]-1, date[0]));
+	for (let i = 0; i < wishlist.length; i++) {
+		let set = wishlist[i];
 	
-	// count mbtis
-	var mbtis = c.mbti;
-	if (typeof mbtis === 'string') {
-		let s = mbtis;
-		mbtis = [];
-		mbtis.push(s);
-	}
-	
-	for (let j = 0; j < mbtis.length; j++) {
-		let mbti = mbtis[j];
-		let mbtiObj = findInMbti(mbtiTypes, mbti);
-		if (mbtiObj)
-			mbtiObj.value++;
-		else {
-			let newMbtiObj = { "type": mbti, "value": 1 };
-			mbtiTypes.push(newMbtiObj);
-		}
-	}
-	
-	// count sunsigns
-	let sign = c.sunsign;
-	if (sign && (sign != 'unknown')) {
-		let signObj = findInMbti(sunsignTypes, sign);
-		if (signObj)
-			signObj.value++;
-		else {
-			let newSignObj = { "type": sign, "value": 1 };
-			sunsignTypes.push(newSignObj);
-		}
-	}
-}
-
-mbtiTypes.sort(function(a, b) {return b.value - a.value;});
-sunsignTypes.sort(function(a, b) {return b.value - a.value;});
-tierLists.sort(function(a, b) {return a.tierObj.rank - b.tierObj.rank;});
-
-// go through tiers
-for (let i = 0; i < tierLists.length; i++) {
-	let t = tierLists[i];
-	if (t.tierObj.rank < 5) { // ignore characters from low tiers
-		// add header
-		app = app + '<div class="header courier"><div>' + t.tierObj.title + '</div><div>' + getTierRankTitle(t.tierObj.rank) + '</div></div>';
-		
-		if (i > 0) shuffleArray(t.list); // shuffle all but first list
-		
-		// go through characters
-		for (let j = 0; j < t.list.length; j++) {
-			let c = t.list[j];
-						
-			app = app + 
-			'<div class="outer' +
-				((t.tierObj.rank > 4) ? ' monochrome' : '') + getImgTypeClass(c) + getCategoryClasses(c) + 
-				'" ' +
-				//getImgAsBackgroundStyle(c) +
-			'>' +
-				'<div class="front">' +
-				'<div class="img' + getImgTypeClass(c) + '" ' + getImgAsBackgroundStyle(c) + '></div>' +
-				'<div class="title">' +
-					'<div class="name courier">' + getName(c) + '</div>' +
-					//'<div class="series">' + c.series + '</div>' +
-				'</div>' +
-				'</div>' +
-				'<div class="info">' +
-					'<div><div class="overview">' + getFavState(c) + '</div>' +
-					'<div class="chara"> ' + c.name + '<br>(' + c.series + ')</div></div>' +
-					((c.notes) ? '<div class="comment">' + c.notes + '</div>': '') + 
-					'<div class="categories">' + getCategoryTags(c) + '</div>' +
+		$('#wishlist').append(
+			'<div class="set ' + (set.hide ? 'hide' : '') + '">' +
+				'<a class="image" href="' + set.link + '" title="link to sylvanian families website">' + 
+					'<img src="' + set.img + '">' + 
+				'</a>' + 
+				'<div class="info">' + set.name + ' (' + set.id + ')' + (set.exclusive ? '<a title="Sylvanian Families Online Store Exclusive"><b>*</b></a>' : '') + 
+					((set.price) ? '<br><b>' + set.price + ' €</b>' : '' ) + 
+					'<div class="prio">' + setPrio(set.prio) + '</div>' +
 				'</div>' + 
-			'</div>';
-		}
+			'</div>'  +
+		'');
+		if (set.price && !set.hide) price += parseFloat(set.price);
 	}
-}
-
-document.getElementById('content').innerHTML = app;
-document.getElementById('description').append(' (' + (new Date(lastUpdate)).toLocaleDateString('en-GB') + ')');
-
-//document.getElementById('mbti').innerHTML = toStringAsList(mbtiTypes).replace(/\n/g, '<br>');
-console.log('mbti stats:\n' + toStringAsList(mbtiTypes));
-console.log('sun sign stats:\n' + toStringAsList(sunsignTypes));
-console.log('categories:\n' + Array.from(allCategories).join(', '));
-
-// colors
-var colors = ['F4A9A8', 'fbd195', 'cb9cb1', 'acc1e1', '9cd1b9', 'b0a1c3', 'f7e37f'];
-var cssString = '';
-var style = document.createElement('style');
-	style.type = 'text/css';
-let clrPrefix = 'c'; // classes prefix for colors that start with a number
-
-for (let i = 0; i < colors.length; i++) {
-   let color = colors[i];
-   cssString += '.' + clrPrefix + color + ' { background-color: #' + color + ' !important; }\n';
-}
-style.innerHTML = cssString;
-document.getElementsByTagName('head')[0].appendChild(style);
-
-let navi = ''; // sidebar
-let clr;
-let header = document.getElementsByClassName('header');
-for (let i = 0; i < header.length; i++) {
-   let item = header.item(i);
-   clr = clrPrefix + colors[i];
-   item.classList.add(clr); // give each header a color
-   navi += '<div class="nav ' + clr + '">' + item.innerText + '</div>';
-}
-document.getElementById('navigation').innerHTML = navi;
-document.getElementById('filterInfo').classList.add(clr);
-
-// color caps
-let set = document.getElementsByClassName('outer');
-for (var i = 0; i < set.length; i++) {
-   var cap = set.item(i); 
-   //cap.style.background = 'red';
-   let clr = clrPrefix + colors[Math.floor(Math.random() * colors.length)];
-   //cap.classList.add(clr);
-   cap.querySelector('.front').classList.add(clr);
-   cap.querySelector('.info').classList.add(clr);
-}
-
-// filter
-function applyFilter(filterName) {
-    var curActive = '.' + filterName;
-    $('.outer').hide();
-    $('#filterOverview #commonTags a.active').each(function(index) {
-        //if (($('#or').hasClass('active')) && (curActive != '')) curActive = curActive + ', ';
-        curActive = curActive + '.' + $(this).text();
-        //console.log(index + ": " + $(this).text());
-    });
-    console.log('filter ' + curActive);
-    $('.outer').hide().filter(curActive).show();
 	
-	$('#filterInfo').show();
-	$('#filterInfo').addClass('sticky');
-	$('#infoLine').addClass('hidden');
-	if ($('#tagLine').hasClass('hidden')) $('#tagLine').removeClass('hidden');
-	document.getElementById('tags').innerHTML = filterName;
-}
-
-function clickFilter(tag) {
-    var className = tag.text(); //tag.className;
-    // toggle visuals
-	console.log('classname ' + className);
-    if (tag.hasClass('active')) tag.removeClass('active');
-    else tag.addClass('active');
-    applyFilter(className);
-}
-
-$('.category').click(function() {
-	clickFilter($(this));
+	let total = 'total price: ' + price + ' €';
+	console.log(total);
+	//$('#content').append(total);
+	
+	
+	for (let i = 0; i < exists.length; i++) {
+		let set = exists[i];
+	
+		$('#exists').append(
+			'<div class="set">' +
+				'<a class="image" href="' + set.link + '" title="link to sylvanian families website">' + 
+					'<img src="' + set.img + '">' + 
+				'</a>' + 
+				'<div class="info">' + set.name + ' (' + set.id + ')' + 
+					(set.figure ? '<br><i>' + set.figure + '</i>' : '') + 
+				'</div>' + 
+			'</div>'  +
+		'');
+	}
+	
+	for (let i = 0; i < fleamarket.length; i++) {
+		let set = fleamarket[i];
+	
+		$('#fleamarket').append(
+			'<div class="set">' +
+				'<a class="image" href="' + set.link + '" title="link to sylvanian families website">' + 
+					'<img src="' + set.img + '">' + 
+				'</a>' + 
+				'<div class="info">' + set.name + ' (' + set.id + ')' + 
+					(set.figure ? '<br><i>' + set.figure + '</i>' : '') + 
+					((set.includes || set.missing) ? '<br><i>' : '') +
+					(set.includes ? 'Includes: ' + set.includes : '') +
+					(set.missing ? 'Missing: ' + set.missing : '') +
+					((set.includes || set.missing) ? '</i>' : '') +
+				'</div>' +
+			'</div>'  +
+		'');
+	}
+	
 });
-
-function resetFilters() {
-	$('#filterInfo').hide();
-    $('.outer').show();
-    $('#filterOverview #commonTags a.active, #and').removeClass('active');
-}
-
-$('#resetFilters').click(function() {
-	resetFilters();
-});
-
 </script>
 
 </body>
