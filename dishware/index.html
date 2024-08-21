@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
  
 <!--
@@ -98,6 +98,7 @@ a {
     height: 16px;
     margin-top: -6px;
     margin-left: -10px;
+    margin-right: -6px;
 }
 
 .item {
@@ -1019,9 +1020,9 @@ $(document).ready(function() {
 		let priceStr = ((price) ? ((price == 0) ? 'free' : price + '€') : '');
 	
 		$('#items').append(
-			'<div class="outer">' +
+			'<div class="item-outer ' + tag(item.type) + ' ' + tag(item.material) + ' ' + tag(item.from) + ' ' + tag(item.tags) + '">' +
 				(item.new ? '<div class="new" title="new"></div>' : '') +
-				'<div class="item ' + tag(item.type) + ' ' + tag(item.material) + ' ' + tag(item.from) + ' ' + tag(item.tags) + '">' +
+				'<div class="item">' +
 					'<img src="' + ((item.img) ? item.img : 'https://pbs.twimg.com/media/FzkWtYRWIAEMUX6?format=jpg&name=small') + '">' +
 					'<div class="info">' +
 						'<div class="title">' + 
@@ -1066,8 +1067,8 @@ function clickFilter(aTag) {
     else aTag.addClass('active');
     
 	var curActive = '.' + filterName;
-    $('.item').hide();
-    $('.item').hide().filter(curActive).show();
+    $('.item-outer').hide();
+    $('.item-outer').hide().filter(curActive).show();
 	
 	$('#filterInfo').show();
 	$('#filterInfo').addClass('sticky');
@@ -1078,7 +1079,7 @@ function clickFilter(aTag) {
 
 function resetFilters() {
 	$('#filterInfo').hide();
-    $('.item').show();
+    $('.item-outer').show();
 }
 
 function showDetails() {
