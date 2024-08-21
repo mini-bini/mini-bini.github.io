@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<!--
+ 
+© almighty-bini - 20.07.24
+
+DO NOT STEAL THE CODES, DO NOT REMOVE THE CREDITS!
+ 
+-->
+
+<title>bini's dishware masterlist.</title>
+<link rel="shortcut icon" href="http://i387.photobucket.com/albums/oo314/paravidatoda/mini-157.gif">
+
+
+<style>
+
+html, body {margin: 0;}
+
+:root {
+	--pink: #fcd5d5; // #f9d2d2;
+	--yellow: #ffffb8;
+	--font: #666666;
+	--tag: #9eb1ce; // #acc1e1;
+	--new: #fe5ca5;
+	//--bold: #F4A9A8;
+} 
+
+body {
+	font-family: "consolas", monospace;
+	font-size: 11px;
+	word-wrap: break-word;
+	color: var(--font);
+	overflow-x: hidden;
+	padding: 50px;
+	max-width: 1500px;
+    margin: auto;
+}
+
+#filterInfo {
+	background: var(--pink);
+	padding: 10px;
+	border-radius: 30px;
+	max-width: calc(900px - 40px - 10px);
+	max-width: 340px;
+    width: calc(100% - 50px - 60px);
+	top: 50px;
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+	z-index: 100;
+	margin: auto;
+	margin-bottom: 40px;
+}
+#filterInfo .material-icons-round, #filterInfo .material-icons-outlined {
+	font-size: 18px;
+}
+#resetFilters {
+	margin-left: 6px;
+	cursor: pointer;
+}
+.pd {
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.line {
+	display: flex;
+	align-items: center;
+}
+.hidden { display: none !important; }
+#tagLine { align-items: center; }
+#tags {
+	flex: 1 1 auto;
+    display: inline-block;
+}
+.sticky { position: sticky; }
+
+a {
+	color: #cb9cb1;
+}
+
+.container {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+    justify-content: center;
+}
+
+.new {
+	background: var(--new);
+	border-radius: 20px;
+	position: relative;
+	z-index: 1;
+	float: right;
+	cursor: help;
+	width: 16px;
+    height: 16px;
+    margin-top: -6px;
+    margin-left: -10px;
+}
+
+.item {
+	background: var(--pink);
+	border-radius: 15px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+}
+
+.item img {
+	max-width: 100%;
+	height: 220px;
+	object-fit: cover;
+}
+
+.item .info {
+	padding: 10px;
+    flex-grow: 0;
+}
+
+.item .title {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+	gap: 10px;
+    align-items: baseline;
+}
+.item .title b {
+	font-size: 13px;
+}
+.item .title span {
+	cursor: pointer;
+}
+
+.item .tags {
+	display: flex;
+	gap: 5px;
+}
+.item .tags i {
+	background: white;
+	padding: 1px 5px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+i {
+	color: var(--tag);
+}
+
+h1 {
+	margin: 10px;
+	margin-top: 30px;
+}
+
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="filterInfo">
+	<div>
+		<div class="line" id="infoLine">
+			<span id="showDetails" class="material-icons-outlined pd">info</span>
+			<div id="description">filter by clicking the item title or tags<br>(last update: 19.08.2024)</div>
+		</div>
+		<div class="line hidden" id="tagLine">
+			<span class="material-icons-round pd">sell</span>
+			<div>items tagged with <b><span id="tags">tag</span></b></div>
+		</div>
+	</div>
+	<span id="resetFilters" class="material-icons-round click">close</span>
+</div>
+
+<div class="container" id="items"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+{
+var items = [
+  {
+    "type": "sammeltasse",
+    "tags": "",
+    "material": "china",
+    "count": 1,
+    "price": 0.00,
+    "from": "rosemarie",
+    "date": "10.07.24",
+    "notes": "",
+    "img": "img/IMG_5269.JPG"
+  },
+  {
+    "type": "sammeltasse",
+    "tags": "",
+    "material": "china",
+    "count": 1,
+    "price": 0.00,
+    "from": "rosemarie",
+    "date": "10.07.24",
+    "notes": "",
+    "img": "img/IMG_5266.JPG"
+  },
+  {
+    "type": "sammeltasse",
+    "tags": "",
+    "material": "china",
+    "count": 1,
+    "price": 0.00,
+    "from": "rosemarie",
+    "date": "10.07.24",
+    "notes": "",
+    "img": "img/IMG_5272.JPG"
+  },
+  {
+    "type": "sammeltasse",
+    "tags": "",
+    "material": "china",
+    "count": 1,
+    "price": 0.00,
+    "from": "rosemarie",
+    "date": "10.07.24",
+    "notes": "",
+    "img": "img/IMG_5298.JPG"
+  },
+  {
+    "type": "sammeltasse",
+    "tags": "",
+    "material": "china",
+    "count": 1,
+    "price": 0.00,
+    "from": "waltraud",
+    "date": "31.03.24",
+    "notes": "",
+    "img": "img/IMG_5297.JPG"
+  }
+];
+}
+
+function tag(str) {
+	return str.replace(/\s+/g, '');
+}
+
+$(document).ready(function() {
+
+	let totalPrice = 0;
+	
+	for (let i = 0; i < items.length; i++) {
+		let item = items[i];
+		let price = !isNaN(item.price) ? (item.price).toFixed(2) : '';
+		let priceStr = ((price) ? ((price == 0) ? 'free' : price + '€') : '');
+	
+		$('#items').append(
+			'<div class="outer">' +
+				(item.new ? '<div class="new" title="new"></div>' : '') +
+				'<div class="item ' + tag(item.type) + ' ' + tag(item.material) + ' ' + tag(item.from) + ' ' + tag(item.tags) + '">' +
+					'<img src="' + ((item.img) ? item.img : 'https://pbs.twimg.com/media/FzkWtYRWIAEMUX6?format=jpg&name=small') + '">' +
+					'<div class="info">' +
+						'<div class="title">' + 
+							'<b><span>' + item.type + '</span>' + ((item.count > 1) ?' (' + item.count + 'x)' : '') + '</b>' +
+							'<div class="hide">' + item.date + ((priceStr) ? ' | ' + priceStr : '') + '</div>' +
+						'</div>' +
+						'<div class="tags">' +
+							'<i>' + item.material + '</i>' +
+							((item.tags) ? '<i>' + item.tags + '</i>' : '') +
+							'<i>' + item.from + '</i>' +
+						'</div>' +
+					'</div>' + 
+				'</div>' +
+			'</div>' +
+		'');
+		if (!isNaN(item.price)) totalPrice += parseFloat(item.price);
+	}
+	
+	let total = 'total price: ' + totalPrice + ' €';
+	console.log(total);
+	
+	$('.hide').hide(); // hide detail infos
+
+	$('.tags i, .title span').click(function() {
+		clickFilter($(this));
+	});
+	
+	$('#resetFilters').click(function() {
+		resetFilters();
+	});
+	
+	$('#showDetails').click(function() {
+		showDetails();
+	});
+	
+});
+
+function clickFilter(aTag) {
+    var filterName = aTag.text();
+	filterName = tag(filterName);
+    if (aTag.hasClass('active')) aTag.removeClass('active');
+    else aTag.addClass('active');
+    
+	var curActive = '.' + filterName;
+    $('.item').hide();
+    $('.item').hide().filter(curActive).show();
+	
+	$('#filterInfo').show();
+	$('#filterInfo').addClass('sticky');
+	$('#infoLine').addClass('hidden');
+	if ($('#tagLine').hasClass('hidden')) $('#tagLine').removeClass('hidden');
+	document.getElementById('tags').innerHTML = aTag.text();
+}
+
+function resetFilters() {
+	$('#filterInfo').hide();
+    $('.item').show();
+}
+
+function showDetails() {
+	$('.hide').show(); // show detail infos
+}
+
+</script>
+
+</body>
+</html>
