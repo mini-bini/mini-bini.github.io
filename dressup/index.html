@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!--
+© https://mini-bini.github.io/ - 13.10.2020
+DO NOT STEAL THE CODES, DO NOT REMOVE THE CREDITS!
+-->
+
+<title>bini's ootd planner.</title>
+<link rel="shortcut icon" href="https://64.media.tumblr.com/tumblr_lkl6tz9w4G1qfamg6.gif">
+
+<style>
+
+:root {
+	--pink: #F4A9A8;
+	--orange: #fbd195;
+	--yellow: #f7e37f;
+	--green: #9cd1b9;
+	--blue: #acc1e1;
+	--purple: #cb9cb1;
+	--lilac: #b0a1c3;
+	--lines: #2e021f;
+	--background: #eee;
+	--accent: #ccc;
+}
+
+.pink   { background: var(--pink) !important; }
+.orange { background: var(--orange) !important; }
+.yellow { background: var(--yellow) !important; }
+.green  { background: var(--green) !important; }
+.blue   { background: var(--blue) !important; }
+.purple { background: var(--purple) !important; }
+.lilac  { background: var(--lilac) !important; }
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: consolas;
+	color: var(--lines);
+}
+
+#flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+#container {
+	overflow: hidden;
+	width: 960px;
+	margin: 0 30px;
+	display: flex;
+	gap: 10px;
+	flex-shrink: 0;
+}
+
+#container, #wardrobe, #bin, #tuckToggle {
+	border-radius: 10px;
+}
+.title.active {
+	border-radius: 10px 10px 0 0;
+}
+
+#left {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	height: fit-content;
+}
+
+#wardrobe, #bin {
+	background: var(--background);
+}
+
+#bin div {
+	position: absolute;
+}
+
+#colorPicker {
+	display: flex;
+	justify-content: space-between;
+}
+
+.color {
+	border-radius: 50px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+
+#wardrobe {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#wardrobe #titles {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#wardrobe #titles .title {
+	padding: 6px 10px 5px 10px;
+	cursor: pointer;
+}
+#wardrobe #titles .title, #navigation {
+	padding: 6px 10px 5px 10px;
+	margin: 0;
+	height: 20px;
+	line-height: 20px;
+}
+#navigation {
+	display: flex;
+	justify-content: space-between;
+}
+#titles, #navigation, #tuckToggle {
+	background: var(--accent);
+}
+.title.active {
+	background: var(--background) !important;
+}
+#navigation a {
+	color: var(--lines);
+}
+
+#sectionContainer {
+	overflow-y: scroll;
+	padding: 5px;
+	flex-grow: 1;
+	flex-basis: 0;
+}
+
+#wardrobe .section {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#wardrobe .section .clothing {
+	background-repeat: no-repeat;
+	display: block;
+	margin: 5px;
+	border: 10px solid white;
+	cursor: pointer;
+}
+#wardrobe .section .clothing:hover {
+	background-color: var(--blue);
+}
+#wardrobe .section .clothing.active {
+	border: 10px solid var(--pink) !important;
+}
+
+.clothing, #bin div {
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+}
+
+#tuckToggle {
+	position: absolute;
+	padding: 3px 10px;
+	margin: 5px;
+	display: flex;
+	gap: 5px;
+	align-items: center;
+}
+#tuckToggle input {
+	margin: 0;
+	cursor: pointer;
+}
+#tuckToggle input:disabled {
+	cursor: not-allowed;
+}
+
+#body    { background-image: url('0.png'); }
+.hair    { background-image: url('1.png'); }
+.pant    { background-image: url('2.png'); }
+.shoe    { background-image: url('3.png'); }
+.sweater { background-image: url('4.png'); }
+.shirt   { background-image: url('5.png'); }
+.belt    { background-image: url('6.png'); }
+.flannel { background-image: url('7.png'); }
+.scarf   { background-image: url('8.png'); }
+
+</style>
+
+</head>
+
+<body>
+
+<div id="flex">
+	<div id="container">
+		<div id="left">
+			<div id="bin">
+				<div id="body"></div>
+			</div>
+			<div id="colorPicker"></div>
+		</div>
+		<div id="wardrobe">
+			<div id="titles"></div>
+			<div id="sectionContainer"></div>
+			<div id="navigation">
+				<div id="links">
+					<a href="/">refresh</a>
+					<a href="https://mini-bini.github.io/">website</a>
+				</div>
+				<div id="credits">
+					&copy; 2025 minibini
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+const binWidth = 620;
+const binHeight = 1250;
+const binHairSection = 'binHair';
+const TUCKED_KEYWORD = 'tucked';
+
+class Tuck {
+	constructor(marginTop, height) {
+		this.marginTop = marginTop;
+		this.height = height;
+	}
+}
+
+class Switcher {
+	constructor(name, marginTop, height) {
+		this.name = name;
+		this.marginTop = marginTop;
+		this.height = height;
+	}
+}
+
+class Section {
+	itemWidth = 550;
+	marginTop = 0;
+	binOffsetTop = 266;
+	binOffsetLeft = 20;
+
+	constructor(type, item, bin, layer, setWidth, itemHeight) {
+		this.type = type;
+		this.item = item;
+		this.bin = bin;
+		this.layer = layer;
+		this.setWidth = setWidth;
+		this.itemHeight = itemHeight;
+	}
+
+	marginTop1(top) {
+		this.marginTop = top;
+		return this;
+	}
+
+	binOffsetTop1(top) {
+		this.binOffsetTop = top;
+		return this;
+	}
+
+	tuck1(tuck) {
+		this.tuck = tuck;
+		return this;
+	}
+
+	switcher1(arr) {
+		this.switcher = arr;
+		return this;
+	}
+}
+
+var wardrobe = [
+	(new Section('hairstyles', 'hair', binHairSection, -1, (550*6), 460)).binOffsetTop1(0),
+	(new Section('pants', 'pant', 'binPants', 2, (550*4), 620)).marginTop1(240),
+	(new Section('shoes', 'shoe', 'binShoes', 6, (550*6), 300)).binOffsetTop1(966),
+	(new Section('sweaters', 'sweater', 'binSweaters', 4, (550*17), 550)).tuck1(new Tuck(550, 420)),
+	(new Section('shirts', 'shirt', 'binShirts', 5, (550*18), 550)).tuck1(new Tuck(550, 360)),
+	//(new Section('belts', 'belt', 'binBelts', 6)),
+	(new Section('flannels', 'flannel', 'binFlannels', 7, (550*7), 570)).switcher1([
+		new Switcher('open', 0, 570),
+		new Switcher('semi-open', 550, 570),
+		new Switcher('closed', 1100, 570),
+		new Switcher(TUCKED_KEYWORD, 1650, 420),
+	]),
+	(new Section('scarves', 'scarf', 'binScarves', 8, (550*5), 150))
+];
+
+var curBinSection;
+var tucked = false;
+var forceTuck = false;
+var tuckableSections = [];
+var scale = 2;
+
+// start
+$(document).ready(function() {
+	initWardrobe();
+	initColorPicker();
+});
+
+function initWardrobe() {
+	// create sections
+	for (let section of wardrobe)
+		createWardrobeSection(section);
+
+	// display first section
+	getCurrentSection($('.title').first());
+	$('.clothing').first().click();
+
+	// set sizes
+	let width = binWidth/scale + 'px';
+	let height = binHeight/scale + 'px';
+
+	$('#body').css('background-size', width);
+	$('#bin, #body').css('width', width);
+	$('#bin, #body').css('height', height);
+
+	$('.untuckInfo').hide();
+}
+
+// create wardrobe section
+// @param section - Section object
+function createWardrobeSection(section) {
+	let sectionName = section.type;
+
+	// create wardrobe title
+	$('#wardrobe #titles').append(
+		'<div class="title" data-id="' + sectionName + '" data-bin="' + section.bin + '">' + sectionName + '</div>'
+	);
+	// create wardrobe section
+	$('#wardrobe #sectionContainer').append(
+		'<div class="section" id="' + sectionName + '"></div>'
+	);
+
+	let width     = section.itemWidth/scale;
+	let fullWidth = section.setWidth/scale;
+	let height    = section.itemHeight/scale;
+	let mrgTop    = section.marginTop/scale;
+
+	// create wardrobe items
+	let name = '#wardrobe #' + sectionName; // #wardrobe #sweaters
+	let cnt = 0;
+	let pieces = Math.floor(section.setWidth/section.itemWidth);
+	while (cnt < pieces) {
+		$(name).each(function() {
+			$(this).append(
+				'<div class="clothing ' + section.item +
+					'" style="background-position: ' +
+							                '-' + width * cnt + 'px '  +
+							                '-' + mrgTop      + 'px; ' +
+							'background-size: ' + fullWidth   + 'px; ' +
+							'width: '           + width       + 'px; ' +
+							'height: '          + height      + 'px;">' +
+				'</div>');
+		});
+		cnt++;
+	}
+
+	// create bin piece
+	let offsetTop = (section.binOffsetTop/scale) | 0;
+	let offsetLeft = (section.binOffsetLeft/scale) | 0;
+
+	let container =
+		'<div id="' + section.bin +
+			'" style="width: '      + width                + 'px; ' +
+					'height: '      + height               + 'px; ' +
+					'margin-top: '  + (mrgTop + offsetTop) + 'px; ' +
+					'margin-left: ' + offsetLeft           + 'px;">' +
+		'</div>';
+	if (section.layer < 0)
+		 $('#bin').prepend(container);
+	else $('#bin').append(container);
+
+	let binSec = '#' + section.bin;
+	$(binSec).hide();
+	$(binSec).addClass(section.item);
+	$(binSec).css('background-size', fullWidth + 'px');
+
+	// add tuck toggle
+	if (section.tuck) {
+		tuckableSections.push(section);
+		createTuckToggle(section.type);
+	}
+
+	// add version switcher
+	if (section.switcher) {
+		createSwitcher(section);
+	}
+}
+
+// create checkbox for tuck
+// @param sectionName - Section.type
+function createTuckToggle(sectionName) {
+	$('#wardrobe #' + sectionName).each(function() { // #wardrobe #sweaters
+		$(this).prepend(
+			'<div id="tuckToggle"><input type="checkbox" ' +
+				'data-id="' + sectionName + '" ' +
+				'id="'      + sectionName + 'Tuck" /> ' +
+					'<span>tuck ' + $('[data-id="' + sectionName + '"]').text() + '</span><span class="untuckInfo">(un-tuck flannel first)</span>' +
+			'</div>');
+	});
+}
+
+// create radio buttons for switcher
+// @param section - Section
+function createSwitcher(section) {
+	let sectionName = section.type;
+	$('#wardrobe #' + sectionName).each(function() { // #wardrobe #sweaters
+		// generate html
+		let html = '<div id="tuckToggle">';
+		html += '';
+		let isFirst = true;
+		for (let ver of section.switcher) {
+			html += '<input type="radio" id="' + sectionName + ver.name + '" name="' + sectionName + '" value="' + ver.name + '"' +
+				'data-bin="' + section.bin + '" ' + 'data-mrgtop="' + ver.marginTop + '" ' + 'data-height="' + ver.height + '" ' +
+				(isFirst ? 'checked' : '') + '/>'
+			html += '<span>' + ver.name + '</span>';
+			isFirst = false;
+		}
+		html += '</div>';
+		$(this).prepend(html);
+	});
+}
+
+// display section
+// @param title - .title DOM-object
+function getCurrentSection(title) {
+	// set active title
+	title.siblings().removeClass('active');
+	title.addClass('active');
+
+	// set active section
+	let curSection = '#' + title.data('id');
+	$('.section').hide();
+	$(curSection).show();
+
+	// save current binSection
+	curBinSection = title.data('bin');
+}
+
+// display tucked items
+function displayTuckedItems() {
+	for (let section of tuckableSections) {
+		let binSec = '#' + section.bin;
+		let clothing = '#' + section.type + ' .clothing';
+
+		if (section.tuck) {
+			let tuckMrgTop = section.tuck.marginTop/scale + 'px';
+			let tuckHeight = section.tuck.height/scale;
+
+			if (!(tucked || forceTuck)) {
+				$(clothing + ', ' + binSec).css('background-position-y', '0px');
+				$(clothing).css('height', tuckMrgTop);
+			} else {
+				$(clothing + ', ' + binSec).css('background-position-y', '-' + tuckMrgTop);
+				if (tuckHeight) $(clothing).css('height', tuckHeight + 'px');
+			}
+		}
+	}
+}
+
+// refreshes the state of the tuck toggle
+function refreshTuckToggle() {
+	if (forceTuck) {
+		// disable
+		$(':checkbox').each(function() {
+			this.disabled = true;
+		});
+		$('.untuckInfo').show();
+	} else {
+		// enable
+		$(':checkbox').each(function() {
+			this.disabled = false;
+		});
+		$('.untuckInfo').hide();
+	}
+}
+
+// display switcher items
+// @param sectionName - Section.type
+// @param sectionBin - Section.bin
+// @param mrgTop - Switcher.marginTop
+// @param height - Switcher.height
+function displaySwitcherItems(sectionName, sectionBin, mrgTop, height) {
+	let binSec = '#' + sectionBin;
+	let clothing = '#' + sectionName + ' .clothing';
+
+	let tuckMrgTop = mrgTop/scale;
+	let tuckHeight = height/scale;
+
+	$(clothing + ', ' + binSec).css('background-position-y', '-' + tuckMrgTop + 'px');
+	if (tuckHeight) $(clothing).css('height', tuckHeight + 'px');
+}
+
+// click on wardrobe title
+$('#titles').on('click', '.title', function() {
+	getCurrentSection($(this));
+});
+
+// click on clothing item
+$('#wardrobe').on('click', '.clothing', function() {
+	let section = '#' + curBinSection;
+	if ($(this).hasClass('active')) {
+		if (curBinSection != binHairSection) {
+			$(this).removeClass('active');
+			$(section).hide();
+		}
+	} else {
+		$(section).show();
+		$(section).css('background-position', $(this).css('background-position'));
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
+	}
+});
+
+// click on tuck toggle
+$('#wardrobe').on('click', 'input[type="checkbox"]', function() {
+	tucked = this.checked;
+	displayTuckedItems();
+
+	let check = this.checked;
+	$(':checkbox').each(function() {
+		this.checked = check;
+	});
+});
+
+// click on switcher
+$('#wardrobe').on('click', 'input[type="radio"]', function() {
+	//let ver = this.value;
+	if (this.value == TUCKED_KEYWORD) {
+		forceTuck = true;
+	} else {
+		forceTuck = false;
+	}
+	displaySwitcherItems(this.name, this.dataset.bin, this.dataset.mrgtop, this.dataset.height);
+	displayTuckedItems();
+	refreshTuckToggle();
+});
+
+function initColorPicker() {
+	let init = true;
+	if (init) {
+		let colors = ['pink', 'orange', 'yellow', 'green', 'blue', 'lilac', 'purple']; // corresponding css classes
+		for (let color of colors) {
+			$('#colorPicker').append(
+				'<div class="color ' + color + '" data-color="' + color + '"></div>'
+			);
+		}
+	} else {
+		$('#colorPicker').css('display', 'none');
+	}
+}
+
+// click on color
+$('#colorPicker').on('click', '.color', function() {
+	let objs = ['#bin', '#navigation', '#titles'];
+	let color = $(this).data('color');
+	if ($(this).hasClass('active')) {
+		$(this).removeClass('active');
+		for (let obj of objs)
+			$(obj).removeClass(color);
+	} else {
+		for (let obj of objs) {
+			$(obj).removeClass();
+			$(obj).addClass(color);
+		}
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
+	}
+});
+
+</script>
+
+</body>
+</html>
