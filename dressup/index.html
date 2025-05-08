@@ -54,7 +54,7 @@ body {
 #container {
 	overflow: hidden;
 	width: 960px;
-	margin: 0 30px;
+	margin: 0 60px;
 	display: flex;
 	gap: 10px;
 	flex-shrink: 0;
@@ -165,6 +165,8 @@ body {
 	position: absolute;
 	padding: 3px 10px;
 	margin: 5px;
+}
+#tuckToggle, .click.checkbox, .click.radio {
 	display: flex;
 	gap: 5px;
 	align-items: center;
@@ -173,19 +175,22 @@ body {
 	margin: 0;
 	cursor: pointer;
 }
-#tuckToggle input:disabled {
-	cursor: not-allowed;
+.click {
+	cursor: pointer;
+}
+#tuckToggle input:disabled, .disabled {
+	cursor: not-allowed !important;
 }
 
-#body    { background-image: url('0.png'); }
-.hair    { background-image: url('1.png'); }
-.pant    { background-image: url('2.png'); }
-.shoe    { background-image: url('3.png'); }
-.sweater { background-image: url('4.png'); }
-.shirt   { background-image: url('5.png'); }
-.belt    { background-image: url('6.png'); }
-.flannel { background-image: url('7.png'); }
-.scarf   { background-image: url('8.png'); }
+#body    { background-image: url('img/0.png'); }
+.hair    { background-image: url('img/1.png'); }
+.pant    { background-image: url('img/2.png'); }
+.shoe    { background-image: url('img/3.png'); }
+.sweater { background-image: url('img/4.png'); }
+.shirt   { background-image: url('img/5.png'); }
+.belt    { background-image: url('img/6.png'); }
+.flannel { background-image: url('img/7.png'); }
+.scarf   { background-image: url('img/8.png'); }
 
 </style>
 
@@ -400,7 +405,7 @@ function createWardrobeSection(section) {
 function createTuckToggle(sectionName) {
 	$('#wardrobe #' + sectionName).each(function() { // #wardrobe #sweaters
 		$(this).prepend(
-			'<div id="tuckToggle"><input type="checkbox" ' +
+			'<div id="tuckToggle" class="click checkbox"><input type="checkbox" ' +
 				'data-id="' + sectionName + '" ' +
 				'id="'      + sectionName + 'Tuck" /> ' +
 					'<span>tuck ' + $('[data-id="' + sectionName + '"]').text() + '</span><span class="untuckInfo">(un-tuck flannel first)</span>' +
@@ -418,10 +423,12 @@ function createSwitcher(section) {
 		html += '';
 		let isFirst = true;
 		for (let ver of section.switcher) {
+			html += '<span class="click radio">';
 			html += '<input type="radio" id="' + sectionName + ver.name + '" name="' + sectionName + '" value="' + ver.name + '"' +
 				'data-bin="' + section.bin + '" ' + 'data-mrgtop="' + ver.marginTop + '" ' + 'data-height="' + ver.height + '" ' +
 				(isFirst ? 'checked' : '') + '/>'
 			html += '<span>' + ver.name + '</span>';
+			html += '</span>';
 			isFirst = false;
 		}
 		html += '</div>';
@@ -472,12 +479,14 @@ function refreshTuckToggle() {
 		// disable
 		$(':checkbox').each(function() {
 			this.disabled = true;
+			$(this).parent().addClass('disabled');
 		});
 		$('.untuckInfo').show();
 	} else {
 		// enable
 		$(':checkbox').each(function() {
 			this.disabled = false;
+			$(this).parent().removeClass('disabled');
 		});
 		$('.untuckInfo').hide();
 	}
@@ -521,25 +530,32 @@ $('#wardrobe').on('click', '.clothing', function() {
 });
 
 // click on tuck toggle
-$('#wardrobe').on('click', 'input[type="checkbox"]', function() {
-	tucked = this.checked;
-	displayTuckedItems();
+//$('#wardrobe').on('click', 'input[type="checkbox"]', function() {
+$('#wardrobe').on('click', '.click.checkbox', function() {
+	if (!forceTuck) {
+		let checkbox = $(this).find('input[type="checkbox"]')[0];
+		checkbox.checked = !checkbox.checked;
+		tucked = checkbox.checked;
+		displayTuckedItems();
 
-	let check = this.checked;
-	$(':checkbox').each(function() {
-		this.checked = check;
-	});
+		let check = checkbox.checked;
+		$(':checkbox').each(function() {
+			this.checked = check;
+		});
+	}
 });
 
 // click on switcher
-$('#wardrobe').on('click', 'input[type="radio"]', function() {
-	//let ver = this.value;
-	if (this.value == TUCKED_KEYWORD) {
+//$('#wardrobe').on('click', 'input[type="radio"]', function() {
+$('#wardrobe').on('click', '.click.radio', function() {
+	let radio = $(this).find('input[type="radio"]')[0];
+	radio.checked = !radio.checked;
+	if (radio.value == TUCKED_KEYWORD) {
 		forceTuck = true;
 	} else {
 		forceTuck = false;
 	}
-	displaySwitcherItems(this.name, this.dataset.bin, this.dataset.mrgtop, this.dataset.height);
+	displaySwitcherItems(radio.name, radio.dataset.bin, radio.dataset.mrgtop, radio.dataset.height);
 	displayTuckedItems();
 	refreshTuckToggle();
 });
