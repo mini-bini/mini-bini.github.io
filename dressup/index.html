@@ -74,6 +74,15 @@ body {
 	height: fit-content;
 }
 
+#cred {
+	left: 75px;
+	bottom: 135px;
+	opacity: 0.2;
+	transform: rotate(-90deg);
+	transform-origin: bottom left;
+	mix-blend-mode: multiply;
+}
+
 #wardrobe, #bin {
 	background: var(--background);
 }
@@ -202,7 +211,7 @@ body {
 	<div id="container">
 		<div id="left">
 			<div id="bin">
-				<div id="body"></div>
+				<div id="body"><div id="cred">mini-bini.github.io</div></div>
 			</div>
 			<div id="colorPicker"></div>
 		</div>
@@ -211,11 +220,11 @@ body {
 			<div id="sectionContainer"></div>
 			<div id="navigation">
 				<div id="links">
-					<a href="/">refresh</a>
+					<a href="./">refresh</a>
 					<a href="https://mini-bini.github.io/">website</a>
 				</div>
 				<div id="credits">
-					&copy; 2025 minibini
+					<span id="halfView">&copy;</span> 2025 minibini
 				</div>
 			</div>
 		</div>
@@ -280,16 +289,21 @@ class Section {
 		this.switcher = arr;
 		return this;
 	}
+
+	halfView1(halfView) {
+		this.halfView = halfView;
+		return this;
+	}
 }
 
 var wardrobe = [
-	(new Section('hairstyles', 'hair', binHairSection, -1, (550*6), 460)).binOffsetTop1(0),
+	(new Section('hairstyles', 'hair', binHairSection, -1, (550*7), 400)).binOffsetTop1(0),
 	(new Section('pants', 'pant', 'binPants', 2, (550*4), 620)).marginTop1(240),
 	(new Section('shoes', 'shoe', 'binShoes', 6, (550*6), 300)).binOffsetTop1(966),
 	(new Section('sweaters', 'sweater', 'binSweaters', 4, (550*17), 550)).tuck1(new Tuck(550, 420)),
 	(new Section('shirts', 'shirt', 'binShirts', 5, (550*18), 550)).tuck1(new Tuck(550, 360)),
 	//(new Section('belts', 'belt', 'binBelts', 6)),
-	(new Section('flannels', 'flannel', 'binFlannels', 7, (550*7), 570)).switcher1([
+	(new Section('flannels', 'flannel', 'binFlannels', 7, (550*7), 570)).halfView1(270).switcher1([
 		new Switcher('open', 0, 570),
 		new Switcher('semi-open', 550, 570),
 		new Switcher('closed', 1100, 570),
@@ -530,26 +544,38 @@ $('#wardrobe').on('click', '.clothing', function() {
 });
 
 // click on tuck toggle
-//$('#wardrobe').on('click', 'input[type="checkbox"]', function() {
+$('#wardrobe').on('click', 'input[type="checkbox"]', function(e) {
+	runTuck(this);
+	e.stopPropagation();
+});
 $('#wardrobe').on('click', '.click.checkbox', function() {
 	if (!forceTuck) {
 		let checkbox = $(this).find('input[type="checkbox"]')[0];
 		checkbox.checked = !checkbox.checked;
-		tucked = checkbox.checked;
-		displayTuckedItems();
-
-		let check = checkbox.checked;
-		$(':checkbox').each(function() {
-			this.checked = check;
-		});
+		runTuck(checkbox);
 	}
 });
+function runTuck(checkbox) {
+	tucked = checkbox.checked;
+	displayTuckedItems();
+
+	let check = checkbox.checked;
+	$(':checkbox').each(function() {
+		this.checked = check;
+	});
+}
 
 // click on switcher
-//$('#wardrobe').on('click', 'input[type="radio"]', function() {
+$('#wardrobe').on('click', 'input[type="radio"]', function(e) {
+	runSwitcher(this);
+	e.stopPropagation();
+});
 $('#wardrobe').on('click', '.click.radio', function() {
 	let radio = $(this).find('input[type="radio"]')[0];
-	radio.checked = !radio.checked;
+	radio.checked = true;
+	runSwitcher(radio);
+});
+function runSwitcher(radio) {
 	if (radio.value == TUCKED_KEYWORD) {
 		forceTuck = true;
 	} else {
@@ -558,6 +584,17 @@ $('#wardrobe').on('click', '.click.radio', function() {
 	displaySwitcherItems(radio.name, radio.dataset.bin, radio.dataset.mrgtop, radio.dataset.height);
 	displayTuckedItems();
 	refreshTuckToggle();
+}
+
+var halfView = false;
+// half view toggle
+$('#halfView').on('click', function() {
+	halfView = !halfView;
+	for (let section of wardrobe) {
+		if (section.halfView) {
+			$('#' + section.bin).width((halfView ? section.halfView : section.itemWidth)/scale + 'px');
+		}
+	}
 });
 
 function initColorPicker() {
